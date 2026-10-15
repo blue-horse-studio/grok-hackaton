@@ -8,6 +8,7 @@ Aquí va la investigación del equipo, en Markdown. Ya hay un archivo por tema; 
 | [`educacion-ia-nl.md`](educacion-ia-nl.md) | Educación sobre IA que se imparte hoy en Nuevo León |
 | [`programas-laboratorios-ia.md`](programas-laboratorios-ia.md) | Programas de xAI/SpaceX, Anthropic, OpenAI y Google para financiar proyectos e instituciones |
 | [`panorama-verificable-ia-nuevo-leon.md`](panorama-verificable-ia-nuevo-leon.md) | Auditoría de veracidad, continuidad y operación de iniciativas de IA en Nuevo León |
+| [`correccion-segunda-pasada-ia-nl.md`](correccion-segunda-pasada-ia-nl.md) | Segunda pasada: correcciones al panorama y nuevas instituciones/implementaciones de IA en NL |
 
 Para un tema nuevo, creen otro `.md` en esta carpeta, con el nombre en kebab-case.
 
