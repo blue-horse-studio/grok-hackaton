@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+/*
+  Estética: identidad del Gobierno de Nuevo León. Colores planos, bloques naranja,
+  titulares anchos en mayúsculas, ilustración monolínea con esquinas achaflanadas.
+  Los valores viven en @forja/brand/tokens.css (importado en layout.tsx).
+
+  Cada sección elige un tema (oscuro por defecto, .tema-claro, .tema-naranja) que
+  redefine variables semánticas; los componentes usan solo esas variables.
+*/
+@theme inline {
+  --color-carbon: var(--forja-carbon);
+  --color-hierro: var(--forja-hierro);
+  --color-escoria: var(--forja-escoria);
+  --color-acero: var(--forja-acero);
+  --color-hueso: var(--forja-hueso);
+  --color-grafito: var(--forja-grafito);
+  --color-marino: var(--forja-marino);
+  --color-oro: var(--forja-oro);
+  --color-blanco: var(--forja-blanco);
+  --color-naranja: var(--forja-naranja);
+  --color-turquesa: var(--forja-turquesa);
+  --color-lima: var(--forja-lima);
+  --color-forja: var(--forja-forja);
+  --color-brasa: var(--forja-brasa);
+  --color-chispa: var(--forja-chispa);
+
+  --color-fondo: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-acento: var(--acento);
+  --color-sobre-acento: var(--sobre-acento);
+
+  --font-display: var(--forja-font-display);
+  --font-sans: var(--forja-font-body);
+  --font-mono: var(--forja-font-mono);
+}
+
+/* Temas por sección (SISTEMA-VISUAL.md): marino de base, planos vivos por tema. */
+:root,
+.tema-oscuro {
+  --bg: var(--forja-marino);
+  --fg: var(--forja-blanco);
+  --muted: var(--forja-acero);
+  --line: var(--forja-escoria);
+  --surface: var(--forja-hierro);
+  --acento: var(--forja-oro);
+  --sobre-acento: var(--forja-marino);
+}
+.tema-claro {
+  --bg: var(--forja-blanco);
+  --fg: var(--forja-marino);
+  --muted: color-mix(in oklab, var(--forja-marino) 68%, var(--forja-blanco));
+  --line: color-mix(in oklab, var(--forja-marino) 14%, var(--forja-blanco));
+  --surface: color-mix(in oklab, var(--forja-marino) 5%, var(--forja-blanco));
+  --acento: var(--forja-naranja);
+  --sobre-acento: var(--forja-marino);
+}
+.tema-naranja,
+.tema-turquesa,
+.tema-lima {
+  --fg: var(--forja-marino);
+  --muted: color-mix(in oklab, var(--forja-marino) 78%, var(--bg));
+  --line: color-mix(in oklab, var(--forja-marino) 24%, var(--bg));
+  --surface: var(--forja-blanco);
+  --acento: var(--forja-marino);
+  --sobre-acento: var(--forja-blanco);
+}
+.tema-naranja { --bg: var(--forja-naranja); }
+.tema-turquesa { --bg: var(--forja-turquesa); }
+.tema-lima { --bg: var(--forja-lima); }
+/* Superficie blanca dentro de un plano de color: recupera contraste */
+.sobre-blanco {
+  --fg: var(--forja-marino);
+  --muted: color-mix(in oklab, var(--forja-marino) 68%, var(--forja-blanco));
+  --line: color-mix(in oklab, var(--forja-marino) 14%, var(--forja-blanco));
+}
+.tema-oscuro,
+.tema-claro,
+.tema-naranja,
+.tema-turquesa,
+.tema-lima {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* Línea editorial fina arriba de cada sección */
+.regla {
+  position: relative;
+}
+.regla::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80rem - 4rem, 100% - 2.5rem);
+  height: 1px;
+  background: var(--forja-oro);
+  opacity: 0.8;
+}
+
+html {
+  background: var(--forja-carbon);
+  color: var(--forja-hueso);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--forja-font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--forja-forja);
+  color: var(--forja-carbon);
+}
+
+/* ---------- Tipografía ---------- */
+.display {
+  font-family: var(--forja-font-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.display-wide {
+  font-family: var(--forja-font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Wordmark: mayúsculas extendidas como "NUEVO LEÓN" */
+.wordmark {
+  font-family: var(--forja-font-wordmark, var(--forja-font-display));
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.espaciado {
+  font-family: var(--forja-font-wordmark, var(--forja-font-display));
+  font-weight: 700;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: var(--forja-font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+.num {
+  font-family: var(--forja-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* Antes eran degradados "fundidos"; ahora color plano. Se conservan los nombres. */
+.text-fundido,
+.text-fundido-anim {
+  color: var(--acento);
+}
+.bg-fundido {
+  background: var(--acento);
+}
+
+/* ---------- Contenedores: muy redondeados, con una esquina recortada ---------- */
+.chaflan,
+.panel,
+.panel-hot {
+  --r: 28px;
+  --c: 26px;
+  border-radius: var(--r) var(--r) 0 var(--r);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%);
+}
+.chaflan-sm {
+  --c: 10px;
+  border-radius: 10px 10px 0 10px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%);
+}
+.panel {
+  background: var(--surface);
+}
+.panel-hot {
+  background: var(--surface);
+  box-shadow: inset 0 6px 0 0 var(--forja-oro);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.6rem;
+  font-family: var(--forja-font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  --c: 12px;
+  border-radius: 16px 16px 0 16px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s, color 0.2s;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: var(--fg);
+  color: var(--bg);
+}
+.btn-ghost:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Sliders ---------- */
+input[type="range"].forja-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.25rem;
+  background: transparent;
+  cursor: pointer;
+  --pct: 50%;
+}
+input[type="range"].forja-range::-webkit-slider-runnable-track {
+  height: 8px;
+  background: linear-gradient(to right, var(--acento) var(--pct), var(--line) var(--pct));
+}
+input[type="range"].forja-range::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(to right, var(--acento) var(--pct), var(--line) var(--pct));
+}
+input[type="range"].forja-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -8px;
+  background: var(--fg);
+  border: 4px solid var(--acento);
+  transition: transform 0.15s;
+}
+input[type="range"].forja-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+  background: var(--fg);
+  border: 4px solid var(--acento);
+}
+input[type="range"].forja-range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+input[type="range"].forja-range:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 4px;
+}
+
+/* ---------- Movimiento ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Trazo de ilustraciones monolínea: se "dibuja" al entrar */
+.js .trazo path,
+.js .trazo polyline,
+.js .trazo line,
+.js .trazo rect,
+.js .trazo polygon {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.6, 0, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.is-visible .trazo path,
+.is-visible .trazo polyline,
+.is-visible .trazo line,
+.is-visible .trazo rect,
+.is-visible .trazo polygon,
+.trazo.is-visible path,
+.trazo.is-visible polyline,
+.trazo.is-visible line,
+.trazo.is-visible rect,
+.trazo.is-visible polygon {
+  stroke-dashoffset: 0;
+}
+
+@keyframes pulso {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulso {
+  animation: pulso 1.6s ease-in-out infinite;
+}
+
+@keyframes destello {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.18) rotate(45deg);
+  }
+}
+.destello {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: destello 3.2s ease-in-out infinite;
+}
+
+.bar-fill {
+  transform-origin: left;
+  transform: scaleX(var(--w, 1));
+}
+.js .bar-fill {
+  transform: scaleX(0);
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.is-visible .bar-fill {
+  transform: scaleX(var(--w, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal,
+  .js .bar-fill,
+  .js .trazo * {
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0 !important;
+  }
+  .js .bar-fill {
+    transform: scaleX(var(--w, 1));
+  }
+  .pulso,
+  .destello {
+    animation: none;
+  }
+}
