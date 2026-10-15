@@ -2,7 +2,7 @@
 
 Antes de empezar el motion del video de intro, necesitamos que alguien del equipo apruebe la marca y el storyboard. Aprueba el PR o deja comentarios ahí mismo.
 
-- **Figma:** _(se agrega el link cuando el archivo esté creado)_
+- **Figma:** https://www.figma.com/design/Yp2bfIytV6oHg3BJp6gLdy (páginas **Marca**, **Íconos** y **Storyboard**; variables de color en la colección *Forja NL*)
 - **Sistema visual:** [`referencias/SISTEMA-VISUAL.md`](referencias/SISTEMA-VISUAL.md). Toma el lenguaje gráfico del Gobierno de NL (Euzen, 2021) sin usar sus emblemas.
 - **Speech del video:** [`SPEECH.md`](SPEECH.md)
 
