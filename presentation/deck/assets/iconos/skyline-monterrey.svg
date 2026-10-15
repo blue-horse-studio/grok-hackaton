@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+<g id="skyline-monterrey">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="suelo" d="M2 88 H94"/>
+    <path id="perfil" d="M8 88 V58 H24 V30 L38 20 V52 H52 V10 L66 20 V48 H80 V64 H88 V88"/>
+  </g>
+  
+</g>
+</svg>

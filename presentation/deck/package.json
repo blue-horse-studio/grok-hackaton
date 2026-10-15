@@ -1,0 +1,13 @@
+{
+  "name": "deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "(cp -f ../renders/forja-intro.mp4 assets/media/forja-intro.mp4 2>/dev/null || echo \"[deck] Aun no existe presentation/renders/forja-intro.mp4: el slide 1 muestra el poster.\") && npx --yes hyperframes@0.8.159 present .",
+    "present": "(cp -f ../renders/forja-intro.mp4 assets/media/forja-intro.mp4 2>/dev/null || echo \"[deck] Aun no existe presentation/renders/forja-intro.mp4: el slide 1 muestra el poster.\") && npx --yes hyperframes@0.8.159 present .",
+    "sync-video": "(cp -f ../renders/forja-intro.mp4 assets/media/forja-intro.mp4 2>/dev/null || echo \"[deck] Aun no existe presentation/renders/forja-intro.mp4: el slide 1 muestra el poster.\")",
+    "studio": "npx --yes hyperframes@0.8.159 preview --background",
+    "check": "npx --yes hyperframes@0.8.159 check",
+    "snapshot": "npx --yes hyperframes@0.8.159 snapshot --at 1,51,57,63,69,75,81,87,93,99,105"
+  }
+}

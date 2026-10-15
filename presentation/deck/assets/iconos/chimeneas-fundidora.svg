@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+<g id="chimeneas-fundidora">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="suelo" d="M4 88 H92"/>
+    <path id="chimenea-1" d="M14 88 V36"/>
+    <path id="chimenea-2" d="M34 88 V24"/>
+    <path id="chimenea-3" d="M54 88 V44"/>
+    <path id="nave" d="M54 70 L70 56 V70 L86 56 V88"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M29.92 3 L38.08 3 L40 4.92 L40 13.08 L38.08 15 L29.92 15 L28 13.08 L28 4.92 Z"/>
+</g>
+</svg>

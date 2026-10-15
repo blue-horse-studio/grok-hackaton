@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1070" viewBox="0 0 1200 1070" fill="none">
+<rect id="fondo" width="1200" height="1070" fill="#1E2235"/>
+<line x1="60" y1="60" x2="1140" y2="60" stroke="#B08D57" stroke-width="2"/><text x="60" y="118" fill="#FFFFFF" font-family="Montserrat" font-weight="900" font-size="40">Iconos Forja NL</text><text x="1140" y="118" text-anchor="end" fill="#B08D57" font-family="JetBrains Mono" font-size="16">96 × 96 · trazo 8 · chaflán 45°</text>
+<g id="celda-chimeneas-fundidora" transform="translate(78 200) scale(1.5)"><g id="chimeneas-fundidora">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="suelo" d="M4 88 H92"/>
+    <path id="chimenea-1" d="M14 88 V36"/>
+    <path id="chimenea-2" d="M34 88 V24"/>
+    <path id="chimenea-3" d="M54 88 V44"/>
+    <path id="nave" d="M54 70 L70 56 V70 L86 56 V88"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M29.92 3 L38.08 3 L40 4.92 L40 13.08 L38.08 15 L29.92 15 L28 13.08 L28 4.92 Z"/>
+</g>
+</g>
+<text x="150.0" y="400" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">chimeneas-fundidora</text>
+<g id="celda-cerro-de-la-silla" transform="translate(378 200) scale(1.5)"><g id="cerro-de-la-silla">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="cerro" d="M4 82 L30 30 L38 44 A14 14 0 0 0 62 44 L68 34 L92 82"/>
+  </g>
+  
+</g>
+</g>
+<text x="450.0" y="400" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">cerro-de-la-silla</text>
+<g id="celda-viga-puente" transform="translate(678 200) scale(1.5)"><g id="viga-puente">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="tablero" d="M4 62 H92"/>
+    <path id="armadura" d="M10 62 L26 32 H70 L86 62"/>
+    <path id="montantes" d="M42 32 V62 M54 32 V62"/>
+    <path id="pilas" d="M26 62 V90 M70 62 V90"/>
+  </g>
+  
+</g>
+</g>
+<text x="750.0" y="400" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">viga-puente</text>
+<g id="celda-token" transform="translate(978 200) scale(1.5)"><g id="token">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="marco" d="M28.8 16 L67.2 16 L80 28.8 L80 67.2 L67.2 80 L28.8 80 L16 67.2 L16 28.8 Z"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M39.16 35 L56.84 35 L61 39.16 L61 56.84 L56.84 61 L39.16 61 L35 56.84 L35 39.16 Z"/>
+</g>
+</g>
+<text x="1050.0" y="400" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">token</text>
+<g id="celda-estudiante" transform="translate(78 500) scale(1.5)"><g id="estudiante">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="birrete" d="M18 24 L48 12 L78 24 L48 36 Z"/>
+    <path id="borla" d="M74 26 V40"/>
+    <path id="cabeza" d="M34 34 V44 A14 14 0 0 0 62 44 V34"/>
+    <path id="cuerpo" d="M18 92 V84 A30 22 0 0 1 78 84 V92"/>
+  </g>
+  
+</g>
+</g>
+<text x="150.0" y="700" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">estudiante</text>
+<g id="celda-startup" transform="translate(378 500) scale(1.5)"><g id="startup">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="fuselaje" d="M48 6 L64 24 V64 H32 V24 Z"/>
+    <path id="ventana" d="M42 36 A6 6 0 1 1 54 36 A6 6 0 1 1 42 36 Z"/>
+    <path id="aleta-izq" d="M32 46 L18 60 V74 L32 64"/>
+    <path id="aleta-der" d="M64 46 L78 60 V74 L64 64"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M44 74 L52 74 L56 78 L56 86 L52 90 L44 90 L40 86 L40 78 Z"/>
+</g>
+</g>
+<text x="450.0" y="700" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">startup</text>
+<g id="celda-curso" transform="translate(678 500) scale(1.5)"><g id="curso">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="pagina-izq" d="M48 30 L40 22 H8 V74 H40 L48 82"/>
+    <path id="pagina-der" d="M48 30 L56 22 H88 V74 H56 L48 82"/>
+    <path id="lomo" d="M48 30 V82"/>
+  </g>
+  
+</g>
+</g>
+<text x="750.0" y="700" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">curso</text>
+<g id="celda-comunidad" transform="translate(978 500) scale(1.5)"><g id="comunidad">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="cabeza-centro" d="M39 26 A9 9 0 1 1 57 26 A9 9 0 1 1 39 26 Z"/>
+    <path id="cuerpo-centro" d="M32 74 A16 16 0 0 1 64 74 V80"/>
+    <path id="cuerpo-centro-izq" d="M32 74 V80"/>
+    <path id="cabeza-izq" d="M8 42 A7 7 0 1 1 22 42 A7 7 0 1 1 8 42 Z"/>
+    <path id="cuerpo-izq" d="M4 88 V82 A11 11 0 0 1 26 82 V88"/>
+    <path id="cabeza-der" d="M74 42 A7 7 0 1 1 88 42 A7 7 0 1 1 74 42 Z"/>
+    <path id="cuerpo-der" d="M70 88 V82 A11 11 0 0 1 92 82 V88"/>
+  </g>
+  
+</g>
+</g>
+<text x="1050.0" y="700" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">comunidad</text>
+<g id="celda-fondo" transform="translate(78 800) scale(1.5)"><g id="fondo">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="tapa" d="M10 44 V32 L22 20 H74 L86 32 V44"/>
+    <path id="cofre" d="M10 44 H86 V86 H10 Z"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M43.5 47 L52.5 47 L57 51.5 L57 60.5 L52.5 65 L43.5 65 L39 60.5 L39 51.5 Z"/>
+</g>
+</g>
+<text x="150.0" y="1000" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">fondo</text>
+<g id="celda-chip-ia" transform="translate(378 800) scale(1.5)"><g id="chip-ia">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="cuerpo" d="M24 24 H64 L72 32 V72 H24 Z"/>
+    <path id="pines" d="M38 24 V8 M58 24 V8 M38 72 V88 M58 72 V88 M24 38 H8 M24 58 H8 M72 38 H88 M72 58 H88"/>
+  </g>
+  <path id="nucleo" fill="#B08D57" d="M43 38 L53 38 L58 43 L58 53 L53 58 L43 58 L38 53 L38 43 Z"/>
+</g>
+</g>
+<text x="450.0" y="1000" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">chip-ia</text>
+<g id="celda-agente-mcp" transform="translate(678 800) scale(1.5)"><g id="agente-mcp">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="enlaces" d="M38 34 L25 21 M58 34 L71 21 M48 58 V70"/>
+    <path id="nodo-1" d="M8 14 A8 8 0 1 1 24 14 A8 8 0 1 1 8 14 Z"/>
+    <path id="nodo-2" d="M72 14 A8 8 0 1 1 88 14 A8 8 0 1 1 72 14 Z"/>
+    <path id="nodo-3" d="M40 80 A8 8 0 1 1 56 80 A8 8 0 1 1 40 80 Z"/>
+  </g>
+  <path id="agente" fill="#B08D57" d="M38.48 30 L57.52 30 L62 34.48 L62 53.52 L57.52 58 L38.48 58 L34 53.52 L34 34.48 Z"/>
+</g>
+</g>
+<text x="750.0" y="1000" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">agente-mcp</text>
+<g id="celda-skyline-monterrey" transform="translate(978 800) scale(1.5)"><g id="skyline-monterrey">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="suelo" d="M2 88 H94"/>
+    <path id="perfil" d="M8 88 V58 H24 V30 L38 20 V52 H52 V10 L66 20 V48 H80 V64 H88 V88"/>
+  </g>
+  
+</g>
+</g>
+<text x="1050.0" y="1000" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.6" font-family="JetBrains Mono" font-size="16" letter-spacing="1">skyline-monterrey</text>
+</svg>

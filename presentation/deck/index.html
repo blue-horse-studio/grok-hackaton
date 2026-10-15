@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Forja NL — Pitch</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      /* Tokens: copia de packages/brand/src/tokens.css (@forja/brand). */
+      :root {
+        --forja-marino: #1e2235;
+        --forja-oro: #b08d57;
+        --forja-blanco: #ffffff;
+        --forja-naranja: #ff8200;
+        --forja-turquesa: #16c1d1;
+        --forja-lima: #8cd13f;
+        --forja-hierro: #262b42;
+        --forja-escoria: #3a4060;
+        --forja-acero: #a5aac0;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        src: url("assets/fonts/Montserrat-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Archivo";
+        src: url("assets/fonts/Archivo-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+        font-stretch: 62% 125%;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/JetBrainsMono-Variable.ttf") format("truetype");
+        font-weight: 100 800;
+        font-style: normal;
+        font-display: block;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--forja-marino); }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        background: var(--forja-marino); color: var(--forja-blanco);
+        font-family: "Montserrat", system-ui, sans-serif;
+      }
+      .scene { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--forja-marino); color: var(--forja-blanco); font-family: "Montserrat", system-ui, sans-serif; }
+      .wipe { position: absolute; inset: 0; z-index: 50; transform-origin: right center; }
+      .wipe.naranja { background: var(--forja-naranja); }
+      .wipe.turquesa { background: var(--forja-turquesa); }
+      .wipe.lima { background: var(--forja-lima); }
+      .wipe.oro { background: var(--forja-oro); }
+      .wipe.blanco { background: var(--forja-blanco); }
+
+      /* Cromo editorial */
+      .topline { position: absolute; top: 72px; left: 96px; width: 1520px; height: 3px; background: var(--forja-blanco); transform-origin: left center; }
+      .counter { position: absolute; top: 52px; right: 96px; font-family: "JetBrains Mono", monospace; font-size: 34px; font-weight: 600; letter-spacing: 0.06em; color: var(--forja-blanco); }
+      .vert { position: absolute; right: 78px; bottom: 96px; writing-mode: vertical-rl; transform: rotate(180deg); font-family: "Archivo", sans-serif; font-stretch: 125%; font-weight: 800; font-size: 26px; letter-spacing: 0.28em; color: var(--forja-blanco); }
+      .fuente { position: absolute; left: 96px; bottom: 44px; width: 1640px; font-family: "JetBrains Mono", monospace; font-size: 22px; line-height: 1.35; color: var(--forja-acero); }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+      .k-naranja { color: var(--forja-naranja); }
+      .k-turquesa { color: var(--forja-turquesa); }
+      .k-lima { color: var(--forja-lima); }
+      .k-oro { color: var(--forja-oro); }
+      .h1 { font-weight: 900; font-size: 92px; line-height: 0.98; letter-spacing: -0.025em; }
+      .h1 .acc-naranja { color: var(--forja-naranja); }
+      .h1 .acc-turquesa { color: var(--forja-turquesa); }
+      .h1 .acc-lima { color: var(--forja-lima); }
+      .h1 .acc-oro { color: var(--forja-oro); }
+      .body { font-weight: 600; font-size: 40px; line-height: 1.2; }
+      .mono { font-family: "JetBrains Mono", monospace; }
+      .token { display: block; width: 40px; height: 40px; background: var(--forja-oro); clip-path: polygon(16% 0, 84% 0, 100% 16%, 100% 84%, 84% 100%, 16% 100%, 0 84%, 0 16%); }
+      .badge { display: inline-block; padding: 10px 22px; font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--forja-oro); color: var(--forja-marino); clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+
+      /* ---------- 01 intro (video) ---------- */
+      #s-intro { background: #000; }
+      #intro-poster, #intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #intro-nota { position: absolute; left: 96px; bottom: 60px; max-width: 1200px; padding: 20px 28px; background: rgba(30, 34, 53, 0.9); border-left: 8px solid var(--forja-oro); font-family: "JetBrains Mono", monospace; font-size: 26px; color: var(--forja-blanco); display: none; }
+      #s-intro.sin-video #intro-nota { display: block; }
+      #s-intro.sin-video #intro-video { display: none; }
+      #intro-play { position: absolute; left: 50%; bottom: 80px; margin-left: -60px; width: 120px; height: 120px; display: none; cursor: pointer; }
+      #s-intro.en-espera #intro-play { display: block; }
+
+      /* ---------- 02 problema ---------- */
+      #p-izq { position: absolute; left: 96px; top: 170px; width: 900px; }
+      #p-num { display: block; white-space: nowrap; font-weight: 900; font-size: 230px; line-height: 0.9; letter-spacing: -0.04em; margin-top: 18px; }
+      #p-num-label { display: block; font-weight: 700; font-size: 46px; line-height: 1.15; color: var(--forja-acero); margin-top: 18px; width: 760px; }
+      #p-der { position: absolute; left: 1060px; top: 190px; width: 720px; }
+      #p-der .h1 { font-size: 96px; }
+      .p-fila { display: flex; align-items: center; gap: 26px; margin-top: 30px; }
+      .p-fila .body { font-size: 42px; }
+      #p-gente { position: absolute; left: 96px; top: 780px; width: 1640px; height: 150px; overflow: hidden; display: flex; flex-wrap: wrap; gap: 8px 14px; }
+      .persona { display: block; width: 44px; height: 70px; }
+
+      /* ---------- 03 programas ---------- */
+      #g-head { position: absolute; left: 96px; top: 130px; width: 1640px; }
+      #g-grid { position: absolute; left: 96px; top: 400px; width: 1640px; height: 560px; display: grid; grid-template-columns: 1fr 1fr 1fr 1.08fr; gap: 26px; }
+      .g-col { display: flex; flex-direction: column; gap: 16px; }
+      .g-tipo { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forja-acero); padding-bottom: 6px; border-bottom: 3px solid var(--forja-escoria); }
+      .chip { display: block; background: var(--forja-hierro); padding: 18px 22px; border-left: 8px solid var(--forja-escoria); }
+      .chip b { display: block; font-weight: 800; font-size: 32px; line-height: 1.1; }
+      .chip span { display: block; font-family: "JetBrains Mono", monospace; font-size: 23px; line-height: 1.3; color: var(--forja-acero); margin-top: 6px; }
+      .chip.c-naranja { border-left-color: var(--forja-naranja); }
+      .chip.c-turquesa { border-left-color: var(--forja-turquesa); }
+      .chip.c-lima { border-left-color: var(--forja-lima); }
+      #g-hueco { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 14px; height: 470px; padding: 34px; border: 5px dashed var(--forja-oro); }
+      #g-hueco #g-cero { display: block; font-weight: 900; font-size: 190px; line-height: 0.85; color: var(--forja-oro); }
+      #g-hueco b { display: block; font-weight: 800; font-size: 38px; line-height: 1.1; }
+      #g-hueco span { display: block; font-weight: 600; font-size: 28px; line-height: 1.25; color: var(--forja-acero); }
+
+      /* ---------- 04 laboratorios ---------- */
+      #l-head { position: absolute; left: 96px; top: 140px; width: 1500px; }
+      #l-cards { position: absolute; left: 96px; top: 440px; width: 1640px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+      .l-card { display: block; height: 320px; padding: 34px 30px; background: var(--forja-hierro); border-top: 10px solid var(--forja-turquesa); }
+      .l-card b { display: block; font-weight: 900; font-size: 44px; line-height: 1.02; letter-spacing: -0.01em; }
+      .l-card span { display: block; font-weight: 600; font-size: 30px; line-height: 1.25; color: var(--forja-acero); margin-top: 18px; }
+      #l-conclusion { position: absolute; left: 96px; top: 806px; width: 1640px; padding: 24px 36px; background: var(--forja-oro); color: var(--forja-marino); font-weight: 800; font-size: 36px; line-height: 1.15; display: flex; align-items: center; gap: 24px; }
+
+      /* ---------- 05 Nuevo León ---------- */
+      #n-foto { position: absolute; right: 0; top: 0; width: 520px; height: 1080px; overflow: hidden; }
+      #n-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #n-foto .velo { position: absolute; inset: 0; background: var(--forja-lima); mix-blend-mode: multiply; opacity: 0.55; }
+      #n-head { position: absolute; left: 96px; top: 120px; width: 1260px; }
+      #n-head .h1 { font-size: 84px; }
+      #n-grid { position: absolute; left: 96px; top: 420px; width: 1240px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 56px; }
+      .n-stat b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 88px; line-height: 1; letter-spacing: -0.03em; color: var(--forja-lima); }
+      .n-stat span { display: block; font-weight: 600; font-size: 29px; line-height: 1.22; margin-top: 10px; }
+      #n-puente { position: absolute; left: 96px; top: 858px; width: 1240px; padding: 20px 32px; background: var(--forja-lima); color: var(--forja-marino); font-weight: 800; font-size: 34px; line-height: 1.15; }
+      #s-nl .topline { width: 1080px; }
+      #s-nl .counter { right: 580px; }
+      #s-nl .fuente { width: 1250px; bottom: 20px; }
+
+      /* ---------- 06 propuesta ---------- */
+      #r-simbolo { position: absolute; left: 60px; top: 150px; width: 760px; height: 760px; }
+      #r-der { position: absolute; left: 860px; top: 150px; width: 900px; }
+      #r-der .h1 { font-size: 74px; }
+      .r-pilar { display: flex; align-items: center; gap: 34px; margin-top: 30px; }
+      .r-pilar img { display: block; width: 104px; height: 104px; flex: none; }
+      .r-pilar b { display: block; font-weight: 900; font-size: 50px; line-height: 1; }
+      .r-pilar span { display: block; font-weight: 600; font-size: 34px; line-height: 1.2; color: var(--forja-acero); margin-top: 8px; }
+      .r-pilar .t-oro { color: var(--forja-oro); }
+      .r-pilar .t-turquesa { color: var(--forja-turquesa); }
+      .r-pilar .t-lima { color: var(--forja-lima); }
+
+      /* ---------- 07 cómo funciona ---------- */
+      #c-head { position: absolute; left: 96px; top: 140px; width: 1640px; }
+      #c-linea { position: absolute; left: 270px; top: 547px; width: 1360px; height: 8px; background: var(--forja-turquesa); transform-origin: left center; }
+      #c-pasos { position: absolute; left: 96px; top: 440px; width: 1700px; display: grid; grid-template-columns: repeat(5, 1fr); }
+      .c-paso { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 14px; }
+      .c-nodo { position: relative; display: block; width: 214px; height: 214px; background: var(--forja-marino); clip-path: polygon(22% 0, 78% 0, 100% 22%, 100% 78%, 78% 100%, 22% 100%, 0 78%, 0 22%); }
+      .c-nodo::before { content: ""; position: absolute; inset: 0; background: var(--forja-blanco); clip-path: polygon(22% 0, 78% 0, 100% 22%, 100% 78%, 78% 100%, 22% 100%, 0 78%, 0 22%, 0 22%, 10px calc(22% + 4px), 10px calc(78% - 4px), calc(22% + 4px) calc(100% - 10px), calc(78% - 4px) calc(100% - 10px), calc(100% - 10px) calc(78% - 4px), calc(100% - 10px) calc(22% + 4px), calc(78% - 4px) 10px, calc(22% + 4px) 10px, 10px calc(22% + 4px), 0 22%); }
+      .c-nodo img { position: absolute; left: 55px; top: 55px; width: 104px; height: 104px; }
+      .c-num { display: block; font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 30px; color: var(--forja-turquesa); margin-top: 26px; }
+      .c-paso b { display: block; font-weight: 900; font-size: 46px; line-height: 1.02; margin-top: 6px; }
+      .c-paso span { display: block; font-weight: 600; font-size: 29px; line-height: 1.22; color: var(--forja-acero); margin-top: 12px; }
+      .c-paso.destacado b { color: var(--forja-oro); }
+
+      /* ---------- 08 impacto ---------- */
+      #i-head { position: absolute; left: 96px; top: 130px; width: 1640px; }
+      #i-head .h1 { font-size: 76px; }
+      #i-izq { position: absolute; left: 96px; top: 440px; width: 900px; }
+      #i-num { display: block; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 250px; line-height: 0.9; letter-spacing: -0.05em; color: var(--forja-blanco); }
+      #i-num-label { display: block; white-space: nowrap; font-weight: 700; font-size: 38px; color: var(--forja-lima); margin-top: 18px; }
+      #i-der { position: absolute; left: 1080px; top: 430px; width: 660px; display: flex; flex-direction: column; gap: 30px; }
+      .i-stat { display: block; padding-left: 28px; border-left: 8px solid var(--forja-oro); }
+      .i-stat b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 64px; line-height: 1; }
+      .i-stat span { display: block; font-weight: 600; font-size: 30px; line-height: 1.2; color: var(--forja-acero); margin-top: 6px; }
+      #i-badge { position: absolute; left: 96px; top: 360px; }
+      #i-tokens { position: absolute; left: 96px; top: 830px; width: 900px; height: 60px; display: flex; gap: 12px; }
+      #i-tokens .token { width: 46px; height: 46px; }
+
+      /* ---------- 09 tecnología ---------- */
+      #t-head { position: absolute; left: 96px; top: 130px; width: 1640px; }
+      #t-head .h1 { font-size: 84px; }
+      #t-diagrama { position: absolute; left: 96px; top: 380px; width: 1640px; height: 440px; }
+      #t-svg { position: absolute; inset: 0; width: 1640px; height: 440px; }
+      .t-caja { position: absolute; display: flex; align-items: center; gap: 22px; padding: 22px 26px; background: var(--forja-hierro); border: 4px solid var(--forja-blanco); }
+      .t-caja img { display: block; width: 72px; height: 72px; flex: none; }
+      .t-caja b { display: block; font-weight: 900; font-size: 36px; line-height: 1.05; }
+      .t-caja span { display: block; font-family: "JetBrains Mono", monospace; font-size: 22px; line-height: 1.3; color: var(--forja-acero); margin-top: 6px; }
+      #t-datos { left: 0; top: 150px; width: 430px; }
+      #t-tools { left: 560px; top: 150px; width: 430px; border-color: var(--forja-oro); }
+      #t-mcp { left: 1120px; top: 0; width: 520px; border-color: var(--forja-turquesa); }
+      #t-remoto { left: 1120px; top: 150px; width: 520px; border-color: var(--forja-turquesa); }
+      #t-webmcp { left: 1120px; top: 300px; width: 520px; border-color: var(--forja-turquesa); }
+      #t-harness { position: absolute; left: 96px; top: 866px; width: 1640px; display: flex; align-items: center; gap: 24px; font-weight: 700; font-size: 34px; }
+      #t-harness .mono { color: var(--forja-turquesa); }
+
+      /* ---------- 10 el ask ---------- */
+      #a-head { position: absolute; left: 96px; top: 130px; width: 1640px; }
+      #a-cards { position: absolute; left: 96px; top: 330px; width: 1640px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+      .a-card { display: block; height: 290px; padding: 32px 32px; background: var(--forja-hierro); clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%); }
+      .a-card .kicker { font-size: 26px; }
+      .a-card b { display: block; font-weight: 900; font-size: 46px; line-height: 1.02; margin-top: 14px; }
+      .a-card span { display: block; font-weight: 600; font-size: 29px; line-height: 1.25; color: var(--forja-acero); margin-top: 14px; }
+      #a-tiempo { position: absolute; left: 96px; top: 680px; width: 1640px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .a-tramo { display: block; padding: 22px 26px 0 0; border-top: 10px solid var(--forja-oro); }
+      .a-tramo.t2 { border-top-color: var(--forja-turquesa); }
+      .a-tramo.t3 { border-top-color: var(--forja-lima); }
+      .a-tramo b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 34px; }
+      .a-tramo span { display: block; font-weight: 700; font-size: 32px; line-height: 1.2; margin-top: 8px; }
+      #a-piloto { position: absolute; left: 96px; top: 890px; width: 1640px; display: flex; align-items: center; gap: 22px; font-weight: 700; font-size: 32px; color: var(--forja-blanco); }
+
+      /* ---------- 11 cierre ---------- */
+      #z-simbolo { position: absolute; left: 150px; top: 130px; width: 560px; height: 560px; }
+      #z-wordmark { position: absolute; left: 120px; top: 720px; width: 620px; text-align: center; }
+      #z-forja { display: block; font-family: "Archivo", sans-serif; font-stretch: 125%; font-weight: 800; font-size: 120px; line-height: 1; letter-spacing: 0.02em; }
+      #z-nl { display: block; font-family: "Archivo", sans-serif; font-stretch: 125%; font-weight: 700; font-size: 36px; letter-spacing: 0.62em; color: var(--forja-oro); margin-top: 14px; padding-left: 0.62em; }
+      #z-frase { position: absolute; left: 880px; top: 220px; width: 900px; font-weight: 900; font-size: 76px; line-height: 1.04; letter-spacing: -0.02em; }
+      #z-frase .acc-oro { color: var(--forja-oro); }
+      #z-url { position: absolute; left: 880px; top: 700px; display: flex; align-items: center; gap: 40px; }
+      #z-qr { display: block; width: 230px; height: 230px; padding: 16px; background: var(--forja-blanco); }
+      #z-qr img { display: block; width: 198px; height: 198px; }
+      #z-url b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 52px; color: var(--forja-blanco); }
+      #z-url span { display: block; font-weight: 600; font-size: 30px; color: var(--forja-acero); margin-top: 12px; }
+    </style>
+  </head>
+  <body>
+    <script type="application/hyperframes-slideshow+json">
+      {
+        "slides": [
+          { "sceneId": "intro", "startTime": 0, "endTime": 48, "autoplay": true, "fragments": [0.05], "notes": "(~46 s) VIDEO DE INTRO. Si no arranca solo, da clic sobre el video: se reproduce con sonido. No hables encima del video. Cuando termine en el logo, avanza con → o espacio." },
+          { "sceneId": "problema", "startTime": 48, "endTime": 54, "notes": "(~25 s) En Nuevo León hay 1.46 millones de jóvenes de 15 a 29 años, según el Censo 2020 del INEGI. El talento está. Lo que no está es el acceso: la IA se cobra en dólares, por cada token, y con tarjeta de crédito. La mayoría de estos jóvenes se queda fuera del flujo, como estas figuras grises." },
+          { "sceneId": "programas", "startTime": 54, "endTime": 60, "notes": "(~25 s) Revisamos lo que ya existe para jóvenes en Nuevo León. Hay crédito: Impulso NL reporta más de 10 mil millones de pesos, pero pide 21 años o más. Hay becas y cursos: Santander e INJUVE, Generation, Hola IA. Hay fondos y premios, casi todos cerrados para este año. Pero ningún programa le da a un estudiante tokens o cómputo de IA para construir. Ese es el hueco." },
+          { "sceneId": "laboratorios", "startTime": 60, "endTime": 66, "notes": "(~25 s) ¿Y los laboratorios de IA? Tienen programas de créditos, pero cada empresa los pide a su nombre y no se transfieren. Un alumno sin empresa no califica en ninguno. Google y AWS excluyen a entidades de gobierno. Y Grok evalúa caso por caso, sin monto publicado. Conclusión: el fondo lo tiene que financiar Nuevo León; los créditos de los laboratorios son un complemento." },
+          { "sceneId": "nl", "startTime": 66, "endTime": 72, "notes": "(~20 s) Y Nuevo León ya apuesta por la IA: somos primer lugar nacional en adopción empresarial, con 12.6 por ciento. NLínea tiene más de 350 trámites digitales. El Clúster IA Nuevo León arrancó en julio de 2025 y hay cerca de 50 mil docentes capacitados. Lo que falta es el puente hacia los jóvenes." },
+          { "sceneId": "propuesta", "startTime": 72, "endTime": 78, "notes": "(~20 s) Ese puente es Forja NL: un fondo de tokens de IA para estudiantes y jóvenes emprendedores. Tres piezas: fondo, créditos de IA con tope y vencimiento; formación, un curso obligatorio de uso responsable; y comunidad, mentoría, cohortes y demo day." },
+          { "sceneId": "como", "startTime": 78, "endTime": 84, "notes": "(~25 s) Funciona en cinco pasos. Aplicas con tu idea. Antes de recibir un solo token, tomas el curso de IA responsable. Recibes créditos con tope y vencimiento. Construyes con mentoría y comunidad. Y presentas en el demo day. El curso va primero a propósito: queremos que se use bien." },
+          { "sceneId": "impacto", "startTime": 84, "endTime": 90, "notes": "(~25 s) ¿Cuánto alcanza? Corrimos nuestro simulador: con 50 millones de pesos y seis meses, 11,923 jóvenes reciben créditos de IA. Son unos 699 pesos por alumno al mes, suficientes para 20 millones de tokens mensuales con modelos Grok a precio de lista. Es un escenario estimado, con supuestos explícitos: todo el presupuesto va a tokens; los cursos y la operación se cotizan aparte." },
+          { "sceneId": "tecnologia", "startTime": 90, "endTime": 96, "notes": "(~25 s) Y no es solo una idea: ya lo construimos. Todos los datos que vieron tienen fuente y viven en datasets abiertos. Una sola definición de herramientas se expone como servidor MCP local, MCP remoto en forja-nl.vercel.app/api/mcp, y WebMCP para que agentes en el navegador consulten los datos. DEMO EN VIVO (opcional, 20 s): abrir forja-nl.vercel.app y pedirle a un agente que simule el fondo." },
+          { "sceneId": "ask", "startTime": 96, "endTime": 102, "notes": "(~20 s) Lo que pedimos: un piloto en 90 días. Al Gobierno de Nuevo León, financiar el fondo y operarlo con Economía e I2T2. A las universidades, ser sede del piloto. A los laboratorios de IA, créditos complementarios y formación. Un piloto ilustrativo de 100 participantes por seis meses cuesta alrededor de 74 mil dólares." },
+          { "sceneId": "cierre", "startTime": 102, "endTime": 108, "notes": "(~10 s) Cierra mirando al jurado: Si el siglo veinte lo forjamos con acero, el siglo veintiuno lo vamos a forjar con inteligencia. Gracias. (Deja el QR en pantalla durante las preguntas.)" }
+        ]
+      }
+    </script>
+
+
+    <div id="root" data-composition-id="deck" data-start="0" data-duration="108" data-width="1920" data-height="1080">
+      <!-- ===================== 01 · INTRO (video) ===================== -->
+      <div id="s-intro" class="scene clip" data-composition-id="intro" data-start="0" data-duration="48" data-track-index="1">
+        <img id="intro-poster" src="assets/media/poster-intro.png" alt="Forja Nuevo León" />
+        <video id="intro-video" src="assets/media/forja-intro.mp4" poster="assets/media/poster-intro.png" data-start="0" data-duration="48" data-has-audio="true" preload="auto" playsinline></video>
+        <svg id="intro-play" viewBox="0 0 120 120" aria-label="Reproducir">
+          <path d="M26 0 H94 L120 26 V94 L94 120 H26 L0 94 V26 Z" fill="#B08D57" />
+          <path d="M48 36 L86 60 L48 84 Z" fill="#1E2235" />
+        </svg>
+        <div id="intro-nota">El video de intro se carga solo cuando exista presentation/renders/forja-intro.mp4 (recarga la página).</div>
+      </div>
+
+      <!-- ===================== 02 · PROBLEMA ===================== -->
+      <div id="s-problema" class="scene clip" data-composition-id="problema" data-start="48" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">02 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="p-izq">
+          <div class="kicker k-naranja p-anim">El problema</div>
+          <span id="p-num">1.46 M</span>
+          <span id="p-num-label">jóvenes de 15 a 29 años viven en Nuevo León</span>
+        </div>
+        <div id="p-der">
+          <div class="h1 p-anim">El talento está. <span class="acc-naranja">El acceso, no.</span></div>
+          <div class="p-fila p-anim"><span class="token"></span><div class="body">La IA se cobra en dólares,</div></div>
+          <div class="p-fila p-anim"><span class="token"></span><div class="body">por cada token,</div></div>
+          <div class="p-fila p-anim"><span class="token"></span><div class="body">y con tarjeta de crédito.</div></div>
+        </div>
+        <div id="p-gente"></div>
+        <div class="fuente">Fuente: INEGI, Censo de Población y Vivienda 2020 (vía DataMéxico): 1,464,071 personas de 15 a 29 años en NL. Precios de API por millón de tokens en USD: docs.x.ai, 14/10/2026.</div>
+        <div class="wipe naranja"></div>
+      </div>
+
+      <!-- ===================== 03 · LO QUE YA EXISTE (programas) ===================== -->
+      <div id="s-programas" class="scene clip" data-composition-id="programas" data-start="54" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">03 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="g-head">
+          <div class="kicker k-naranja g-anim">Lo que ya existe</div>
+          <div class="h1 g-anim" style="margin-top: 22px">Hay apoyos para jóvenes.<br /><span class="acc-oro">Ninguno da tokens de IA.</span></div>
+        </div>
+        <div id="g-grid">
+          <div class="g-col">
+            <div class="g-tipo g-anim">Crédito</div>
+            <div class="chip c-naranja g-chip"><b>Impulso NL</b><span>10,896 MDP a 4,383 mipymes · desde 21 años</span></div>
+            <div class="chip c-naranja g-chip"><b>Microcrédito Monterrey</b><span>hasta $70,000 al 0% · desde 21 años</span></div>
+          </div>
+          <div class="g-col">
+            <div class="g-tipo g-anim">Becas y cursos</div>
+            <div class="chip c-turquesa g-chip"><b>Santander · INJUVE</b><span>5,000 becas (meta)</span></div>
+            <div class="chip c-turquesa g-chip"><b>Generation México</b><span>600 becas · 15 MDP</span></div>
+            <div class="chip c-turquesa g-chip"><b>Hola IA</b><span>meta: 10,000 personas</span></div>
+          </div>
+          <div class="g-col">
+            <div class="g-tipo g-anim">Fondos y premios</div>
+            <div class="chip c-lima g-chip"><b>FONLIN 2026</b><span>I2T2 · cerró en junio</span></div>
+            <div class="chip c-lima g-chip"><b>InnovaFest</b><span>17 MDP en premios, nacional</span></div>
+            <div class="chip c-lima g-chip"><b>Fondo de Fondos</b><span>Nafin · solo vía fondos VC</span></div>
+          </div>
+          <div class="g-col">
+            <div class="g-tipo g-anim" style="color: var(--forja-oro)">Tokens de IA</div>
+            <div id="g-hueco">
+              <span id="g-cero">0</span>
+              <b>programas dan tokens a estudiantes</b>
+              <span>Ese es el hueco que llena Forja NL.</span>
+            </div>
+          </div>
+        </div>
+        <div class="fuente">Fuente: research/mapa-programas-emprendimiento-tecnologia-jovenes-nl.md (boletines nl.gob.mx, I2T2, INJUVE, Nafin; corte 14/10/2026). Cifras reportadas por cada operador, sin auditar; las metas no son resultados.</div>
+        <div class="wipe turquesa"></div>
+      </div>
+
+      <!-- ===================== 04 · LABORATORIOS ===================== -->
+      <div id="s-laboratorios" class="scene clip" data-composition-id="laboratorios" data-start="60" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">04 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="l-head">
+          <div class="kicker k-turquesa l-anim">¿Y los laboratorios de IA?</div>
+          <div class="h1 l-anim" style="margin-top: 22px">Sus créditos no llegan <span class="acc-turquesa">a un estudiante.</span></div>
+        </div>
+        <div id="l-cards">
+          <div class="l-card l-c"><b>Intransferibles</b><span>Cada empresa los pide a su nombre y no puede pasarlos.</span></div>
+          <div class="l-card l-c"><b>Sin empresa, no calificas</b><span>Ningún programa revisado acepta alumnos sin empresa.</span></div>
+          <div class="l-card l-c"><b>Gobierno, excluido</b><span>Google y AWS no dan créditos a entidades de gobierno.</span></div>
+          <div class="l-card l-c"><b>Grok: caso por caso</b><span>Sin monto publicado; los créditos vencen a los 6 meses.</span></div>
+        </div>
+        <div id="l-conclusion"><span class="token" style="background: var(--forja-marino)"></span><div>El fondo lo financia Nuevo León; los créditos de laboratorios son complemento.</div></div>
+        <div class="fuente">Fuentes: términos de Google Cloud for Startups, AWS Activate, Microsoft for Startups, Claude for Startups, OpenAI y Grok for Startups (x.ai, 07/10/2026). Montos máximos publicados, sujetos a aprobación.</div>
+        <div class="wipe lima"></div>
+      </div>
+
+      <!-- ===================== 05 · NUEVO LEÓN YA APUESTA ===================== -->
+      <div id="s-nl" class="scene clip" data-composition-id="nl" data-start="66" data-duration="6" data-track-index="1">
+        <div id="n-foto"><img src="assets/img/monterrey-skyline.jpg" alt="" /><div class="velo"></div></div>
+        <div class="topline"></div>
+        <div class="counter">05 / 11</div>
+        <div id="n-head">
+          <div class="kicker k-lima n-anim">El contexto</div>
+          <div class="h1 n-anim" style="margin-top: 22px">Nuevo León ya <span class="acc-lima">apuesta por la IA.</span></div>
+        </div>
+        <div id="n-grid">
+          <div class="n-stat n-s"><b>12.6%</b><span>de las empresas de NL (10+ empleados) usa IA: 1.er lugar nacional (promedio 8.0%)</span></div>
+          <div class="n-stat n-s"><b>350+</b><span>trámites digitales en NLínea (oct. 2026)</span></div>
+          <div class="n-stat n-s"><b>jul 2025</b><span>lanzamiento del Clúster IA Nuevo León (Tec, UANL, UDEM, FEMSA, CEMEX…)</span></div>
+          <div class="n-stat n-s"><b>~50,000</b><span>docentes capacitados en IA (declaración oficial)</span></div>
+        </div>
+        <div id="n-puente">Falta el puente: nada le da a los jóvenes acceso directo a tokens.</div>
+        <div class="fuente">Fuentes: Gobierno de NL (12/03/2026, 01/10/2026, 08/10/2026); Clúster IA NL lanzado el 14/07/2025 en Monterrey Digital Hub. Foto: México en Fotos, CC BY-SA 2.0.</div>
+        <div class="wipe blanco"></div>
+      </div>
+
+      <!-- ===================== 06 · LA PROPUESTA ===================== -->
+      <div id="s-propuesta" class="scene clip" data-composition-id="propuesta" data-start="72" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">06 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <svg id="r-simbolo" viewBox="0 0 240 240" aria-hidden="true">
+          <defs>
+            <clipPath id="r-clip"><path d="M60 222 V90 L78 72 H104 V222 Z" /></clipPath>
+          </defs>
+          <image href="assets/img/fundidora-horno3.jpg" x="40" y="60" width="90" height="170" preserveAspectRatio="xMidYMid slice" clip-path="url(#r-clip)" />
+          <g fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="butt" stroke-linejoin="miter">
+            <path class="r-trazo" d="M60 222 V90 L78 72 H104 V222 Z" />
+            <path class="r-trazo" d="M104 114 H190" />
+            <path class="r-trazo" d="M104 166 H166" />
+          </g>
+          <path id="r-chispa" fill="#B08D57" d="M156.4 46 L183.6 46 L190 52.4 L190 79.6 L183.6 86 L156.4 86 L150 79.6 L150 52.4 Z" />
+        </svg>
+        <div id="r-der">
+          <div class="kicker k-oro r-anim">La propuesta</div>
+          <div class="h1 r-anim" style="margin-top: 22px">Forja NL: un fondo de <span class="acc-oro">tokens de IA</span> para los jóvenes de Nuevo León.</div>
+          <div class="r-pilar r-p"><img src="assets/iconos/fondo.svg" alt="" /><div><b class="t-oro">Fondo</b><span>Créditos de IA con tope y vencimiento.</span></div></div>
+          <div class="r-pilar r-p"><img src="assets/iconos/curso.svg" alt="" /><div><b class="t-turquesa">Formación</b><span>Curso obligatorio de IA responsable.</span></div></div>
+          <div class="r-pilar r-p"><img src="assets/iconos/comunidad.svg" alt="" /><div><b class="t-lima">Comunidad</b><span>Mentoría, cohortes y demo day.</span></div></div>
+        </div>
+        <div class="fuente">Foto en el símbolo: Horno 3, Parque Fundidora. AdrianaPalacio, CC BY-SA 4.0, vía Wikimedia Commons.</div>
+        <div class="wipe oro"></div>
+      </div>
+
+      <!-- ===================== 07 · CÓMO FUNCIONA ===================== -->
+      <div id="s-como" class="scene clip" data-composition-id="como" data-start="78" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">07 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="c-head">
+          <div class="kicker k-turquesa c-anim">Cómo funciona</div>
+          <div class="h1 c-anim" style="margin-top: 22px">Del aula al demo day <span class="acc-turquesa">en cinco pasos.</span></div>
+        </div>
+        <div id="c-linea"></div>
+        <div id="c-pasos">
+          <div class="c-paso c-p"><span class="c-nodo"><img src="assets/iconos/estudiante.svg" alt="" /></span><span class="c-num">01</span><b>Aplica</b><span>con tu idea o proyecto</span></div>
+          <div class="c-paso c-p destacado"><span class="c-nodo"><img src="assets/iconos/curso.svg" alt="" /></span><span class="c-num">02</span><b>Aprende</b><span>curso obligatorio de IA responsable</span></div>
+          <div class="c-paso c-p"><span class="c-nodo"><img src="assets/iconos/token.svg" alt="" /></span><span class="c-num">03</span><b>Recibe créditos</b><span>con tope y vencimiento</span></div>
+          <div class="c-paso c-p"><span class="c-nodo"><img src="assets/iconos/chip-ia.svg" alt="" /></span><span class="c-num">04</span><b>Construye</b><span>con mentoría y comunidad</span></div>
+          <div class="c-paso c-p"><span class="c-nodo"><img src="assets/iconos/startup.svg" alt="" /></span><span class="c-num">05</span><b>Demo day</b><span>presenta lo que construiste</span></div>
+        </div>
+        <div class="wipe naranja"></div>
+      </div>
+
+      <!-- ===================== 08 · IMPACTO ===================== -->
+      <div id="s-impacto" class="scene clip" data-composition-id="impacto" data-start="84" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">08 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="i-head">
+          <div class="kicker k-lima i-anim">Impacto</div>
+          <div class="h1 i-anim" style="margin-top: 22px">Con 50 millones de pesos, <span class="acc-lima">casi 12 mil jóvenes</span> construyen con IA.</div>
+        </div>
+        <div id="i-badge" class="badge i-anim">Escenario estimado</div>
+        <div id="i-izq">
+          <span id="i-num">11,923</span>
+          <span id="i-num-label">jóvenes con créditos de IA durante 6 meses</span>
+        </div>
+        <div id="i-tokens"></div>
+        <div id="i-der">
+          <div class="i-stat i-s"><b>$699</b><span>pesos por alumno al mes</span></div>
+          <div class="i-stat i-s"><b>20 M</b><span>tokens por alumno al mes</span></div>
+          <div class="i-stat i-s"><b>1.43 billones</b><span>de tokens en total</span></div>
+        </div>
+        <div class="fuente">Simulador forja_simular_fondo (packages/tools). Supuestos: 50 M MXN, 6 meses, 20 M tokens/alumno/mes (80% entrada), 70% Grok 4.3 + 30% Grok 4.7 a precio de lista (USD 1.89/M; docs.x.ai), FIX Banxico 18.4888 (14/10/2026). Todo a tokens: sin cursos ni operación.</div>
+        <div class="wipe turquesa"></div>
+      </div>
+
+      <!-- ===================== 09 · TECNOLOGÍA ===================== -->
+      <div id="s-tecnologia" class="scene clip" data-composition-id="tecnologia" data-start="90" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">09 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="t-head">
+          <div class="kicker k-turquesa t-anim">Ya lo construimos</div>
+          <div class="h1 t-anim" style="margin-top: 22px">Nuestros datos <span class="acc-turquesa">hablan con agentes de IA.</span></div>
+        </div>
+        <div id="t-diagrama">
+          <svg id="t-svg" viewBox="0 0 1640 440" aria-hidden="true">
+            <g fill="none" stroke="#FFFFFF" stroke-width="6">
+              <path class="t-linea" d="M430 220 H560" />
+              <path class="t-linea" d="M990 220 H1050 V70 H1120" />
+              <path class="t-linea" d="M990 220 H1120" />
+              <path class="t-linea" d="M990 220 H1050 V370 H1120" />
+            </g>
+            <g fill="#B08D57">
+              <rect class="t-pulso" x="478" y="207" width="26" height="26" />
+              <rect class="t-pulso" x="1060" y="207" width="26" height="26" />
+            </g>
+          </svg>
+          <div id="t-datos" class="t-caja t-c"><img src="assets/iconos/curso.svg" alt="" /><div><b>Datos con fuente</b><span>research/ → datasets JSON</span></div></div>
+          <div id="t-tools" class="t-caja t-c"><img src="assets/iconos/chip-ia.svg" alt="" /><div><b>Tools únicas</b><span>packages/tools · simulador</span></div></div>
+          <div id="t-mcp" class="t-caja t-c"><img src="assets/iconos/agente-mcp.svg" alt="" /><div><b>MCP local</b><span>stdio · Claude, Grok, IDEs</span></div></div>
+          <div id="t-remoto" class="t-caja t-c"><img src="assets/iconos/agente-mcp.svg" alt="" /><div><b>MCP remoto</b><span>forja-nl.vercel.app/api/mcp</span></div></div>
+          <div id="t-webmcp" class="t-caja t-c"><img src="assets/iconos/agente-mcp.svg" alt="" /><div><b>WebMCP</b><span>agentes en el navegador</span></div></div>
+        </div>
+        <div id="t-harness" class="t-anim"><span class="token"></span><div>Harness de agentes: <span class="mono">AGENTS.md</span> + skills del repo. Demo en vivo: <span class="mono">forja-nl.vercel.app</span></div></div>
+        <div class="wipe turquesa"></div>
+      </div>
+
+      <!-- ===================== 10 · EL ASK ===================== -->
+      <div id="s-ask" class="scene clip" data-composition-id="ask" data-start="96" data-duration="6" data-track-index="1">
+        <div class="topline"></div>
+        <div class="counter">10 / 11</div>
+        <div class="vert">FORJA NL</div>
+        <div id="a-head">
+          <div class="kicker k-oro a-anim">Lo que pedimos</div>
+          <div class="h1 a-anim" style="margin-top: 22px">Un piloto en <span class="acc-oro">90 días.</span></div>
+        </div>
+        <div id="a-cards">
+          <div class="a-card a-c"><div class="kicker k-oro">Gobierno de NL</div><b>Financiar el fondo</b><span>y operarlo con Economía e I2T2.</span></div>
+          <div class="a-card a-c"><div class="kicker k-turquesa">Universidades</div><b>Ser sede del piloto</b><span>UANL, Tec, UDEM, U-ERRE y más.</span></div>
+          <div class="a-card a-c"><div class="kicker k-lima">Laboratorios de IA</div><b>Sumar créditos</b><span>complementarios y formación: OpenAI, Google, AWS, xAI.</span></div>
+        </div>
+        <div id="a-tiempo">
+          <div class="a-tramo a-t"><b>Días 1–30</b><span>Responsable y convocatoria</span></div>
+          <div class="a-tramo t2 a-t"><b>Días 31–60</b><span>Alianzas, reglas y elegibilidad</span></div>
+          <div class="a-tramo t3 a-t"><b>Días 61–90</b><span>Primera cohorte</span></div>
+        </div>
+        <div id="a-piloto" class="a-anim"><span class="badge">Estimado</span><div>Piloto ilustrativo: 100 participantes · 6 meses · USD 74,250</div></div>
+        <div class="fuente">Fuente: research/programas-laboratorios-ia.md (§4 y §5). Cronograma y presupuesto propuestos por Forja NL: sin cotización ni financiamiento comprometido; ninguna institución los ha aceptado aún.</div>
+        <div class="wipe oro"></div>
+      </div>
+
+      <!-- ===================== 11 · CIERRE ===================== -->
+      <div id="s-cierre" class="scene clip" data-composition-id="cierre" data-start="102" data-duration="6" data-track-index="1">
+        <svg id="z-simbolo" viewBox="0 0 240 240" aria-hidden="true">
+          <defs>
+            <clipPath id="z-clip"><path d="M60 222 V90 L78 72 H104 V222 Z" /></clipPath>
+          </defs>
+          <image href="assets/img/fundidora-horno3.jpg" x="40" y="60" width="90" height="170" preserveAspectRatio="xMidYMid slice" clip-path="url(#z-clip)" />
+          <g fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="butt" stroke-linejoin="miter">
+            <path class="z-trazo" d="M60 222 V90 L78 72 H104 V222 Z" />
+            <path class="z-trazo" d="M104 114 H190" />
+            <path class="z-trazo" d="M104 166 H166" />
+          </g>
+          <path id="z-chispa" fill="#B08D57" d="M156.4 46 L183.6 46 L190 52.4 L190 79.6 L183.6 86 L156.4 86 L150 79.6 L150 52.4 Z" />
+        </svg>
+        <div id="z-wordmark"><span id="z-forja">FORJA</span><span id="z-nl">NUEVO LEÓN</span></div>
+        <div id="z-frase">Si el siglo XX lo forjamos con acero, <span class="acc-oro">el siglo XXI lo vamos a forjar con inteligencia.</span></div>
+        <div id="z-url"><div id="z-qr"><img src="assets/img/qr-forja.svg" alt="QR forja-nl.vercel.app" /></div><div><b>forja-nl.vercel.app</b><span>Datos, simulador y MCP abiertos</span></div></div>
+        <div class="fuente">Fotos: AdrianaPalacio (CC BY-SA 4.0), México en Fotos (CC BY-SA 2.0), vía Wikimedia Commons.</div>
+        <div class="wipe blanco"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // ---------- contenido generado (determinista) ----------
+        var gente = document.getElementById("p-gente");
+        var encendidos = { 3: 1, 17: 1, 31: 1, 46: 1 };
+        var html = "";
+        for (var i = 0; i < 54; i++) {
+          var c = encendidos[i] ? "#FFFFFF" : "#3A4060";
+          html += '<svg class="persona p-per" viewBox="0 0 44 70"><circle cx="22" cy="14" r="9" fill="none" stroke="' + c + '" stroke-width="5"/><path d="M4 68 V56 A18 18 0 0 1 40 56 V68" fill="none" stroke="' + c + '" stroke-width="5"/></svg>';
+        }
+        gente.innerHTML = html;
+        var tk = document.getElementById("i-tokens");
+        var th = "";
+        for (var j = 0; j < 18; j++) th += '<span class="token i-tk" style="background:' + (j % 5 === 2 ? "#B08D57" : j % 3 === 0 ? "#FFFFFF" : "#16C1D1") + '"></span>';
+        tk.innerHTML = th;
+
+        // ---------- coreografía por escena ----------
+        // Cada builder agrega tweens a `tl` a partir del desplazamiento `o`.
+        // Se usa dos veces: (1) en el timeline determinista registrado (seek-safe),
+        // (2) en vivo, al entrar a cada slide en el deck, para reproducir la entrada.
+        var E = "power3.out";
+        function wipe(tl, id, o) {
+          tl.fromTo("#" + id + " .wipe", { scaleX: 1 }, { scaleX: 0, duration: 0.75, ease: "power3.inOut" }, o);
+          if (document.querySelector("#" + id + " .topline")) tl.fromTo("#" + id + " .topline", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: E }, o + 0.35);
+        }
+        function sube(tl, sel, o, stagger) {
+          tl.fromTo(sel, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: E, stagger: stagger || 0.12 }, o);
+        }
+        function cuenta(tl, sel, final, fmt, o, dur, live) {
+          if (!live) return;
+          var el = document.querySelector(sel);
+          var obj = { v: 0 };
+          tl.fromTo(obj, { v: 0 }, { v: final, duration: dur, ease: "power2.out", onUpdate: function () { el.textContent = fmt(obj.v); }, onComplete: function () { el.textContent = fmt(final); } }, o);
+        }
+        function miles(n) { return Math.round(n).toLocaleString("en-US"); }
+
+        var B = {
+          problema: function (tl, o, live) {
+            wipe(tl, "s-problema", o);
+            sube(tl, "#s-problema .p-anim", o + 0.45, 0.14);
+            tl.fromTo("#p-num", { scale: 0.6, opacity: 0, transformOrigin: "0% 100%" }, { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.6)" }, o + 0.55);
+            cuenta(tl, "#p-num", 1.46, function (v) { return v.toFixed(2) + " M"; }, o + 0.55, 1.3, live);
+            tl.fromTo("#p-num-label", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: E }, o + 1.0);
+            tl.fromTo("#s-problema .p-per", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: E, stagger: 0.015 }, o + 1.1);
+          },
+          programas: function (tl, o, live) {
+            wipe(tl, "s-programas", o);
+            sube(tl, "#s-programas .g-anim", o + 0.4, 0.1);
+            tl.fromTo("#s-programas .g-chip", { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.4)", stagger: 0.09 }, o + 0.8);
+            tl.fromTo("#g-hueco", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: E }, o + 1.75);
+            tl.fromTo("#g-cero", { scale: 2.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(2)" }, o + 2.0);
+          },
+          laboratorios: function (tl, o, live) {
+            wipe(tl, "s-laboratorios", o);
+            sube(tl, "#s-laboratorios .l-anim", o + 0.4, 0.12);
+            tl.fromTo("#s-laboratorios .l-c", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: E, stagger: 0.14 }, o + 0.8);
+            tl.fromTo("#l-conclusion", { opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.8, ease: "power3.inOut" }, o + 1.7);
+          },
+          nl: function (tl, o, live) {
+            wipe(tl, "s-nl", o);
+            tl.fromTo("#n-foto", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.0, ease: "power3.inOut" }, o + 0.3);
+            tl.fromTo("#n-foto img", { scale: 1.15 }, { scale: 1, duration: 2.4, ease: "power2.out" }, o + 0.3);
+            sube(tl, "#s-nl .n-anim", o + 0.45, 0.12);
+            tl.fromTo("#s-nl .n-s", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: E, stagger: 0.15 }, o + 0.85);
+            tl.fromTo("#n-puente", { opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.8, ease: "power3.inOut" }, o + 1.8);
+          },
+          propuesta: function (tl, o, live) {
+            wipe(tl, "s-propuesta", o);
+            tl.fromTo("#s-propuesta .r-trazo", { strokeDasharray: 420, strokeDashoffset: 420 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut", stagger: 0.18 }, o + 0.4);
+            tl.fromTo("#s-propuesta .r-trazo", { strokeDasharray: "420 420" }, { strokeDasharray: "none", duration: 0.01, immediateRender: false }, o + 1.85);
+            tl.fromTo("#r-chispa", { y: -60, opacity: 0, transformOrigin: "50% 50%" }, { y: 0, opacity: 1, duration: 0.6, ease: "back.out(2.2)" }, o + 1.3);
+            sube(tl, "#s-propuesta .r-anim", o + 0.5, 0.12);
+            tl.fromTo("#s-propuesta .r-p", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.6, ease: E, stagger: 0.16 }, o + 1.0);
+          },
+          como: function (tl, o, live) {
+            wipe(tl, "s-como", o);
+            sube(tl, "#s-como .c-anim", o + 0.4, 0.12);
+            tl.fromTo("#c-linea", { scaleX: 0 }, { scaleX: 1, duration: 1.6, ease: "power2.inOut" }, o + 0.8);
+            tl.fromTo("#s-como .c-p", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.5)", stagger: 0.28 }, o + 0.8);
+          },
+          impacto: function (tl, o, live) {
+            wipe(tl, "s-impacto", o);
+            sube(tl, "#s-impacto .i-anim", o + 0.4, 0.12);
+            tl.fromTo("#i-num", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, o + 0.8);
+            cuenta(tl, "#i-num", 11923, miles, o + 0.8, 1.6, live);
+            tl.fromTo("#i-num-label", { opacity: 0 }, { opacity: 1, duration: 0.5 }, o + 1.2);
+            tl.fromTo("#s-impacto .i-tk", { opacity: 0, y: -40, rotation: 45 }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(2)", stagger: 0.05 }, o + 1.0);
+            tl.fromTo("#s-impacto .i-s", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.6, ease: E, stagger: 0.18 }, o + 1.2);
+          },
+          tecnologia: function (tl, o, live) {
+            wipe(tl, "s-tecnologia", o);
+            sube(tl, "#s-tecnologia .t-anim", o + 0.4, 0.12);
+            tl.fromTo("#t-datos", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.55, ease: E }, o + 0.8);
+            tl.fromTo("#s-tecnologia .t-linea", { strokeDasharray: 400, strokeDashoffset: 400 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut", stagger: 0.12 }, o + 1.1);
+            tl.fromTo("#t-tools", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, o + 1.25);
+            tl.fromTo("#t-mcp, #t-remoto, #t-webmcp", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: E, stagger: 0.14 }, o + 1.55);
+            tl.fromTo("#s-tecnologia .t-pulso", { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", stagger: 0.2 }, o + 2.0);
+            if (live) {
+              tl.fromTo("#s-tecnologia .t-pulso", { x: -40 }, { x: 40, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 7, stagger: 0.3 }, o + 2.4);
+            }
+          },
+          ask: function (tl, o, live) {
+            wipe(tl, "s-ask", o);
+            sube(tl, "#s-ask .a-anim", o + 0.4, 0.12);
+            tl.fromTo("#s-ask .a-c", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: E, stagger: 0.15 }, o + 0.8);
+            tl.fromTo("#s-ask .a-t", { opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut", stagger: 0.25 }, o + 1.4);
+          },
+          cierre: function (tl, o, live) {
+            wipe(tl, "s-cierre", o);
+            tl.fromTo("#s-cierre .z-trazo", { strokeDasharray: 420, strokeDashoffset: 420 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut", stagger: 0.18 }, o + 0.4);
+            tl.fromTo("#s-cierre .z-trazo", { strokeDasharray: "420 420" }, { strokeDasharray: "none", duration: 0.01, immediateRender: false }, o + 1.85);
+            tl.fromTo("#z-chispa", { y: -60, opacity: 0, transformOrigin: "50% 50%" }, { y: 0, opacity: 1, duration: 0.6, ease: "back.out(2.2)" }, o + 1.3);
+            tl.fromTo("#z-forja", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, o + 1.4);
+            tl.fromTo("#z-nl", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: E }, o + 1.6);
+            tl.fromTo("#z-frase", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: E }, o + 0.7);
+            tl.fromTo("#z-url", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, o + 1.9);
+          }
+        };
+        var INICIO = { problema: 48, programas: 54, laboratorios: 60, nl: 66, propuesta: 72, como: 78, impacto: 84, tecnologia: 90, ask: 96, cierre: 102 };
+
+        // ---------- timeline determinista (seek-safe) ----------
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        Object.keys(B).forEach(function (k) { B[k](tl, INICIO[k] + 0.05, false); });
+        window.__timelines["deck"] = tl;
+
+        // Modo en vivo (solo dentro del deck): assets/deck-vivo.js
+        window.__forjaDeck = { B: B };
+      })();
+    </script>
+    <script src="assets/deck-vivo.js"></script>
+  </body>
+</html>
