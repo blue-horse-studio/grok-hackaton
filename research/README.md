@@ -1,21 +1,30 @@
 # Research
 
-Investigación del equipo en Markdown. Un archivo por tema, en kebab-case (por ejemplo `talento-universitario-nl.md`).
+Aquí va la investigación del equipo, en Markdown. Ya hay un archivo por tema; llénenlo directamente:
 
-## Plantilla
+| Archivo | Tema |
+| --- | --- |
+| [`programas-emprendimiento.md`](programas-emprendimiento.md) | Programas en Nuevo León y México que apoyan a jóvenes emprendedores |
+| [`educacion-ia-nl.md`](educacion-ia-nl.md) | Educación sobre IA que se imparte hoy en Nuevo León |
+| [`programas-laboratorios-ia.md`](programas-laboratorios-ia.md) | Programas de xAI/SpaceX, Anthropic, OpenAI y Google para financiar proyectos e instituciones |
 
-```markdown
-# Título
+Para un tema nuevo, creen otro `.md` en esta carpeta, con el nombre en kebab-case.
 
-## Hallazgos clave
-- Hallazgo concreto con cifra. [1]
+## Cómo subirlo
 
-## Datos para el pitch
-| Métrica | Valor | Año | Fuente |
-| --- | --- | --- | --- |
+**Opción rápida, desde GitHub (sin instalar nada):**
+1. Abran el archivo en https://github.com/blue-horse-studio/grok-hackaton/tree/main/research
+2. Den clic en el lápiz ✏️ (Edit), peguen su contenido y luego **Commit changes** directo a `main`.
+   Para subir archivos nuevos: **Add file → Upload files**.
 
-## Fuentes
-1. Nombre — URL (fecha de consulta)
+**Desde la terminal:**
+```bash
+git clone https://github.com/blue-horse-studio/grok-hackaton.git
+cd grok-hackaton
+# editen research/*.md
+git add research && git commit -m "Research: <tema>" && git pull --rebase && git push
 ```
 
-Las cifras de la tabla **Datos para el pitch** se pasan a `packages/data/datasets/` para que las usen el MCP, la web y la presentación.
+## Importante
+- **Cada cifra lleva su fuente (URL).** Lo que vaya a la tabla "Datos para el pitch" alimenta la web, el MCP y la presentación.
+- Las cifras van en las tablas; el contexto y las notas, en texto libre.
