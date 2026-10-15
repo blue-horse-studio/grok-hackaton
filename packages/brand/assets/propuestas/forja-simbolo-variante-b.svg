@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none">
+<!-- Variante B (propuesta): la chispa sale de la viga superior, a la derecha, para que no se lea como el punto de una "i" ("iF"). -->
+<g id="simbolo">
+  <g id="trazo" fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="chimenea" d="M60 222 V90 L78 72 H104 V222 Z"/>
+    <path id="viga-superior" d="M104 114 H190"/>
+    <path id="viga-media" d="M104 166 H166"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M156.4 46 L183.6 46 L190 52.4 L190 79.6 L183.6 86 L156.4 86 L150 79.6 L150 52.4 Z"/>
+</g>
+</svg>
