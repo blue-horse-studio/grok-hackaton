@@ -5,7 +5,11 @@ import {
   type CursoRegistro,
   type Dataset,
   type EducacionIaRegistro,
+  type HallazgoFinanciamientoRegistro,
   type MatriculaRegistro,
+  type PanoramaIaRegistro,
+  type PresupuestoProgramaRegistro,
+  type VacioProgramaRegistro,
   type PoblacionJovenRegistro,
   type ProgramaEmprendimientoRegistro,
   type ProgramaLaboratorioRegistro,
@@ -93,6 +97,12 @@ export const catalogo: ForjaTool[] = [
         "Los jóvenes reciben créditos mensuales tras completar el curso de IA responsable.",
         "Una ruta de cursos los lleva de la idea al prototipo y al lanzamiento de su startup.",
       ],
+      por_que_lo_financia_nuevo_leon: (getDataset<HallazgoFinanciamientoRegistro>("hallazgos-financiamiento")?.registros ?? [])
+        .filter((h) => h.verificado)
+        .map((h) => ({ hallazgo: h.hallazgo, implicacion: h.implicacion })),
+      vacios_que_cubre: (getDataset<VacioProgramaRegistro>("vacios-programas-nl")?.registros ?? [])
+        .filter((v) => v.verificado)
+        .map((v) => ({ vacio: v.vacio, implicacion: v.implicacion_forja })),
       datasets: datasets.map((d) => ({ id: d.id, titulo: d.titulo, verificado: d.verificado, registros: d.registros.length })),
       simulacion_por_defecto: simularFondo(),
       aviso: AVISO_VERIFICADO,
@@ -103,7 +113,7 @@ export const catalogo: ForjaTool[] = [
     name: "forja_listar_datasets",
     title: "Listar datasets de Forja NL",
     description:
-      "Lista todos los datasets disponibles (población joven, matrícula universitaria, precios de modelos de IA, ecosistema de startups, programas de apoyo, educación en IA, programas de laboratorios de IA, cursos y tipo de cambio) con su descripción, número de registros, fuentes y si están verificados. Úsala para saber qué datos existen antes de llamar a forja_consultar_dataset.",
+      "Lista todos los datasets disponibles (población joven, matrícula universitaria, precios de modelos de IA, ecosistema de startups, programas de apoyo a jóvenes emprendedores, vacíos de esos programas, presupuesto conocido, educación en IA, programas de laboratorios de IA, hallazgos sobre el financiamiento del fondo, panorama verificable de la IA en Nuevo León, cursos y tipo de cambio) con su descripción, número de registros, fuentes y si están verificados. Úsala para saber qué datos existen antes de llamar a forja_consultar_dataset.",
     inputSchema: {},
     handler: () => ({ datasets: datasets.map(metadatos), aviso: AVISO_VERIFICADO }),
   }),
@@ -292,39 +302,68 @@ export const catalogo: ForjaTool[] = [
 
   defineTool({
     name: "forja_buscar_programas",
-    title: "Buscar programas de apoyo y educación en IA",
+    title: "Buscar programas, hallazgos y panorama de IA",
     description:
-      "Busca en tres catálogos a la vez: (1) programas de apoyo a jóvenes emprendedores en Nuevo León y México (financiamiento, incubación, becas), (2) oferta de educación en IA en Nuevo León (carreras, posgrados, cursos) y (3) programas de laboratorios de IA (xAI, Anthropic, OpenAI, Google) que otorgan créditos de API, cómputo o dinero. Filtra por catálogo, laboratorio, tipo y texto libre. Úsala para mostrar qué existe hoy, qué hueco cubre Forja NL y con quién se podría aliar. Cada resultado trae su url y si está verificado.",
+      "Busca en siete catálogos a la vez: (1) programas de apoyo a jóvenes emprendedores en Nuevo León y México (becas, crédito, fondos, premios, incubación; con estado y fechas de convocatoria), (2) oferta de educación en IA en Nuevo León (carreras, posgrados, cursos), (3) programas de créditos de laboratorios de IA (OpenAI, Google Cloud, AWS, Microsoft, Anthropic, xAI), (4) hallazgos sobre por qué el fondo lo financia Nuevo León (créditos intransferibles y por empresa, alumnos sin empresa no califican), (5) panorama verificable de iniciativas de IA en Nuevo León, (6) vacíos de los programas actuales para jóvenes (sin capital semilla abierto, sin crédito para menores de 21, convocatorias cerradas, sin acceso a tokens de IA) y (7) presupuesto conocido de esos programas. Filtra por catálogo, laboratorio, tipo, texto libre y si la convocatoria está abierta hoy. Úsala para mostrar qué existe hoy, qué hueco cubre Forja NL y con quién se podría aliar. Cada resultado trae su fuente y si está verificado.",
     inputSchema: {
       catalogo: z
-        .enum(["todos", "emprendimiento", "educacion-ia", "laboratorios"])
+        .enum(["todos", "emprendimiento", "educacion-ia", "laboratorios", "hallazgos", "panorama", "vacios", "presupuesto"])
         .optional()
         .describe("Catálogo donde buscar. Por defecto 'todos'."),
       texto: z.string().optional().describe('Texto libre a buscar en cualquier campo, ej. "créditos", "UANL", "mujeres".'),
-      laboratorio: z.string().optional().describe('Solo catálogo laboratorios: "xAI", "Anthropic", "OpenAI" o "Google".'),
+      laboratorio: z
+        .string()
+        .optional()
+        .describe('Solo catálogo laboratorios: "xAI", "Anthropic", "OpenAI", "Google", "AWS" o "Microsoft".'),
       tipo: z
         .string()
         .optional()
-        .describe('Tipo de apoyo (emprendimiento, ej. "financiamiento") o nivel educativo (educacion-ia, ej. "maestria").'),
+        .describe(
+          'Tipo de apoyo (emprendimiento, ej. "financiamiento"), nivel educativo (educacion-ia, ej. "maestria") o sector (panorama, ej. "municipio").',
+        ),
       solo_verificados: z.boolean().optional().describe("Si es true, devuelve solo registros verificados en su fuente."),
+      solo_abiertos: z
+        .boolean()
+        .optional()
+        .describe("Solo catálogo emprendimiento: si es true, devuelve solo programas abiertos, activos o permanentes hoy."),
       limite: z.number().int().positive().max(100).optional().describe("Máximo de resultados por catálogo. Por defecto 30."),
     },
-    handler: ({ catalogo = "todos", texto, laboratorio, tipo, solo_verificados, limite = 30 }) => {
+    handler: ({ catalogo = "todos", texto, laboratorio, tipo, solo_verificados, solo_abiertos, limite = 30 }) => {
       const fuentes = {
         emprendimiento: "programas-emprendimiento-nl-mx",
         "educacion-ia": "educacion-ia-nl",
         laboratorios: "programas-laboratorios-ia",
+        hallazgos: "hallazgos-financiamiento",
+        panorama: "panorama-ia-nl",
+        vacios: "vacios-programas-nl",
+        presupuesto: "presupuesto-programas-nl",
       } as const;
       const claves = catalogo === "todos" ? (Object.keys(fuentes) as (keyof typeof fuentes)[]) : [catalogo];
       const resultados = claves.map((clave) => {
         const d = getDataset<
-          (ProgramaEmprendimientoRegistro | EducacionIaRegistro | ProgramaLaboratorioRegistro) & Record<string, unknown>
+          (
+            | ProgramaEmprendimientoRegistro
+            | EducacionIaRegistro
+            | ProgramaLaboratorioRegistro
+            | HallazgoFinanciamientoRegistro
+            | PanoramaIaRegistro
+            | VacioProgramaRegistro
+            | PresupuestoProgramaRegistro
+          ) &
+            Record<string, unknown>
         >(fuentes[clave]);
         const registros = (d?.registros ?? [])
           .filter((r) => coincide(r, texto))
           .filter((r) => !laboratorio || clave !== "laboratorios" || norm(r.laboratorio).includes(norm(laboratorio)))
           .filter((r) => !laboratorio || clave === "laboratorios")
-          .filter((r) => !tipo || norm(r.tipo_apoyo ?? r.nivel ?? "").includes(norm(tipo)))
+          .filter(
+            (r) =>
+              !tipo ||
+              clave === "hallazgos" ||
+              clave === "vacios" ||
+              norm(r.tipo_apoyo ?? r.nivel ?? r.sector ?? r.tipo ?? "").includes(norm(tipo)),
+          )
+          .filter((r) => !solo_abiertos || clave !== "emprendimiento" || /abierto|activo|permanente/.test(norm(r.estado)))
           .filter((r) => !solo_verificados || r.verificado === true || (r.verificado === undefined && d?.verificado));
         return {
           catalogo: clave,
@@ -337,6 +376,76 @@ export const catalogo: ForjaTool[] = [
         };
       });
       return { resultados, aviso: AVISO_VERIFICADO };
+    },
+  }),
+
+  defineTool({
+    name: "forja_panorama_ia_nl",
+    title: "Panorama verificable de la IA en Nuevo León",
+    description:
+      "Devuelve el inventario verificado de iniciativas de IA y de digitalización en Nuevo León (gobierno estatal, Poder Judicial, Congreso, municipios, salud, universidades, empresas e infraestructura), con su estado (operativo, piloto, anunciado, suspendido...), si la IA es explícita o no está confirmada, la cifra citable y su fuente. Incluye un resumen por sector y las cifras verificadas listas para el pitch. Úsala para preguntas como '¿qué hace Nuevo León con IA?', '¿qué municipios usan IA?' o '¿qué cifras de IA en NL puedo citar?'. Distingue anuncio, piloto y operación: no presentes como IA lo que la fuente no confirma.",
+    inputSchema: {
+      sector: z
+        .enum([
+          "gobierno",
+          "judicial",
+          "legislativo",
+          "municipio",
+          "salud",
+          "educacion",
+          "universidad",
+          "empresa",
+          "infraestructura",
+          "ecosistema",
+        ])
+        .optional()
+        .describe("Filtra por sector."),
+      ia: z
+        .enum(["explícita", "no confirmada", "no es IA"])
+        .optional()
+        .describe("Filtra por evidencia de IA: 'explícita', 'no confirmada' o 'no es IA' (digitalización o automatización)."),
+      estado: z.string().optional().describe('Texto del estado, ej. "operativo", "piloto", "anunciado".'),
+      texto: z.string().optional().describe('Texto libre en cualquier campo, ej. "Monterrey", "UANL", "cámaras".'),
+      solo_verificados: z.boolean().optional().describe("Si es true, solo registros con fuente oficial o primaria."),
+      solo_cifras: z.boolean().optional().describe("Si es true, solo registros que traen una cifra citable."),
+      limite: z.number().int().positive().max(200).optional().describe("Máximo de registros a devolver. Por defecto 60."),
+    },
+    handler: ({ sector, ia, estado, texto, solo_verificados, solo_cifras, limite = 60 }) => {
+      const d = getDataset<PanoramaIaRegistro>("panorama-ia-nl");
+      const todos = d?.registros ?? [];
+      const registros = todos
+        .filter((r) => !sector || r.sector === sector)
+        .filter((r) => !ia || r.ia === ia)
+        .filter((r) => !estado || norm(r.estado).includes(norm(estado)))
+        .filter((r) => coincide(r, texto))
+        .filter((r) => !solo_verificados || r.verificado === true)
+        .filter((r) => !solo_cifras || Boolean(r.cifra));
+      const porSector: Record<string, { total: number; verificados: number }> = {};
+      for (const r of todos) {
+        const s = (porSector[r.sector] ??= { total: 0, verificados: 0 });
+        s.total += 1;
+        if (r.verificado) s.verificados += 1;
+      }
+      return {
+        id: d?.id ?? "panorama-ia-nl",
+        titulo: d?.titulo,
+        actualizado: d?.actualizado,
+        resumen: {
+          total: todos.length,
+          verificados: todos.filter((r) => r.verificado).length,
+          ia_explicita: todos.filter((r) => r.ia === "explícita").length,
+          por_sector: porSector,
+        },
+        cifras_verificadas_para_pitch: todos
+          .filter((r) => r.verificado && r.cifra)
+          .map((r) => ({ iniciativa: r.iniciativa, cifra: r.cifra, fuente: r.fuente })),
+        coincidencias: registros.length,
+        registros: registros.slice(0, limite),
+        ...(todos.length === 0 ? { nota: PENDIENTE } : {}),
+        retirados_por_falta_de_fuente: ["GO Data/City Management (Monterrey)", "InfraRisk 360", "CII.IA"],
+        fuentes: d?.fuentes ?? [],
+        aviso: `${AVISO_VERIFICADO} "Operativo" significa evidencia institucional de uso, no que el modelo sea preciso o seguro.`,
+      };
     },
   }),
 ];

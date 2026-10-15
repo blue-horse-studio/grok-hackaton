@@ -1,8 +1,29 @@
 {
   "id": "educacion-ia-nl",
   "titulo": "Oferta de educación en IA en Nuevo León",
-  "descripcion": "Pendiente de research (research/educacion-ia-nl.md). Carreras, posgrados, diplomados, cursos y comunidades de IA que hoy se ofrecen en Nuevo León. Campos: institucion, programa, nivel (licenciatura | maestria | diplomado | curso | comunidad), modalidad (presencial | en línea | híbrida), url. Research: research/educacion-ia-nl.md.",
-  "fuentes": [],
+  "descripcion": "Carreras, posgrados, programas de capacitación y laboratorios de IA que hoy se ofrecen en Nuevo León. Campos: institucion, programa, nivel, modalidad, url. Research: research/correccion-segunda-pasada-ia-nl.md (sección 2.5), research/mapa-programas-emprendimiento-tecnologia-jovenes-nl.md (sección 2.5) y research/programas-laboratorios-ia.md (corte 14/10/2026).",
+  "fuentes": [
+    {
+      "nombre": "UANL: Ingeniería en Inteligencia Artificial",
+      "url": "https://www.uanl.mx/oferta/ingenieria-en-inteligencia-artificial/"
+    },
+    {
+      "nombre": "Posgrado UANL: Maestría en Ciencia de Datos",
+      "url": "https://posgrado.uanl.mx/ofertas_educativas/maestria-en-ciencia-de-datos/"
+    },
+    {
+      "nombre": "Tec de Monterrey: Maestría en Inteligencia Artificial Aplicada",
+      "url": "https://maestriasydiplomados.tec.mx/posgrados/maestria-en-inteligencia-artificial-aplicada"
+    },
+    {
+      "nombre": "Gobierno de NL: Hola IA",
+      "url": "https://www.nl.gob.mx/es/boletines/acercan-nuevo-leon-y-csoftmty-capacitacion-10-mil-personas-en-inteligencia-artificial-en"
+    },
+    {
+      "nombre": "Secretaría de Educación NL: 50 mil docentes capacitados en IA",
+      "url": "https://www.nl.gob.mx/es/boletines/secretaria-de-educacion-capacita-50-mil-docentes-en-el-uso-innovador-de-la-ia-en-el-aula"
+    }
+  ],
   "verificado": false,
   "actualizado": "2026-10-14",
   "registros": [
@@ -11,9 +32,17 @@
       "programa": "Ingeniería en Inteligencia Artificial",
       "nivel": "licenciatura",
       "modalidad": "presencial",
-      "url": "https://www.fime.uanl.mx/programas-educativos/",
-      "verificado": false,
-      "nota": "Desde agosto de 2024."
+      "url": "https://www.uanl.mx/oferta/ingenieria-en-inteligencia-artificial/",
+      "nota": "10 semestres; operativa desde el 05/08/2024.",
+      "verificado": true
+    },
+    {
+      "institucion": "Tecnológico de Monterrey",
+      "programa": "Ingeniería en Ciencia de Datos e Inteligencia Artificial",
+      "nivel": "licenciatura",
+      "modalidad": "presencial",
+      "url": "https://tec.mx/en/Engineering-and-Sciences/bs-in-data-science-and-artificial-intelligence",
+      "verificado": true
     },
     {
       "institucion": "Tecnológico de Monterrey",
@@ -21,6 +50,140 @@
       "nivel": "maestria",
       "modalidad": "en línea",
       "url": "https://maestriasydiplomados.tec.mx/posgrados/maestria-en-inteligencia-artificial-aplicada",
+      "nota": "Incluye Sistemas Agénticos.",
+      "verificado": true
+    },
+    {
+      "institucion": "UANL — FCFM",
+      "programa": "Maestría en Ciencia de Datos",
+      "nivel": "maestria",
+      "modalidad": "presencial",
+      "url": "https://posgrado.uanl.mx/ofertas_educativas/maestria-en-ciencia-de-datos/",
+      "verificado": true
+    },
+    {
+      "institucion": "UANL — Derecho, CEDHNL y Universidad de Perugia",
+      "programa": "Maestría en Derechos Humanos y Nuevas Tecnologías (enfoque en IA)",
+      "nivel": "maestria",
+      "modalidad": "presencial",
+      "url": "https://cedhnl.org.mx/bs/secciones/sala-de-prensa/noticias/2025/CEDHNL_Com_2025_016.pdf",
+      "nota": "Inaugurada en 2025.",
+      "verificado": true
+    },
+    {
+      "institucion": "CIMAT Monterrey",
+      "programa": "Maestría en Cómputo Estadístico (machine learning)",
+      "nivel": "maestria",
+      "modalidad": "presencial",
+      "url": "https://www.cimat.mx/wp-content/uploads/2022/03/LINEAMIENTOS-MCE-FINAL.pdf",
+      "verificado": true
+    },
+    {
+      "institucion": "Gobierno de NL, Csoftmty, IBM SkillsBuild y Latimpacto",
+      "programa": "Hola IA: Mundial Inteligente",
+      "nivel": "curso",
+      "modalidad": "por confirmar",
+      "url": "https://www.nl.gob.mx/es/boletines/acercan-nuevo-leon-y-csoftmty-capacitacion-10-mil-personas-en-inteligencia-artificial-en",
+      "nota": "Meta anunciada: capacitar a 10,000 personas; sin avance publicado. Ruta gratuita: introducción de 20 minutos, módulo básico de 4 horas y curso avanzado opcional de 10 horas (Enfoque Monterrey, 22/05/2026).",
+      "verificado": true
+    },
+    {
+      "institucion": "Secretaría de Educación de NL (metodología Cuantrix, Fundación Televisa)",
+      "programa": "Capacitación docente en IA",
+      "nivel": "docentes",
+      "modalidad": "en línea",
+      "url": "https://www.nl.gob.mx/es/boletines/secretaria-de-educacion-capacita-50-mil-docentes-en-el-uso-innovador-de-la-ia-en-el-aula",
+      "nota": "Cerca de 50,000 docentes de educación básica capacitados (resultado, noviembre de 2025).",
+      "verificado": true
+    },
+    {
+      "institucion": "Secretaría del Trabajo de NL y Generation México",
+      "programa": "Cursos tecnológicos (AWS Re/Start con fundamentos de IA, Java FullStack, Soporte TI, Unity)",
+      "nivel": "curso",
+      "modalidad": "en línea",
+      "url": "https://www.nl.gob.mx/es/boletines/anuncia-secretaria-del-trabajo-cursos-tecnologicos-en-coordinacion-con-generation-mexico",
+      "nota": "Gratis, tiempo completo; hasta 600 becas en 2026 con 15 millones de pesos; 18 a 29 años.",
+      "verificado": true
+    },
+    {
+      "institucion": "INJUVE Nuevo León y Santander",
+      "programa": "Becas Santander Open Academy (tecnología, IA e idiomas)",
+      "nivel": "curso",
+      "modalidad": "en línea",
+      "url": "https://www.posta.com.mx/nuevo-leon/injuve-nuevo-leon-lanza-5000-becas-en-ia-tecnologia-e-idiomas-como-tramitar-tu-registro/vl2261602",
+      "nota": "5,000 becas (meta); abierta hasta el 20 de octubre de 2026.",
+      "verificado": false
+    },
+    {
+      "institucion": "INJUVE Nuevo León",
+      "programa": "Bachillerato en línea con especialidad en IA, ciberseguridad, programación o análisis de datos",
+      "nivel": "bachillerato",
+      "modalidad": "en línea",
+      "url": "https://www.posta.com.mx/amp/nuevo-leon/injuve-abre-bachillerato-en-linea-2026-especializate-en-ia-ciberseguridad-y-mas/vl2159525",
+      "nota": "2 años; beca del 50% a los primeros 100 registros; clases desde el 16 de febrero de 2026.",
+      "verificado": false
+    },
+    {
+      "institucion": "Gobierno de NL y Comexus",
+      "programa": "Becas NL Impulso a la Inteligencia Artificial",
+      "nivel": "beca internacional",
+      "modalidad": "presencial (verano)",
+      "url": "https://www.becas.com/gobierno-del-estado-de-nuevo-leon/becas-nl-impulso-inteligencia-artificial",
+      "nota": "Licenciatura, ingeniería y TSU; promedio mínimo de 8.5 y nivel de inglés. Vigencia por confirmar.",
+      "verificado": false
+    },
+    {
+      "institucion": "Secretaría de Economía NL y OpenAI Academy",
+      "programa": "Talleres de OpenAI Academy en la U-ERRE y el Tec",
+      "nivel": "curso",
+      "modalidad": "presencial",
+      "url": "https://www.nl.gob.mx/es/boletines/promueve-nl-la-adopcion-de-ia-con-capacitaciones-de-openai",
+      "nota": "Reportados el 29/01/2026. Capacitación, no créditos.",
+      "verificado": true
+    },
+    {
+      "institucion": "Tecmilenio e IBM",
+      "programa": "Máster en Inteligencia Artificial",
+      "nivel": "maestria",
+      "modalidad": "en línea",
+      "url": "https://www.credly.com/org/universidad-tecmilenio/badge/master-in-artificial-intelligence",
+      "nota": "Fuente: insignia en Credly, no página de la universidad.",
+      "verificado": false
+    },
+    {
+      "institucion": "Csoftmty y Microsoft",
+      "programa": "Academia de Inteligencia Artificial",
+      "nivel": "curso",
+      "modalidad": "por confirmar",
+      "url": "https://www.descubre.vc/noticia/csoftmty-y-microsoft-lanzan-academia-de-inteligencia-artificial-en-nuevo-le-n-2025-05-22",
+      "nota": "Lanzada el 22/05/2025 (prensa).",
+      "verificado": false
+    },
+    {
+      "institucion": "UANL",
+      "programa": "Bootcamps de IA para docentes",
+      "nivel": "curso",
+      "modalidad": "por confirmar",
+      "url": "https://www.telediario.mx/comunidad/nuevo-leon-universidades-impulsan-uso-etico-inteligencia-artificial",
+      "nota": "Según prensa (27/07/2026). Los lineamientos de uso de IA no se han publicado.",
+      "verificado": false
+    },
+    {
+      "institucion": "CONALEP NL e Intel",
+      "programa": "Carrera técnica en Ciencia de Datos e IA (AI for Youth)",
+      "nivel": "tecnico",
+      "modalidad": "presencial",
+      "url": "https://www.xataka.com.mx/robotica-e-ia/conalep-tendra-materia-inteligencia-artificial-mexico-estos-seran-primeros-planteles",
+      "nota": "Operativa en 2023-24; no se verificó en 2026.",
+      "verificado": false
+    },
+    {
+      "institucion": "Secundaria 19 de Juárez",
+      "programa": "Laboratorio de IA (más de 750 alumnos)",
+      "nivel": "secundaria",
+      "modalidad": "presencial",
+      "url": "https://mundoejecutivocdmx.com/mundo-politico/samuel-garcia-ciclo-escolar-2026-2027-nuevo-leon/",
+      "nota": "Inaugurado el 31/08/2026 (prensa).",
       "verificado": false
     }
   ]

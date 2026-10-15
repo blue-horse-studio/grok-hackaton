@@ -1,0 +1,108 @@
+{
+  "id": "hallazgos-financiamiento",
+  "titulo": "Hallazgos: por qué el fondo de tokens lo debe financiar Nuevo León",
+  "descripcion": "Conclusiones de la revisión de los programas de créditos de OpenAI, Google Cloud, AWS, Microsoft, Anthropic y xAI. Los créditos de los laboratorios no forman una bolsa que el estado pueda repartir: son intransferibles y por empresa, y un alumno sin empresa no califica. Por eso el fondo lo financia Nuevo León y los créditos de los laboratorios son un complemento. Research: research/programas-laboratorios-ia.md y research/correccion-segunda-pasada-ia-nl.md (corte 14/10/2026).",
+  "fuentes": [
+    { "nombre": "OpenAI: términos de créditos de servicio", "url": "https://openai.com/policies/service-credit-terms/" },
+    { "nombre": "Google Cloud: términos del programa para startups", "url": "https://cloud.google.com/terms/startup-program-tos" },
+    { "nombre": "AWS Activate: términos (secciones 1.1 y 1.2)", "url": "https://aws.amazon.com/activate/terms/" },
+    { "nombre": "Microsoft for Startups: beneficios", "url": "https://learn.microsoft.com/en-us/microsoft-for-startups/benefits" },
+    { "nombre": "Anthropic: Claude Startups y FAQ", "url": "https://claude.com/programs/startups" },
+    { "nombre": "xAI: términos de Grok for Startups", "url": "https://x.ai/legal/startup-program-terms", "fecha": "2026-10-07" }
+  ],
+  "verificado": true,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "hallazgo": "Los créditos de los laboratorios son intransferibles y por empresa",
+      "proveedores": "OpenAI, Google Cloud, AWS, xAI",
+      "implicacion": "No existe una bolsa de créditos que el estado pueda recibir y repartir",
+      "detalle": "Cada empresa elegible solicita los créditos a su nombre y no puede transferirlos ni redistribuirlos. Los créditos de proveedores quedan en la cuenta de la empresa beneficiaria.",
+      "fuentes": [
+        { "nombre": "OpenAI: términos de créditos de servicio", "url": "https://openai.com/policies/service-credit-terms/" },
+        { "nombre": "Google Cloud: términos del programa", "url": "https://cloud.google.com/terms/startup-program-tos" },
+        { "nombre": "AWS Activate: términos", "url": "https://aws.amazon.com/activate/terms/" },
+        { "nombre": "xAI: términos de Grok for Startups", "url": "https://x.ai/legal/startup-program-terms" }
+      ],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Un alumno sin empresa constituida no califica en ningún programa revisado",
+      "proveedores": "OpenAI, Google Cloud, AWS, Microsoft, Anthropic, xAI",
+      "implicacion": "Para ese perfil, el único apoyo posible es el estatal",
+      "detalle": "Todos los programas piden una empresa (y varios, inversión de un fondo socio). Microsoft exige empresa privada con fines de lucro y producto propio.",
+      "fuentes": [
+        { "nombre": "OpenAI for Startups", "url": "https://openai.com/startups/" },
+        { "nombre": "Google Cloud: niveles y requisitos", "url": "https://cloud.google.com/startup/benefits" },
+        { "nombre": "AWS Activate: créditos", "url": "https://aws.amazon.com/startups/credits" },
+        { "nombre": "Microsoft for Startups: beneficios", "url": "https://learn.microsoft.com/en-us/microsoft-for-startups/benefits" },
+        { "nombre": "Anthropic: Claude Startups", "url": "https://claude.com/programs/startups" },
+        { "nombre": "xAI: términos de Grok for Startups", "url": "https://x.ai/legal/startup-program-terms" }
+      ],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Google y AWS excluyen a entidades gubernamentales",
+      "proveedores": "Google Cloud, AWS",
+      "implicacion": "Forja NL no puede recibir sus créditos y debe cuidar que su apoyo no vuelva inelegibles a los beneficiarios",
+      "detalle": "Los gobiernos no son elegibles en Google Cloud. AWS excluye también a las organizaciones financiadas sustancialmente por un gobierno.",
+      "fuentes": [
+        { "nombre": "Google Cloud: niveles y requisitos", "url": "https://cloud.google.com/startup/benefits" },
+        { "nombre": "AWS Activate: términos (secciones 1.1 y 1.2)", "url": "https://aws.amazon.com/activate/terms/" }
+      ],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Grok / xAI no publica monto",
+      "proveedores": "xAI",
+      "implicacion": "No se puede presupuestar con créditos de Grok; hay que negociar una cohorte institucional",
+      "detalle": "Grok for Startups evalúa caso por caso, sin monto garantizado; los créditos vencen a los seis meses y no se transfieren.",
+      "fuentes": [{ "nombre": "xAI: términos de Grok for Startups (actualización 07/10/2026)", "url": "https://x.ai/legal/startup-program-terms" }],
+      "verificado": true
+    },
+    {
+      "hallazgo": "La cohorte general de Anthropic no está disponible",
+      "proveedores": "Anthropic",
+      "implicacion": "No contar estos créditos en el presupuesto inicial",
+      "detalle": "Solo queda una vía de hasta USD 100,000 por medio de fondos socios, válida únicamente para la API propia (no en AWS, Google ni Azure).",
+      "fuentes": [{ "nombre": "Anthropic: Claude Startups y FAQ", "url": "https://claude.com/programs/startups" }],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Ningún laboratorio ha comprometido créditos para Forja NL",
+      "proveedores": "OpenAI, Google Cloud, AWS, Microsoft, Anthropic, xAI",
+      "implicacion": "Todo monto citado es un máximo publicado, sujeto a aprobación",
+      "detalle": "El presupuesto se calcula sin donaciones; solo se descuentan los créditos aprobados y efectivamente aplicados.",
+      "fuentes": [{ "nombre": "Investigación Forja NL: programas de laboratorios de IA (14/10/2026)" }],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Conclusión: el fondo de tokens lo financia Nuevo León",
+      "proveedores": "Todos",
+      "implicacion": "Apoyo estatal como base; créditos de laboratorios como complemento que cada startup tramita",
+      "detalle": "Dos vías: (1) apoyo estatal para el consumo de IA, con tope y vencimiento, única opción para quien todavía no tiene empresa; (2) créditos de proveedores que cada empresa elegible solicita con acompañamiento de Forja NL.",
+      "fuentes": [{ "nombre": "Investigación Forja NL: programas de laboratorios de IA (14/10/2026)" }],
+      "verificado": true
+    },
+    {
+      "hallazgo": "No hay en Nuevo León un mecanismo que dé a jóvenes acceso directo a cómputo o tokens",
+      "proveedores": "Ecosistema de Nuevo León",
+      "implicacion": "Ese es el hueco que ocupa Forja NL",
+      "detalle": "No se encontró un programa estatal vigente con el alcance completo de Forja NL (esto no prueba que sea el primero de México ni del mundo). Los únicos fondos encontrados son el de Monterrey Digital Hub (solo anunciado, sin monto) y las inversiones corporativas. Referentes internacionales: IndiaAI Compute y la Enterprise Compute Initiative de Singapur.",
+      "fuentes": [
+        { "nombre": "Gobierno de India: IndiaAI Compute", "url": "https://compute.indiaai.gov.in/login" },
+        { "nombre": "Digital Industry Singapore: Enterprise Compute Initiative", "url": "https://www.disg.gov.sg/eci/enterprise-compute-initiative/" },
+        { "nombre": "Ecosistema Startup: fondo de Monterrey Digital Hub (24/09/2025)", "url": "https://ecosistemastartup.com/?p=45312" }
+      ],
+      "verificado": true
+    },
+    {
+      "hallazgo": "Presupuesto ilustrativo del piloto: USD 74,250",
+      "proveedores": "Forja NL",
+      "implicacion": "Seis meses, 100 participantes, 25 prototipos y hasta 10 proyectos de continuidad",
+      "detalle": "Consumo de IA USD 37,500 (100 × 50 + 25 × 500 + 10 × 2,000); docencia y mentoría USD 20,000; operación y evaluación USD 10,000; contingencia 10%. Tope por proyecto que complete las tres etapas: USD 2,550. Cifras propias, sin cotización ni financiamiento comprometido.",
+      "fuentes": [{ "nombre": "Investigación Forja NL: presupuesto ilustrativo (14/10/2026)" }],
+      "verificado": false
+    }
+  ]
+}

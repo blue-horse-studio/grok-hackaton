@@ -1,0 +1,140 @@
+{
+  "id": "presupuesto-programas-nl",
+  "titulo": "Presupuesto: lo que se sabe de los programas para jóvenes y emprendedores en NL",
+  "descripcion": "Montos públicos conocidos del presupuesto estatal y de los programas de emprendimiento y formación (Monto, Acumulado o Vacío). No se encontró presupuesto por programa ni por dependencia. Research: research/mapa-programas-emprendimiento-tecnologia-jovenes-nl.md, sección 7.",
+  "fuentes": [
+    {
+      "nombre": "Ley de Egresos del Estado 2026",
+      "url": "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/lxxvii/P_%2020753%20Ley%20de%20Egresos%20del%20Estado%202026.pdf"
+    },
+    {
+      "nombre": "Gobierno de NL: Paquete Fiscal",
+      "url": "https://www.nl.gob.mx/es/paquete-fiscal"
+    },
+    {
+      "nombre": "La Silla Rota: veto al paquete fiscal 2026",
+      "url": "https://lasillarota.com/estados/2026/1/13/paquete-fiscal-2026-el-veto-la-negociacion-que-viene-en-nuevo-leon-490769.html"
+    }
+  ],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "concepto": "Ley de Egresos 2026 de Nuevo León (gasto neto)",
+      "monto": "160,952 millones de pesos; 10,933.9 millones de inversión pública directa",
+      "tipo": "Monto",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "Hora Cero",
+        "url": "https://horacero.com.mx/nuevo-leon/aprueban-ley-de-egresos-2026-en-nuevo-leon"
+      },
+      "nota": "El gobernador vetó el paquete fiscal el 9 de enero de 2026 y no se encontró cómo se resolvió: puede no ser la cifra definitiva.",
+      "verificado": false
+    },
+    {
+      "concepto": "Paquete fiscal 2026 propuesto por el Ejecutivo",
+      "monto": "179,494 millones de pesos",
+      "tipo": "Monto",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "MVS, 21/11/2025",
+        "url": "https://mvsnoticias.com/nuevo-leon/2025/11/21/nuevo-leon-presenta-paquete-fiscal-2026-con-presupuesto-historico-de-179-mil-494-mdp-713447.html"
+      },
+      "verificado": false
+    },
+    {
+      "concepto": "Impulso NL: créditos entregados",
+      "monto": "10,896 millones de pesos a 4,383 mipymes (unos 2.5 millones por empresa, cálculo propio)",
+      "tipo": "Acumulado",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "Político (informe de septiembre de 2026)",
+        "url": "https://politico.mx/2026/09/10/nuevo-leon-capta-135-mil-mdd-en-inversion/"
+      },
+      "nota": "Sin periodo declarado (probablemente desde 2021). Es crédito reembolsable, no apoyo a fondo perdido.",
+      "verificado": false
+    },
+    {
+      "concepto": "Impulso NL: relanzamiento de junio de 2025",
+      "monto": "6,000 millones de pesos en créditos y bolsa de 200 millones para microcréditos",
+      "tipo": "Monto",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "MVS y El Financiero",
+        "url": "https://mvsnoticias.com/nuevo-leon/2025/6/17/relanzan-impulso-nl-creditos-por-mil-millones-para-mipymes-690724.html"
+      },
+      "verificado": false
+    },
+    {
+      "concepto": "Cursos tecnológicos con Generation México",
+      "monto": "15 millones de pesos para hasta 600 becas (unos 25,000 pesos por beca, cálculo propio)",
+      "tipo": "Monto",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "Secretaría del Trabajo NL, 12/03/2026",
+        "url": "https://www.nl.gob.mx/es/boletines/anuncia-secretaria-del-trabajo-cursos-tecnologicos-en-coordinacion-con-generation-mexico"
+      },
+      "nota": "Única cifra de inversión estatal en formación tecnológica encontrada.",
+      "verificado": true
+    },
+    {
+      "concepto": "Ella Emprende 2026",
+      "monto": "Hasta 150,000 pesos por persona",
+      "tipo": "Monto",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "Gobierno de NL",
+        "url": "https://www.nl.gob.mx/es/convocatoria/ella-emprende-2026"
+      },
+      "verificado": true
+    },
+    {
+      "concepto": "Hub de Innovación y Emprendimiento Eduardo Garza T.",
+      "monto": "662 millones de pesos",
+      "tipo": "Monto",
+      "nivel_gobierno": "universidad",
+      "fuente": {
+        "nombre": "Nortech",
+        "url": "https://nortech.200post.com/hub-tec-monterrey-eduardo-garza-startups-cientificas-2026"
+      },
+      "nota": "Inversión universitaria (Tec de Monterrey), no estatal.",
+      "verificado": false
+    },
+    {
+      "concepto": "Fondo de Fondos (Impulsora de Innovación México)",
+      "monto": "4,000 millones de pesos",
+      "tipo": "Monto",
+      "nivel_gobierno": "federal",
+      "fuente": {
+        "nombre": "Nafin, 25/02/2026",
+        "url": "https://www.nafin.com/portalnf/files/secciones/sala-prensa/comunicados-pdf/2026/6-Comunicado_Impulsora_de_Innovacion_Mexico.pdf"
+      },
+      "nota": "Invierte en fondos de capital de riesgo, no directamente en startups.",
+      "verificado": true
+    },
+    {
+      "concepto": "InnovaFest 2026",
+      "monto": "Más de 17 millones de pesos en premios a nivel nacional",
+      "tipo": "Monto",
+      "nivel_gobierno": "federal",
+      "fuente": {
+        "nombre": "InnovaFest",
+        "url": "https://innovafest.mx/"
+      },
+      "nota": "Bolsa de todo el país, no un fondo de Nuevo León.",
+      "verificado": true
+    },
+    {
+      "concepto": "Presupuesto por dependencia (Economía, INJUVE, Trabajo)",
+      "monto": "No encontrado",
+      "tipo": "Vacío",
+      "nivel_gobierno": "estatal",
+      "fuente": {
+        "nombre": "Ley de Egresos del Estado 2026 (expediente 20753/LXXVII)",
+        "url": "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/lxxvii/P_%2020753%20Ley%20de%20Egresos%20del%20Estado%202026.pdf"
+      },
+      "nota": "Debe estar en la Ley de Egresos o en el Paquete Fiscal; no se encontró el desglose por programa.",
+      "verificado": true
+    }
+  ]
+}

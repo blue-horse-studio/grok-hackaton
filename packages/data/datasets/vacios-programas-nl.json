@@ -1,0 +1,171 @@
+{
+  "id": "vacios-programas-nl",
+  "titulo": "Vacíos: lo que no cubren hoy los programas para jóvenes en NL",
+  "descripcion": "Huecos en el apoyo a jóvenes que emprenden en Nuevo León: sin capital semilla abierto, sin crédito para menores de 21, convocatorias cerradas, sin acceso a cómputo o tokens de IA y sin presupuesto ni resultados por programa. Son el argumento de por qué hace falta Forja NL. Research: research/mapa-programas-emprendimiento-tecnologia-jovenes-nl.md (secciones 1 y 8), research/programas-emprendimiento-jovenes-monterrey.md (sección 11) y research/correccion-segunda-pasada-ia-nl.md (sección 4).",
+  "fuentes": [
+    {
+      "nombre": "Gobierno de NL: Nuevo Impulso Nuevo León",
+      "url": "https://www.nl.gob.mx/es/nuevo-impulso-nuevo-leon"
+    },
+    {
+      "nombre": "I2T2: convocatoria FONLIN 2026",
+      "url": "https://i2t2.org.mx/pdf/convocatorias/2026/FONLIN-2026-CONVOCATORIA.pdf"
+    },
+    {
+      "nombre": "Ley de Egresos del Estado 2026",
+      "url": "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/lxxvii/P_%2020753%20Ley%20de%20Egresos%20del%20Estado%202026.pdf"
+    }
+  ],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "vacio": "No hay una convocatoria estatal abierta con capital semilla para jóvenes",
+      "implicacion_forja": "Forja NL entrega recurso para construir (tokens de IA), no solo formación",
+      "evidencia": "El apoyo más claro para jóvenes es capacitación y becas (Santander, Generation, bachillerato del INJUVE). Primera Empresa existe en la ley, pero no se encontró que opere con convocatoria.",
+      "fuentes": [
+        {
+          "nombre": "Ley de Fomento a la Inversión y al Empleo de NL",
+          "url": "https://www.hcnl.gob.mx/trabajo_legislativo/leyes/leyes/ley_de_fomento_a_la_inversion_y_al_empleo_para_el_estado_de_nuevo_leon/"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "Los jóvenes de 18 a 20 años casi no tienen acceso a crédito público para emprender",
+      "implicacion_forja": "Forja NL atiende a quien todavía no tiene empresa ni historial",
+      "evidencia": "El microcrédito de Impulso NL pide 21 años o más y un negocio con al menos 12 meses; el microcrédito individual de Monterrey también pide 21 años.",
+      "fuentes": [
+        {
+          "nombre": "Gobierno de NL: Nuevo Impulso Nuevo León",
+          "url": "https://www.nl.gob.mx/es/nuevo-impulso-nuevo-leon"
+        },
+        {
+          "nombre": "Microcréditos Monterrey",
+          "url": "https://microcreditos.monterrey.gob.mx/"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "El gasto estatal más grande en emprendimiento es crédito, no capacitación ni herramientas",
+      "implicacion_forja": "Un fondo de tokens cubre la etapa previa al crédito: prototipar y validar",
+      "evidencia": "Impulso NL reporta 10,896 millones de pesos a 4,383 mipymes (acumulado, prensa); la única inversión en formación encontrada es de 15 millones de pesos para 600 becas de Generation.",
+      "fuentes": [
+        {
+          "nombre": "Político (informe de septiembre de 2026)",
+          "url": "https://politico.mx/2026/09/10/nuevo-leon-capta-135-mil-mdd-en-inversion/"
+        },
+        {
+          "nombre": "Secretaría del Trabajo NL",
+          "url": "https://www.nl.gob.mx/es/boletines/anuncia-secretaria-del-trabajo-cursos-tecnologicos-en-coordinacion-con-generation-mexico"
+        }
+      ],
+      "verificado": false
+    },
+    {
+      "vacio": "Hay un hueco de dinero en etapa muy temprana",
+      "implicacion_forja": "Forja NL financia el primer prototipo, antes de que un fondo invierta",
+      "evidencia": "Un director de un programa del Tec señala que el capital de riesgo se movió a tickets más grandes. En México una ronda pre-seed suele ir de USD 50,000 a 250,000.",
+      "fuentes": [
+        {
+          "nombre": "Startupeable",
+          "url": "https://startupeable.com/venture-capital-mexico/"
+        }
+      ],
+      "verificado": false
+    },
+    {
+      "vacio": "Las convocatorias 2026 con dinero para proyectos tecnológicos ya cerraron",
+      "implicacion_forja": "Forja NL puede operar todo el año, sin depender de una ventana anual",
+      "evidencia": "FONLIN cerró el 3 de junio, InnovaFest el 11 de mayo, IFE Accelerator el 26 de julio y TecPrize el 30 de septiembre de 2026. Quien empieza hoy debe esperar a los ciclos de 2027.",
+      "fuentes": [
+        {
+          "nombre": "I2T2: convocatoria FONLIN 2026",
+          "url": "https://i2t2.org.mx/pdf/convocatorias/2026/FONLIN-2026-CONVOCATORIA.pdf"
+        },
+        {
+          "nombre": "InnovaFest",
+          "url": "https://innovafest.mx/"
+        },
+        {
+          "nombre": "TecPrize 2026",
+          "url": "https://www.globenewswire.com/news-release/2026/09/01/3354567/0/en/tecprize-2026-opens-call-for-applications-to-advance-the-future-of-work-in-latin-america.html"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "Ningún programa da a jóvenes acceso directo a cómputo o tokens de IA",
+      "implicacion_forja": "Es el hueco exacto que ocupa Forja NL",
+      "evidencia": "Hay formación en IA (Hola IA, Santander, Generation, ~50,000 docentes) e infraestructura en camino, pero ningún mecanismo para que un joven use modelos de IA para construir. Los créditos de los laboratorios exigen empresa.",
+      "fuentes": [
+        {
+          "nombre": "Investigación Forja NL: corrección del panorama de IA en NL (14/10/2026)"
+        },
+        {
+          "nombre": "Investigación Forja NL: programas de laboratorios de IA (14/10/2026)"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "No hay presupuesto por programa ni por dependencia",
+      "implicacion_forja": "Forja NL propone gasto trazable: créditos otorgados, consumo y resultados por separado",
+      "evidencia": "No se encontró el desglose de la Secretaría de Economía, del INJUVE ni de la Secretaría del Trabajo; el paquete fiscal 2026 fue vetado el 9 de enero de 2026.",
+      "fuentes": [
+        {
+          "nombre": "Ley de Egresos del Estado 2026",
+          "url": "https://www.hcnl.gob.mx/trabajo_legislativo/pdf/lxxvii/P_%2020753%20Ley%20de%20Egresos%20del%20Estado%202026.pdf"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "Muchas cifras de beneficiarios son metas, no resultados",
+      "implicacion_forja": "Forja NL mide prototipos validados, costo por prototipo y continuidad",
+      "evidencia": "Hola IA (10,000 personas), Generation (600 becas) y becas Santander (5,000) son metas. La cifra más reciente del INJUVE (171,221 jóvenes atendidos) es de octubre de 2024.",
+      "fuentes": [
+        {
+          "nombre": "Gobierno de NL: INJUVE",
+          "url": "https://www.nl.gob.mx/es/boletines/alista-injuve-nl-triplicar-numero-de-programas-y-beneficiarios-en-continuidad-de-la"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "No hay indicadores de resultado de largo plazo",
+      "implicacion_forja": "La evaluación es parte del diseño de Forja NL desde el piloto",
+      "evidencia": "No se publican cuántos negocios siguen operando, empleos creados ni ingresos de los beneficiarios.",
+      "fuentes": [
+        {
+          "nombre": "Investigación Forja NL: mapa de programas (14/10/2026)"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "Ninguna universidad pública de NL está en el programa nacional de microcredenciales",
+      "implicacion_forja": "Forja NL puede llegar a la UANL y a las universidades públicas",
+      "evidencia": "El programa de Santander, el Tec y el Gobierno Federal incluye 12 universidades de 10 estados; ninguna pública de Nuevo León.",
+      "fuentes": [
+        {
+          "nombre": "Santander: microcredenciales",
+          "url": "https://www.santander.com/es/sala-de-comunicacion/notas-de-prensa/2026/02/santander-tecnologico-de-monterrey-y-gobierno-federal-impulsan-programa-nacional-para-que-12-universidades-desarrollen-microcredenciales-y-fortalezcan-la-empleabilidad-de-hasta-330000-estudiantes-en-mexico"
+        }
+      ],
+      "verificado": true
+    },
+    {
+      "vacio": "No hay programas 2026 de FEMSA ni de Cemex para jóvenes, ni uno propio de la UANL",
+      "implicacion_forja": "Espacio para que la IP coinvierta en Forja NL",
+      "evidencia": "Las empresas participan como aliadas del gobierno o de universidades, pero no se encontró un programa propio dirigido a jóvenes.",
+      "fuentes": [
+        {
+          "nombre": "Investigación Forja NL: mapa de programas (14/10/2026)"
+        }
+      ],
+      "verificado": true
+    }
+  ]
+}

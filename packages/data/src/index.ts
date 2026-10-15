@@ -6,6 +6,10 @@ import ecosistemaStartupsNl from "../datasets/ecosistema-startups-nl.json";
 import programasEmprendimientoNlMx from "../datasets/programas-emprendimiento-nl-mx.json";
 import educacionIaNl from "../datasets/educacion-ia-nl.json";
 import programasLaboratoriosIa from "../datasets/programas-laboratorios-ia.json";
+import panoramaIaNl from "../datasets/panorama-ia-nl.json";
+import hallazgosFinanciamiento from "../datasets/hallazgos-financiamiento.json";
+import presupuestoProgramasNl from "../datasets/presupuesto-programas-nl.json";
+import vaciosProgramasNl from "../datasets/vacios-programas-nl.json";
 import cursosForja from "../datasets/cursos-forja.json";
 import tipoCambio from "../datasets/tipo-cambio.json";
 
@@ -19,8 +23,12 @@ export const datasets: Dataset[] = [
   preciosModelosIa,
   ecosistemaStartupsNl,
   programasEmprendimientoNlMx,
+  vaciosProgramasNl,
+  presupuestoProgramasNl,
   educacionIaNl,
   programasLaboratoriosIa,
+  hallazgosFinanciamiento,
+  panoramaIaNl,
   cursosForja,
   tipoCambio,
 ] as unknown as Dataset[];

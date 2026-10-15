@@ -4,6 +4,11 @@
   "descripcion": "Indicadores del ecosistema emprendedor de Monterrey / Nuevo León (rankings, número de startups, inversión de capital de riesgo). Campos: indicador, valor (número o texto), unidad, anio, url.",
   "fuentes": [
     {
+      "nombre": "Gobierno de NL: primer lugar en adopción de IA en empresas",
+      "url": "https://nl.gob.mx/es/boletines/es-nuevo-leon-primer-lugar-en-adopcion-de-inteligencia-artificial-en-empresas",
+      "fecha": "2026-03-12"
+    },
+    {
       "nombre": "Nortech (200 Post) citando StartupBlink 2026",
       "url": "https://nortech.200post.com/monterrey-cae-15-lugares-ranking-global-startups-2026"
     },
@@ -19,6 +24,24 @@
   "verificado": false,
   "actualizado": "2026-10-14",
   "registros": [
+    {
+      "indicador": "Empresas de NL (10+ empleados) que usan IA, primer lugar nacional",
+      "valor": "12.6%",
+      "unidad": "porcentaje",
+      "anio": 2026,
+      "url": "https://nl.gob.mx/es/boletines/es-nuevo-leon-primer-lugar-en-adopcion-de-inteligencia-artificial-en-empresas",
+      "nota": "Estudio del Centro México Digital basado en el Censo Económico 2024 del INEGI, difundido por el Gobierno de NL el 12/03/2026. Usar IA no implica sistemas en producción.",
+      "verificado": true
+    },
+    {
+      "indicador": "Promedio nacional de empresas que usan IA",
+      "valor": "8.0%",
+      "unidad": "porcentaje",
+      "anio": 2026,
+      "url": "https://nl.gob.mx/es/boletines/es-nuevo-leon-primer-lugar-en-adopcion-de-inteligencia-artificial-en-empresas",
+      "nota": "Le siguen a NL Tamaulipas (9.9%) y CDMX (9.4%).",
+      "verificado": true
+    },
     {
       "indicador": "Lugar global de Monterrey en StartupBlink",
       "valor": 198,
