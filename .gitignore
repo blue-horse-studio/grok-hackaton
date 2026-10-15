@@ -9,3 +9,4 @@ dist
 *.log
 presentation/renders
 presentation/node_modules
+.claude/settings.local.json
