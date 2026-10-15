@@ -1,0 +1,117 @@
+{
+  "id": "cursos-forja",
+  "titulo": "Ruta de formación Forja NL",
+  "descripcion": "Currículo propuesto por Forja NL para el buen uso de la IA. El módulo 1 es requisito para recibir créditos de tokens. Los demás desbloquean más créditos conforme el equipo avanza de idea a lanzamiento. Es nuestra propuesta, no un dato externo.",
+  "fuentes": [
+    {
+      "nombre": "Propuesta Forja NL",
+      "fecha": "2026-10-14"
+    }
+  ],
+  "verificado": true,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "id": "ia-responsable",
+      "orden": 1,
+      "titulo": "IA responsable y uso seguro de tokens",
+      "nivel": "fundamentos",
+      "horas": 6,
+      "modalidad": "en línea, a tu ritmo",
+      "descripcion": "Cómo funcionan los modelos de lenguaje, qué es un token y cuánto cuesta. Privacidad, sesgos, alucinaciones y la ley mexicana de datos personales.",
+      "temas": [
+        "Qué es un token y cómo se cobra",
+        "Privacidad y datos personales (LFPDPPP)",
+        "Sesgos y alucinaciones",
+        "Uso ético y atribución"
+      ],
+      "para_quien": "Todo beneficiario, antes de recibir créditos",
+      "requisito_para_creditos": true
+    },
+    {
+      "id": "prompting-y-agentes",
+      "orden": 2,
+      "titulo": "Prompting, herramientas y agentes",
+      "nivel": "fundamentos",
+      "horas": 10,
+      "modalidad": "híbrida",
+      "descripcion": "Del chat a los agentes: instrucciones claras, contexto, uso de herramientas (MCP) y evaluación de respuestas.",
+      "temas": [
+        "Ingeniería de prompts",
+        "Contexto y recuperación (RAG)",
+        "Herramientas y MCP",
+        "Evaluar y comparar modelos"
+      ],
+      "para_quien": "Estudiantes de cualquier carrera",
+      "requisito_para_creditos": false
+    },
+    {
+      "id": "construir-con-ia",
+      "orden": 3,
+      "titulo": "Construye tu producto con IA",
+      "nivel": "construccion",
+      "horas": 16,
+      "modalidad": "presencial en hubs de Monterrey",
+      "descripcion": "Taller práctico para pasar de idea a prototipo usando APIs de modelos (Grok, Claude, GPT, Gemini) y asistentes de programación.",
+      "temas": [
+        "APIs de modelos y SDKs",
+        "Asistentes de programación",
+        "Prototipado rápido",
+        "Control de costos de tokens"
+      ],
+      "para_quien": "Equipos con una idea de startup",
+      "requisito_para_creditos": false
+    },
+    {
+      "id": "datos-y-evaluacion",
+      "orden": 4,
+      "titulo": "Datos, evaluación y calidad",
+      "nivel": "construccion",
+      "horas": 8,
+      "modalidad": "en línea en vivo",
+      "descripcion": "Cómo medir si tu producto con IA funciona: conjuntos de prueba, métricas, observabilidad y manejo de errores.",
+      "temas": [
+        "Conjuntos de evaluación",
+        "Métricas de calidad",
+        "Observabilidad y trazas",
+        "Seguridad ante inyección de prompts"
+      ],
+      "para_quien": "Equipos con prototipo funcionando",
+      "requisito_para_creditos": false
+    },
+    {
+      "id": "de-prototipo-a-startup",
+      "orden": 5,
+      "titulo": "De prototipo a startup",
+      "nivel": "lanzamiento",
+      "horas": 12,
+      "modalidad": "presencial con mentores",
+      "descripcion": "Modelo de negocio, costo unitario por usuario con IA, pitch y conexión con inversionistas y programas del ecosistema de Nuevo León.",
+      "temas": [
+        "Costo unitario y precios",
+        "Modelo de negocio",
+        "Pitch e inversión",
+        "Programas de apoyo en NL y México"
+      ],
+      "para_quien": "Equipos listos para buscar clientes o inversión",
+      "requisito_para_creditos": false
+    },
+    {
+      "id": "ia-para-tu-comunidad",
+      "orden": 6,
+      "titulo": "IA para tu comunidad",
+      "nivel": "lanzamiento",
+      "horas": 6,
+      "modalidad": "presencial en municipios",
+      "descripcion": "Proyectos de IA con impacto en Nuevo León: gobierno, salud, educación, industria y medio ambiente. Los equipos replican el taller en su municipio.",
+      "temas": [
+        "Retos públicos de Nuevo León",
+        "Datos abiertos",
+        "Diseño centrado en las personas",
+        "Replicar el taller en tu comunidad"
+      ],
+      "para_quien": "Beneficiarios que quieren multiplicar el impacto",
+      "requisito_para_creditos": false
+    }
+  ]
+}

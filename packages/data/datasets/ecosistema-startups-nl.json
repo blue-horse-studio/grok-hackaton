@@ -1,0 +1,74 @@
+{
+  "id": "ecosistema-startups-nl",
+  "titulo": "Ecosistema de startups en Monterrey y Nuevo León",
+  "descripcion": "Indicadores del ecosistema emprendedor de Monterrey / Nuevo León (rankings, número de startups, inversión de capital de riesgo). Campos: indicador, valor (número o texto), unidad, anio, url.",
+  "fuentes": [
+    {
+      "nombre": "Nortech (200 Post) citando StartupBlink 2026",
+      "url": "https://nortech.200post.com/monterrey-cae-15-lugares-ranking-global-startups-2026"
+    },
+    {
+      "nombre": "LAVCA — 2026 Trends in Tech",
+      "url": "https://www.lavca.org/research/2026-lavca-trends-in-tech/"
+    },
+    {
+      "nombre": "Tekios citando Endeavor SCAN Monterrey 2026",
+      "url": "https://tekiosmag.com/2026/10/01/el-ecosistema-de-monterrey-crecio-en-red-pero-cayo-de-26-a-8-startups-fundadas-al-ano-segun-endeavor/"
+    }
+  ],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "indicador": "Lugar global de Monterrey en StartupBlink",
+      "valor": 198,
+      "unidad": "lugar",
+      "anio": 2026,
+      "url": "https://nortech.200post.com/monterrey-cae-15-lugares-ranking-global-startups-2026",
+      "verificado": true,
+      "nota": "Bajó 15 lugares contra 2025. Visto en prensa que cita StartupBlink, no en StartupBlink."
+    },
+    {
+      "indicador": "Lugar global de la Ciudad de México en StartupBlink",
+      "valor": 63,
+      "unidad": "lugar",
+      "anio": 2026,
+      "url": "https://nortech.200post.com/monterrey-cae-15-lugares-ranking-global-startups-2026",
+      "verificado": true
+    },
+    {
+      "indicador": "Crecimiento del capital captado por México (VC)",
+      "valor": "+21%",
+      "unidad": "variación anual",
+      "anio": 2025,
+      "url": "https://www.lavca.org/research/2026-lavca-trends-in-tech/",
+      "verificado": true
+    },
+    {
+      "indicador": "Startups tech fundadas en Monterrey desde 2015",
+      "valor": 153,
+      "unidad": "startups",
+      "anio": 2026,
+      "url": "https://tekiosmag.com/2026/10/01/el-ecosistema-de-monterrey-crecio-en-red-pero-cayo-de-26-a-8-startups-fundadas-al-ano-segun-endeavor/",
+      "verificado": false
+    },
+    {
+      "indicador": "Startups tech fundadas en Monterrey en 2025",
+      "valor": 8,
+      "unidad": "startups",
+      "anio": 2025,
+      "url": "https://tekiosmag.com/2026/10/01/el-ecosistema-de-monterrey-crecio-en-red-pero-cayo-de-26-a-8-startups-fundadas-al-ano-segun-endeavor/",
+      "verificado": false,
+      "nota": "Contra 26 en 2023 (-69%)."
+    },
+    {
+      "indicador": "Fondos de capital de riesgo con sede en Monterrey",
+      "valor": 12,
+      "unidad": "fondos",
+      "anio": 2026,
+      "url": "https://tekiosmag.com/2026/10/01/el-ecosistema-de-monterrey-crecio-en-red-pero-cayo-de-26-a-8-startups-fundadas-al-ano-segun-endeavor/",
+      "verificado": false,
+      "nota": "Contra 63 en CDMX."
+    }
+  ]
+}

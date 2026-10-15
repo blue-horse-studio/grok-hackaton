@@ -1,0 +1,31 @@
+{
+  "id": "tipo-cambio",
+  "titulo": "Tipo de cambio MXN/USD de referencia",
+  "descripcion": "Tipo de cambio de referencia para convertir precios de API (USD) a pesos. Campos: fecha (ISO), mxn_por_usd, tipo (ej. \"FIX Banxico\"). Fuente esperada: Banco de México.",
+  "fuentes": [
+    {
+      "nombre": "Banco de México — SIE, cuadro CF373 (tipo de cambio FIX)",
+      "url": "https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?sector=6&accion=consultarCuadro&idCuadro=CF373&locale=es",
+      "fecha": "2026-10-14"
+    }
+  ],
+  "verificado": true,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "fecha": "2026-10-12",
+      "mxn_por_usd": 18.2542,
+      "tipo": "FIX Banxico"
+    },
+    {
+      "fecha": "2026-10-13",
+      "mxn_por_usd": 18.3528,
+      "tipo": "FIX Banxico"
+    },
+    {
+      "fecha": "2026-10-14",
+      "mxn_por_usd": 18.4888,
+      "tipo": "FIX Banxico"
+    }
+  ]
+}

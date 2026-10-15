@@ -1,0 +1,70 @@
+{
+  "id": "programas-laboratorios-ia",
+  "titulo": "Programas de laboratorios de IA que financian proyectos e instituciones",
+  "descripcion": "Pendiente de research (research/programas-laboratorios-ia.md). Programas de xAI (SpaceX), Anthropic, OpenAI y Google que otorgan créditos de API, cómputo o dinero a startups, estudiantes, investigadores o instituciones. Campos: laboratorio, programa, que_otorga, a_quien, monto (texto), monto_usd (número opcional), url. Research: research/programas-laboratorios-ia.md.",
+  "fuentes": [],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "laboratorio": "Anthropic",
+      "programa": "AI for Science",
+      "que_otorga": "Créditos de API",
+      "a_quien": "Investigadores de academia y ONG con afiliación institucional",
+      "monto": "Hasta USD 20,000 por 6 meses",
+      "monto_usd": 20000,
+      "url": "https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program",
+      "verificado": true
+    },
+    {
+      "laboratorio": "Anthropic",
+      "programa": "Claude for Startups",
+      "que_otorga": "Claude Team por 1 año y USD 1,000 en créditos de API",
+      "a_quien": "Startups con menos de 5 años",
+      "monto": "USD 1,000 en créditos",
+      "monto_usd": 1000,
+      "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+      "verificado": false,
+      "nota": "Forbes reporta que se pausó el 9 de octubre de 2026."
+    },
+    {
+      "laboratorio": "OpenAI",
+      "programa": "NextGenAI",
+      "que_otorga": "Becas de investigación, fondos de cómputo y acceso a la API",
+      "a_quien": "15 instituciones de investigación",
+      "monto": "USD 50 millones",
+      "monto_usd": 50000000,
+      "url": "https://techcrunch.com/2025/03/04/openai-launches-50m-grant-program-to-help-fund-academic-research/",
+      "verificado": false
+    },
+    {
+      "laboratorio": "OpenAI",
+      "programa": "OpenAI Academy",
+      "que_otorga": "Cursos gratuitos de IA",
+      "a_quien": "Público general, incluido México",
+      "monto": "Sin monto",
+      "url": "https://help.openai.com/en/articles/20001270-openai-academy-courses",
+      "verificado": false
+    },
+    {
+      "laboratorio": "Google",
+      "programa": "Google for Startups Cloud Program (IA)",
+      "que_otorga": "Créditos de Google Cloud",
+      "a_quien": "Startups de IA",
+      "monto": "Hasta USD 350,000",
+      "monto_usd": 350000,
+      "url": "https://cloud.google.com/startup/ai",
+      "verificado": false
+    },
+    {
+      "laboratorio": "xAI",
+      "programa": "Créditos de API de xAI",
+      "que_otorga": "Créditos de prueba al registrarse",
+      "a_quien": "Desarrolladores",
+      "monto": "Por confirmar",
+      "url": "https://docs.x.ai/",
+      "verificado": false,
+      "nota": "No se encontró un programa oficial de xAI para startups o estudiantes."
+    }
+  ]
+}

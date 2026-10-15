@@ -1,0 +1,38 @@
+{
+  "id": "matricula-educacion-superior-nl",
+  "titulo": "Matrícula de educación superior en Nuevo León",
+  "descripcion": "Alumnos inscritos en educación superior en Nuevo León, total estatal y por institución. Campos: institucion, siglas, sostenimiento (\"publica\" | \"privada\" | \"total\"), nivel (licenciatura, posgrado, TSU...), matricula, ciclo (ej. \"2023-2024\"). Fuente esperada: ANUIES / SEP.",
+  "fuentes": [
+    {
+      "nombre": "ANUIES — Anuario Estadístico interactivo",
+      "url": "https://anuario.anuies.mx/"
+    },
+    {
+      "nombre": "ANUIES — Indicadores de ampliación de cobertura",
+      "url": "https://ampliacioncobertura.anuies.mx/indicadores"
+    }
+  ],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "institucion": "Nuevo León (total estatal)",
+      "sostenimiento": "total",
+      "nivel": "superior (total)",
+      "matricula": 324299,
+      "ciclo": "por confirmar (probablemente 2025-2026)",
+      "nota": "169,132 mujeres y 155,167 hombres. Visto solo en resultado de búsqueda.",
+      "verificado": false
+    },
+    {
+      "institucion": "Universidad Autónoma de Nuevo León",
+      "siglas": "UANL",
+      "sostenimiento": "publica",
+      "nivel": "superior (sin bachillerato)",
+      "matricula": 128731,
+      "ciclo": "2023-2024",
+      "nota": "Visto solo en resultado de búsqueda.",
+      "verificado": false
+    }
+  ]
+}

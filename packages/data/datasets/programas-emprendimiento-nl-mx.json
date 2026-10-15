@@ -1,0 +1,42 @@
+{
+  "id": "programas-emprendimiento-nl-mx",
+  "titulo": "Programas de apoyo a jóvenes emprendedores en Nuevo León y México",
+  "descripcion": "Pendiente de research (research/programas-emprendimiento.md). Programas existentes que apoyan a jóvenes emprendedores (financiamiento, incubación, aceleración, becas, capacitación). Campos: nombre, operador, ambito (\"Nuevo León\" | \"México\"), tipo_apoyo, monto (texto), monto_mxn (número opcional), poblacion_objetivo, url. Research: research/programas-emprendimiento.md.",
+  "fuentes": [],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "nombre": "Impulso Nuevo León — Crédito Empresarial",
+      "operador": "Gobierno de Nuevo León (Secretaría de Economía)",
+      "ambito": "Nuevo León",
+      "tipo_apoyo": "financiamiento",
+      "monto": "Hasta 3 veces las ventas mensuales, máximo MXN 5,000,000",
+      "monto_mxn": 5000000,
+      "poblacion_objetivo": "MiPyMEs con 24 meses o más de operación en NL",
+      "url": "https://www.impulsonuevoleon.gob.mx/credito-empresarial/",
+      "verificado": false
+    },
+    {
+      "nombre": "Ella Emprende 2026",
+      "operador": "Gobierno de Nuevo León",
+      "ambito": "Nuevo León",
+      "tipo_apoyo": "financiamiento",
+      "monto": "Hasta MXN 150,000",
+      "monto_mxn": 150000,
+      "poblacion_objetivo": "Mujeres emprendedoras",
+      "url": "https://www.nl.gob.mx/es/convocatoria/ella-emprende-2026",
+      "verificado": false
+    },
+    {
+      "nombre": "Fomento a la Primera Empresa",
+      "operador": "Gobierno de Nuevo León",
+      "ambito": "Nuevo León",
+      "tipo_apoyo": "incentivo fiscal",
+      "monto": "100% de subsidio del Impuesto Sobre Nómina por 24 meses",
+      "poblacion_objetivo": "Jóvenes con su primera empresa",
+      "url": "https://www.hcnl.gob.mx/trabajo_legislativo/leyes/leyes/ley_de_fomento_a_la_inversion_y_al_empleo_para_el_estado_de_nuevo_leon/",
+      "verificado": false
+    }
+  ]
+}

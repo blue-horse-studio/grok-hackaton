@@ -1,0 +1,27 @@
+{
+  "id": "educacion-ia-nl",
+  "titulo": "Oferta de educación en IA en Nuevo León",
+  "descripcion": "Pendiente de research (research/educacion-ia-nl.md). Carreras, posgrados, diplomados, cursos y comunidades de IA que hoy se ofrecen en Nuevo León. Campos: institucion, programa, nivel (licenciatura | maestria | diplomado | curso | comunidad), modalidad (presencial | en línea | híbrida), url. Research: research/educacion-ia-nl.md.",
+  "fuentes": [],
+  "verificado": false,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "institucion": "UANL — FIME",
+      "programa": "Ingeniería en Inteligencia Artificial",
+      "nivel": "licenciatura",
+      "modalidad": "presencial",
+      "url": "https://www.fime.uanl.mx/programas-educativos/",
+      "verificado": false,
+      "nota": "Desde agosto de 2024."
+    },
+    {
+      "institucion": "Tecnológico de Monterrey",
+      "programa": "Maestría en Inteligencia Artificial Aplicada",
+      "nivel": "maestria",
+      "modalidad": "en línea",
+      "url": "https://maestriasydiplomados.tec.mx/posgrados/maestria-en-inteligencia-artificial-aplicada",
+      "verificado": false
+    }
+  ]
+}

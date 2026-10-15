@@ -1,0 +1,25 @@
+{
+  "id": "poblacion-joven-nl",
+  "titulo": "Población joven de Nuevo León",
+  "descripcion": "Población de 15 a 29 años por municipio de Nuevo León (y total estatal). Campos por registro: municipio, clave_inegi, nivel (\"estado\" | \"municipio\"), zona_metropolitana (bool), poblacion_total, poblacion_15_29, anio. Fuente esperada: INEGI Censo 2020 o más reciente. Por ahora solo el total estatal; el desglose por municipio está pendiente de research.",
+  "fuentes": [
+    {
+      "nombre": "DataMéxico (Secretaría de Economía) con datos de INEGI, Censo de Población y Vivienda 2020",
+      "url": "https://www.economia.gob.mx/datamexico/es/profile/geo/nuevo-leon-nl",
+      "fecha": "2020"
+    }
+  ],
+  "verificado": true,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "municipio": "Nuevo León",
+      "clave_inegi": "19",
+      "nivel": "estado",
+      "poblacion_total": 5784442,
+      "poblacion_15_29": 1464071,
+      "anio": 2020,
+      "nota": "15-19: 471,896; 20-24: 503,826; 25-29: 488,349 (25.3% de la población). La suma 1,464,071 es nuestra."
+    }
+  ]
+}

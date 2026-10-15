@@ -1,0 +1,167 @@
+{
+  "id": "precios-modelos-ia",
+  "titulo": "Precios de modelos de IA (USD por millón de tokens)",
+  "descripcion": "Precio de API estándar por millón de tokens de entrada y salida. Campos: id (id de API), proveedor, modelo, usd_input_por_millon, usd_output_por_millon, categoria (\"frontera\" | \"economico\" | \"abierto\"), url, fecha. Incluir xAI (Grok), Anthropic (Claude), OpenAI, Google (Gemini) y al menos un modelo de pesos abiertos. Precios estándar (sin batch ni caché, contexto corto) consultados el 2026-10-14 en las páginas oficiales.",
+  "fuentes": [
+    {
+      "nombre": "xAI — Models and pricing",
+      "url": "https://docs.x.ai/docs/models",
+      "fecha": "2026-10-14"
+    },
+    {
+      "nombre": "Anthropic — Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "nombre": "OpenAI — API pricing",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "nombre": "Google — Gemini API pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "nombre": "Groq — Models",
+      "url": "https://console.groq.com/docs/models",
+      "fecha": "2026-10-14"
+    },
+    {
+      "nombre": "DeepSeek — Pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "fecha": "2026-10-14"
+    }
+  ],
+  "verificado": true,
+  "actualizado": "2026-10-14",
+  "registros": [
+    {
+      "id": "grok-4.7",
+      "proveedor": "xAI",
+      "modelo": "Grok 4.7",
+      "usd_input_por_millon": 2,
+      "usd_output_por_millon": 6,
+      "categoria": "frontera",
+      "url": "https://docs.x.ai/docs/models",
+      "fecha": "2026-10-14",
+      "nota": "Prompts de 200k tokens o más cuestan el doble."
+    },
+    {
+      "id": "grok-4.3",
+      "proveedor": "xAI",
+      "modelo": "Grok 4.3",
+      "usd_input_por_millon": 1.25,
+      "usd_output_por_millon": 2.5,
+      "categoria": "economico",
+      "url": "https://docs.x.ai/docs/models",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "grok-build-0.1",
+      "proveedor": "xAI",
+      "modelo": "Grok Build 0.1",
+      "usd_input_por_millon": 1,
+      "usd_output_por_millon": 2,
+      "categoria": "economico",
+      "url": "https://docs.x.ai/docs/pricing",
+      "fecha": "2026-10-14",
+      "nota": "Modelo de texto más barato de xAI."
+    },
+    {
+      "id": "claude-opus-5-5",
+      "proveedor": "Anthropic",
+      "modelo": "Claude Opus 5.5",
+      "usd_input_por_millon": 4,
+      "usd_output_por_millon": 20,
+      "categoria": "frontera",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "proveedor": "Anthropic",
+      "modelo": "Claude Sonnet 5.5",
+      "usd_input_por_millon": 2,
+      "usd_output_por_millon": 10,
+      "categoria": "frontera",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "proveedor": "Anthropic",
+      "modelo": "Claude Haiku 5.5",
+      "usd_input_por_millon": 0.1,
+      "usd_output_por_millon": 0.5,
+      "categoria": "economico",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "fecha": "2026-10-14",
+      "nota": "Precio para prompts de hasta 100k tokens; arriba cuesta $0.50/$2.50."
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "proveedor": "OpenAI",
+      "modelo": "GPT-6.1 Sol",
+      "usd_input_por_millon": 2,
+      "usd_output_por_millon": 10,
+      "categoria": "frontera",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "gpt-6-luna",
+      "proveedor": "OpenAI",
+      "modelo": "GPT-6 Luna",
+      "usd_input_por_millon": 0.1,
+      "usd_output_por_millon": 0.5,
+      "categoria": "economico",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "gemini-4-argon",
+      "proveedor": "Google",
+      "modelo": "Gemini 4 Argon",
+      "usd_input_por_millon": 2,
+      "usd_output_por_millon": 10,
+      "categoria": "frontera",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "fecha": "2026-10-14",
+      "nota": "Sube a $4/$20 a partir del 2026-12-01."
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "proveedor": "Google",
+      "modelo": "Gemini 3.8 Flash",
+      "usd_input_por_millon": 0.75,
+      "usd_output_por_millon": 3.75,
+      "categoria": "economico",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "fecha": "2026-10-14",
+      "nota": "Sube a $1.50/$7.50 a partir del 2027-01-01."
+    },
+    {
+      "id": "openai/gpt-oss-120b",
+      "proveedor": "Groq (pesos abiertos)",
+      "modelo": "GPT OSS 120B",
+      "usd_input_por_millon": 0.15,
+      "usd_output_por_millon": 0.6,
+      "categoria": "abierto",
+      "url": "https://console.groq.com/docs/models",
+      "fecha": "2026-10-14"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "proveedor": "DeepSeek",
+      "modelo": "DeepSeek V4 Pro",
+      "usd_input_por_millon": 1.32,
+      "usd_output_por_millon": 3.96,
+      "categoria": "abierto",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "fecha": "2026-10-14",
+      "nota": "Precio en hora pico; fuera de pico cuesta la mitad. No se confirmó si los pesos son abiertos."
+    }
+  ]
+}
