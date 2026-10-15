@@ -1,14 +1,21 @@
 /**
- * Logomark de Forja NL. PUNTO ÚNICO DE CAMBIO del logo en la web: cuando llegue el logo
- * monolínea definitivo a packages/brand/assets/, reemplaza el SVG de abajo.
+ * Símbolo de Forja NL: la chimenea de la Fundidora es el fuste de la F, las vigas son los brazos
+ * y la chispa/token oro flota arriba. Fuente: packages/brand/assets/forja-simbolo.svg
  * (favicon y OG lo leen directo de packages/brand/assets/logomark.svg).
- * Gramática NL: monolínea gruesa en var(--fg) + chispa/token oro (cuadrado chaflanado) flotando arriba.
  */
 export function Logomark({ className = "" }: { className?: string; id?: string }) {
   return (
-    <svg viewBox="0 0 64 64" fill="none" className={className} role="img" aria-label="Forja NL">
-      <path d="M19 58 V22 H47 M19 40 H40" stroke="var(--fg)" strokeWidth="7" strokeLinejoin="miter" />
-      <polygon className="destello" points="45,4 51,4 54,7 54,13 51,16 45,16 42,13 42,7" fill="var(--forja-oro)" />
+    <svg viewBox="0 0 240 240" fill="none" className={className} role="img" aria-label="Forja NL">
+      <g stroke="var(--fg)" strokeWidth="22" strokeLinecap="butt" strokeLinejoin="miter">
+        <path d="M60 222 V90 L78 72 H104 V222 Z" />
+        <path d="M104 114 H190" />
+        <path d="M104 166 H166" />
+      </g>
+      <path
+        className="destello"
+        d="M68.4 7 L95.6 7 L102 13.4 L102 40.6 L95.6 47 L68.4 47 L62 40.6 L62 13.4 Z"
+        fill="var(--forja-oro)"
+      />
     </svg>
   );
 }
