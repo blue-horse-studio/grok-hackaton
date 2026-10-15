@@ -1,0 +1,680 @@
+[
+  {
+    "text": "El",
+    "start": 0,
+    "end": 0.15,
+    "id": "w0"
+  },
+  {
+    "text": "1900",
+    "start": 0.46,
+    "end": 1.04,
+    "id": "w1"
+  },
+  {
+    "text": "nació",
+    "start": 1.04,
+    "end": 1.35,
+    "id": "w2"
+  },
+  {
+    "text": "en",
+    "start": 1.44,
+    "end": 1.55,
+    "id": "w3"
+  },
+  {
+    "text": "Monterrey,",
+    "start": 1.55,
+    "end": 2.27,
+    "id": "w4"
+  },
+  {
+    "text": "La",
+    "start": 2.46,
+    "end": 2.5,
+    "id": "w5"
+  },
+  {
+    "text": "Fondidora,",
+    "start": 2.5,
+    "end": 3.01,
+    "id": "w6"
+  },
+  {
+    "text": "la",
+    "start": 3.65,
+    "end": 3.67,
+    "id": "w7"
+  },
+  {
+    "text": "primera",
+    "start": 3.67,
+    "end": 4.07,
+    "id": "w8"
+  },
+  {
+    "text": "acerera",
+    "start": 4.07,
+    "end": 4.48,
+    "id": "w9"
+  },
+  {
+    "text": "de",
+    "start": 4.48,
+    "end": 4.6,
+    "id": "w10"
+  },
+  {
+    "text": "América",
+    "start": 4.6,
+    "end": 5.02,
+    "id": "w11"
+  },
+  {
+    "text": "Latina.",
+    "start": 5.02,
+    "end": 6,
+    "id": "w12"
+  },
+  {
+    "text": "Durante",
+    "start": 6,
+    "end": 6.58,
+    "id": "w13"
+  },
+  {
+    "text": "un",
+    "start": 6.58,
+    "end": 6.74,
+    "id": "w14"
+  },
+  {
+    "text": "siglo,",
+    "start": 6.74,
+    "end": 7.25,
+    "id": "w15"
+  },
+  {
+    "text": "Nuevo",
+    "start": 7.35,
+    "end": 7.73,
+    "id": "w16"
+  },
+  {
+    "text": "León",
+    "start": 7.73,
+    "end": 8.05,
+    "id": "w17"
+  },
+  {
+    "text": "construyó",
+    "start": 8.05,
+    "end": 8.8,
+    "id": "w18"
+  },
+  {
+    "text": "con",
+    "start": 8.8,
+    "end": 8.99,
+    "id": "w19"
+  },
+  {
+    "text": "acero,",
+    "start": 9.21,
+    "end": 9.62,
+    "id": "w20"
+  },
+  {
+    "text": "fábricas,",
+    "start": 9.65,
+    "end": 10.43,
+    "id": "w21"
+  },
+  {
+    "text": "puentes,",
+    "start": 10.43,
+    "end": 11.1,
+    "id": "w22"
+  },
+  {
+    "text": "ciudades.",
+    "start": 11.5,
+    "end": 12,
+    "id": "w23"
+  },
+  {
+    "text": "El",
+    "start": 12,
+    "end": 12.18,
+    "id": "w24"
+  },
+  {
+    "text": "acero",
+    "start": 12.36,
+    "end": 12.63,
+    "id": "w25"
+  },
+  {
+    "text": "levantó",
+    "start": 12.63,
+    "end": 13.25,
+    "id": "w26"
+  },
+  {
+    "text": "nuestras",
+    "start": 13.44,
+    "end": 13.96,
+    "id": "w27"
+  },
+  {
+    "text": "ciudades.",
+    "start": 14.02,
+    "end": 14.99,
+    "id": "w28"
+  },
+  {
+    "text": "Hoy",
+    "start": 14.99,
+    "end": 15,
+    "id": "w29"
+  },
+  {
+    "text": "los",
+    "start": 15.14,
+    "end": 15.32,
+    "id": "w30"
+  },
+  {
+    "text": "toquen",
+    "start": 15.32,
+    "end": 15.62,
+    "id": "w31"
+  },
+  {
+    "text": "sin",
+    "start": 15.65,
+    "end": 15.78,
+    "id": "w32"
+  },
+  {
+    "text": "inteligencia",
+    "start": 15.78,
+    "end": 16.42,
+    "id": "w33"
+  },
+  {
+    "text": "artificial,",
+    "start": 16.42,
+    "end": 17.1,
+    "id": "w34"
+  },
+  {
+    "text": "levantan",
+    "start": 17.57,
+    "end": 17.72,
+    "id": "w35"
+  },
+  {
+    "text": "empresas.",
+    "start": 18.04,
+    "end": 19,
+    "id": "w36"
+  },
+  {
+    "text": "Con",
+    "start": 19,
+    "end": 19.22,
+    "id": "w37"
+  },
+  {
+    "text": "ellos,",
+    "start": 19.46,
+    "end": 19.74,
+    "id": "w38"
+  },
+  {
+    "text": "una",
+    "start": 19.74,
+    "end": 19.86,
+    "id": "w39"
+  },
+  {
+    "text": "sola",
+    "start": 19.96,
+    "end": 20.25,
+    "id": "w40"
+  },
+  {
+    "text": "persona",
+    "start": 20.44,
+    "end": 20.78,
+    "id": "w41"
+  },
+  {
+    "text": "puede",
+    "start": 20.78,
+    "end": 21.15,
+    "id": "w42"
+  },
+  {
+    "text": "crear",
+    "start": 21.15,
+    "end": 21.52,
+    "id": "w43"
+  },
+  {
+    "text": "lo",
+    "start": 21.52,
+    "end": 21.67,
+    "id": "w44"
+  },
+  {
+    "text": "que",
+    "start": 21.67,
+    "end": 21.89,
+    "id": "w45"
+  },
+  {
+    "text": "antes",
+    "start": 21.89,
+    "end": 22,
+    "id": "w46"
+  },
+  {
+    "text": "requería",
+    "start": 22.56,
+    "end": 22.86,
+    "id": "w47"
+  },
+  {
+    "text": "un",
+    "start": 22.86,
+    "end": 23.01,
+    "id": "w48"
+  },
+  {
+    "text": "equipo",
+    "start": 23.01,
+    "end": 23.46,
+    "id": "w49"
+  },
+  {
+    "text": "entero.",
+    "start": 23.46,
+    "end": 24,
+    "id": "w50"
+  },
+  {
+    "text": "Pero",
+    "start": 24,
+    "end": 24.18,
+    "id": "w51"
+  },
+  {
+    "text": "ese",
+    "start": 24.18,
+    "end": 24.31,
+    "id": "w52"
+  },
+  {
+    "text": "acceso",
+    "start": 24.46,
+    "end": 24.58,
+    "id": "w53"
+  },
+  {
+    "text": "cuesta.",
+    "start": 24.58,
+    "end": 25,
+    "id": "w54"
+  },
+  {
+    "text": "Yhoy",
+    "start": 25,
+    "end": 25.35,
+    "id": "w55"
+  },
+  {
+    "text": "depende",
+    "start": 25.44,
+    "end": 25.96,
+    "id": "w56"
+  },
+  {
+    "text": "de",
+    "start": 26.02,
+    "end": 26.17,
+    "id": "w57"
+  },
+  {
+    "text": "quién",
+    "start": 26.17,
+    "end": 26.54,
+    "id": "w58"
+  },
+  {
+    "text": "puede",
+    "start": 26.62,
+    "end": 26.99,
+    "id": "w59"
+  },
+  {
+    "text": "pagarlo.",
+    "start": 27.34,
+    "end": 28,
+    "id": "w60"
+  },
+  {
+    "text": "Por",
+    "start": 28,
+    "end": 28.18,
+    "id": "w61"
+  },
+  {
+    "text": "eso",
+    "start": 28.18,
+    "end": 28.46,
+    "id": "w62"
+  },
+  {
+    "text": "proponemos",
+    "start": 28.46,
+    "end": 28.86,
+    "id": "w63"
+  },
+  {
+    "text": "forja",
+    "start": 28.96,
+    "end": 29.25,
+    "id": "w64"
+  },
+  {
+    "text": "Nuevo",
+    "start": 29.35,
+    "end": 29.57,
+    "id": "w65"
+  },
+  {
+    "text": "León,",
+    "start": 29.57,
+    "end": 29.95,
+    "id": "w66"
+  },
+  {
+    "text": "un",
+    "start": 30.02,
+    "end": 30.13,
+    "id": "w67"
+  },
+  {
+    "text": "fondo",
+    "start": 30.13,
+    "end": 30.27,
+    "id": "w68"
+  },
+  {
+    "text": "de",
+    "start": 30.46,
+    "end": 30.54,
+    "id": "w69"
+  },
+  {
+    "text": "tokens",
+    "start": 30.62,
+    "end": 30.99,
+    "id": "w70"
+  },
+  {
+    "text": "para",
+    "start": 30.99,
+    "end": 31,
+    "id": "w71"
+  },
+  {
+    "text": "que",
+    "start": 31.21,
+    "end": 31.38,
+    "id": "w72"
+  },
+  {
+    "text": "estudiantes",
+    "start": 31.64,
+    "end": 32,
+    "id": "w73"
+  },
+  {
+    "text": "y",
+    "start": 32,
+    "end": 32.04,
+    "id": "w74"
+  },
+  {
+    "text": "jóvenes",
+    "start": 32.04,
+    "end": 32.37,
+    "id": "w75"
+  },
+  {
+    "text": "emprendedores",
+    "start": 32.37,
+    "end": 33,
+    "id": "w76"
+  },
+  {
+    "text": "construyan",
+    "start": 33.43,
+    "end": 33.61,
+    "id": "w77"
+  },
+  {
+    "text": "conía,",
+    "start": 33.61,
+    "end": 34.03,
+    "id": "w78"
+  },
+  {
+    "text": "con",
+    "start": 34.03,
+    "end": 34.21,
+    "id": "w79"
+  },
+  {
+    "text": "la",
+    "start": 34.21,
+    "end": 34.26,
+    "id": "w80"
+  },
+  {
+    "text": "formación",
+    "start": 34.35,
+    "end": 34.89,
+    "id": "w81"
+  },
+  {
+    "text": "para",
+    "start": 34.89,
+    "end": 35.14,
+    "id": "w82"
+  },
+  {
+    "text": "usarla",
+    "start": 35.14,
+    "end": 35.51,
+    "id": "w83"
+  },
+  {
+    "text": "bien.",
+    "start": 35.51,
+    "end": 35.99,
+    "id": "w84"
+  },
+  {
+    "text": "Si",
+    "start": 36,
+    "end": 36.19,
+    "id": "w85"
+  },
+  {
+    "text": "el",
+    "start": 36.19,
+    "end": 36.46,
+    "id": "w86"
+  },
+  {
+    "text": "siglo",
+    "start": 36.46,
+    "end": 36.86,
+    "id": "w87"
+  },
+  {
+    "text": "XX",
+    "start": 36.86,
+    "end": 37.05,
+    "id": "w88"
+  },
+  {
+    "text": "lo",
+    "start": 37.05,
+    "end": 37.24,
+    "id": "w89"
+  },
+  {
+    "text": "forjamos",
+    "start": 37.24,
+    "end": 37.95,
+    "id": "w90"
+  },
+  {
+    "text": "con",
+    "start": 38.02,
+    "end": 38.27,
+    "id": "w91"
+  },
+  {
+    "text": "acero,",
+    "start": 38.46,
+    "end": 38.99,
+    "id": "w92"
+  },
+  {
+    "text": "el",
+    "start": 38.99,
+    "end": 39,
+    "id": "w93"
+  },
+  {
+    "text": "siglo",
+    "start": 39.64,
+    "end": 39.69,
+    "id": "w94"
+  },
+  {
+    "text": "XXI,",
+    "start": 39.69,
+    "end": 41,
+    "id": "w95"
+  },
+  {
+    "text": "si",
+    "start": 41,
+    "end": 41.12,
+    "id": "w96"
+  },
+  {
+    "text": "el",
+    "start": 41.12,
+    "end": 41.24,
+    "id": "w97"
+  },
+  {
+    "text": "siglo",
+    "start": 41.46,
+    "end": 41.56,
+    "id": "w98"
+  },
+  {
+    "text": "XX",
+    "start": 41.56,
+    "end": 41.68,
+    "id": "w99"
+  },
+  {
+    "text": "lo",
+    "start": 41.68,
+    "end": 41.8,
+    "id": "w100"
+  },
+  {
+    "text": "forjamos",
+    "start": 41.8,
+    "end": 42.25,
+    "id": "w101"
+  },
+  {
+    "text": "con",
+    "start": 42.44,
+    "end": 42.49,
+    "id": "w102"
+  },
+  {
+    "text": "acero,",
+    "start": 42.49,
+    "end": 42.95,
+    "id": "w103"
+  },
+  {
+    "text": "el",
+    "start": 43.02,
+    "end": 43.19,
+    "id": "w104"
+  },
+  {
+    "text": "siglo",
+    "start": 43.19,
+    "end": 43.66,
+    "id": "w105"
+  },
+  {
+    "text": "XXI",
+    "start": 43.66,
+    "end": 43.94,
+    "id": "w106"
+  },
+  {
+    "text": "lo",
+    "start": 43.94,
+    "end": 44,
+    "id": "w107"
+  },
+  {
+    "text": "vamos",
+    "start": 44,
+    "end": 44.65,
+    "id": "w108"
+  },
+  {
+    "text": "a",
+    "start": 44.65,
+    "end": 44.69,
+    "id": "w109"
+  },
+  {
+    "text": "forjar",
+    "start": 44.69,
+    "end": 45.25,
+    "id": "w110"
+  },
+  {
+    "text": "con",
+    "start": 45.25,
+    "end": 45.53,
+    "id": "w111"
+  },
+  {
+    "text": "inteligencia.",
+    "start": 45.53,
+    "end": 47,
+    "id": "w112"
+  }
+]
