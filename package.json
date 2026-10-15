@@ -1,0 +1,17 @@
+{
+  "name": "forja-nl",
+  "private": true,
+  "description": "Forja NL — fondo de tokens de IA para jóvenes emprendedores de Nuevo León",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm run dev -w @forja/web",
+    "build": "npm run build -w @forja/web",
+    "mcp": "npm run start -w @forja/mcp",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "tsx": "^4.23.15",
+    "@types/node": "^24"
+  }
+}

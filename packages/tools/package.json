@@ -1,0 +1,8 @@
+{
+  "name": "@forja/tools",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": { "@forja/data": "*", "zod": "^4.6.7" }
+}

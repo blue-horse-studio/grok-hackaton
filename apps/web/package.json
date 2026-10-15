@@ -1,0 +1,28 @@
+{
+  "name": "@forja/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@forja/brand": "*",
+    "@forja/data": "*",
+    "@forja/tools": "*",
+    "@modelcontextprotocol/server": "^2.3.1",
+    "mcp-handler": "^2.3.0",
+    "next": "^16.4.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4.3.3"
+  }
+}

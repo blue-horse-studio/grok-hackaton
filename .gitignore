@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+dist
+.vercel
+.env*
+!.env.example
+.DS_Store
+*.log
+presentation/renders
+presentation/node_modules
