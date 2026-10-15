@@ -1,0 +1,89 @@
+{
+ "duracion_video": 46.0,
+ "duracion_audio": 43.39,
+ "beats": [
+  {
+   "beat": 1,
+   "nombre": "Fundidora, 1900",
+   "inicio": 0.0,
+   "fin": 5.6,
+   "texto": "En 1900 nació en Monterrey la Fundidora, la primera acerera de América Latina.",
+   "acentos": {
+    "1900": 0.6,
+    "Fundidora,": 2.6
+   }
+  },
+  {
+   "beat": 2,
+   "nombre": "Un siglo de acero",
+   "inicio": 5.6,
+   "fin": 11.6,
+   "texto": "Durante un siglo, Nuevo León construyó con acero fábricas, puentes, ciudades.",
+   "acentos": {
+    "acero": 8.12,
+    "fábricas,": 8.92,
+    "puentes,": 9.72,
+    "ciudades.": 10.6
+   }
+  },
+  {
+   "beat": 3,
+   "nombre": "Los tokens levantan empresas",
+   "inicio": 11.6,
+   "fin": 18.6,
+   "texto": "El acero levantó nuestras ciudades. Hoy, los tokens de inteligencia artificial levantan empresas.",
+   "acentos": {
+    "Hoy,": 14.8,
+    "tokens": 15.72,
+    "levantan": 17.4,
+    "empresas.": 17.8
+   }
+  },
+  {
+   "beat": 4,
+   "nombre": "Una persona, un equipo",
+   "inicio": 18.6,
+   "fin": 23.6,
+   "texto": "Con ellos, una sola persona puede crear lo que antes requería un equipo entero,",
+   "acentos": {
+    "persona": 20.64,
+    "equipo": 22.64
+   }
+  },
+  {
+   "beat": 5,
+   "nombre": "El acceso cuesta",
+   "inicio": 23.6,
+   "fin": 27.6,
+   "texto": "pero ese acceso cuesta y hoy depende de quién puede pagarlo.",
+   "acentos": {
+    "cuesta": 24.68,
+    "pagarlo.": 26.8
+   }
+  },
+  {
+   "beat": 6,
+   "nombre": "Forja NL",
+   "inicio": 27.6,
+   "fin": 36.4,
+   "texto": "Por eso proponemos Forja Nuevo León, un fondo de tokens para que estudiantes y jóvenes emprendedores construyan con IA, con la formación para usarla bien.",
+   "acentos": {
+    "Forja": 29.12,
+    "fondo": 30.6,
+    "estudiantes": 31.6,
+    "formación": 34.84
+   }
+  },
+  {
+   "beat": 7,
+   "nombre": "Cierre y logo",
+   "inicio": 36.4,
+   "fin": 46.0,
+   "texto": "Si el siglo XX lo forjamos con acero, el siglo XXI lo vamos a forjar con inteligencia.",
+   "acentos": {
+    "acero,": 38.38,
+    "inteligencia.": 41.22
+   }
+  }
+ ]
+}
