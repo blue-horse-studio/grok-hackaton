@@ -1,15 +1,24 @@
-/* Forja NL — tokens de marca (mantener en sync con src/index.ts) */
 :root {
-  --forja-carbon: #0A0A0B;
-  --forja-hierro: #17181B;
-  --forja-escoria: #2A2C31;
-  --forja-acero: #8B95A1;
-  --forja-hueso: #F2EEE6;
-  --forja-forja: #FF5B1F;
-  --forja-brasa: #FFB224;
-  --forja-chispa: #FFE8B0;
-  --forja-fundido: linear-gradient(135deg, #FF5B1F 0%, #FFB224 60%, #FFE8B0 100%);
-  --forja-font-display: 'Archivo', system-ui, sans-serif;
-  --forja-font-body: 'Archivo', system-ui, sans-serif;
+  /* Forja NL — mantener en sync con src/index.ts. Ver presentation/referencias/SISTEMA-VISUAL.md */
+  --forja-marino: #1E2235;
+  --forja-oro: #B08D57;
+  --forja-blanco: #FFFFFF;
+  --forja-naranja: #FF8200;
+  --forja-turquesa: #16C1D1;
+  --forja-lima: #8CD13F;
+  --forja-grafito: #2D2D2D;
+  /* alias heredados */
+  --forja-carbon: #1E2235;
+  --forja-hierro: #262B42;
+  --forja-escoria: #3A4060;
+  --forja-acero: #A5AAC0;
+  --forja-hueso: #FFFFFF;
+  --forja-forja: #FF8200;
+  --forja-brasa: #B08D57;
+  --forja-chispa: #16C1D1;
+  --forja-fundido: linear-gradient(135deg, #FF8200 0%, #B08D57 100%);
+  --forja-font-display: 'Montserrat', system-ui, sans-serif;
+  --forja-font-wordmark: 'Archivo', system-ui, sans-serif;
+  --forja-font-body: 'Montserrat', system-ui, sans-serif;
   --forja-font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }

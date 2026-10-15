@@ -8,25 +8,37 @@ export const brand = {
   pitch: "Un fondo de tokens de IA para que los jóvenes de Nuevo León construyan startups y proyectos.",
 } as const;
 
+// Referencia estética: sistema gráfico del Gobierno de Nuevo León (ver presentation/referencias/SISTEMA-VISUAL.md).
+// Monolínea gruesa como ventana sobre foto, marino + oro + blanco, acentos vivos por tema.
 export const colors = {
-  carbon: "#0A0A0B", // fondo
-  hierro: "#17181B", // superficies
-  escoria: "#2A2C31", // bordes
-  acero: "#8B95A1", // texto secundario
-  hueso: "#F2EEE6", // texto principal
-  forja: "#FF5B1F", // primario: metal fundido
-  brasa: "#FFB224", // acento
-  chispa: "#FFE8B0", // destello / highlights
+  marino: "#1E2235", // fondo principal oscuro
+  oro: "#B08D57", // chispa/token, acentos premium
+  blanco: "#FFFFFF",
+  naranja: "#FF8200", // industria / Fundidora
+  turquesa: "#16C1D1", // IA / tokens / tecnología
+  lima: "#8CD13F", // crecimiento / educación
+  grafito: "#2D2D2D", // trazo sobre fondo claro
+  // Alias heredados (usados por la web); mapean a la paleta nueva
+  carbon: "#1E2235",
+  hierro: "#262B42",
+  escoria: "#3A4060",
+  acero: "#A5AAC0",
+  hueso: "#FFFFFF",
+  forja: "#FF8200",
+  brasa: "#B08D57",
+  chispa: "#16C1D1",
 } as const;
 
 export const fonts = {
-  display: "'Archivo', system-ui, sans-serif", // usar pesos 800-900, wdth 112-125
-  body: "'Archivo', system-ui, sans-serif",
+  display: "'Montserrat', system-ui, sans-serif", // titulares 800-900, interlineado 0.95
+  wordmark: "'Archivo', system-ui, sans-serif", // mayúsculas, wdth 125, peso 700-800
+  body: "'Montserrat', system-ui, sans-serif",
   mono: "'JetBrains Mono', ui-monospace, monospace", // cifras y datos
   googleFontsUrl:
-    "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;600&display=swap",
+    "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Archivo:wdth,wght@125,700;125,800&family=JetBrains+Mono:wght@400;600&display=swap",
 } as const;
 
 export const gradients = {
-  fundido: `linear-gradient(135deg, ${colors.forja} 0%, ${colors.brasa} 60%, ${colors.chispa} 100%)`,
+  // Estética plana: evitar degradados llamativos; este es sutil.
+  fundido: `linear-gradient(135deg, ${colors.naranja} 0%, ${colors.oro} 100%)`,
 } as const;
