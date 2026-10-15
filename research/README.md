@@ -10,6 +10,8 @@ Aquí va la investigación del equipo, en Markdown. Ya hay un archivo por tema; 
 
 Para un tema nuevo, creen otro `.md` en esta carpeta, con el nombre en kebab-case.
 
+La investigación unificada de laboratorios de IA está disponible en [Word editable](programas-laboratorios-ia.docx), [Markdown](programas-laboratorios-ia.md) y [PDF](programas-laboratorios-ia.pdf). Si se edita Word, sincronizar los cambios con el Markdown del proyecto.
+
 ## Cómo subirlo
 
 **Opción rápida, desde GitHub (sin instalar nada):**
