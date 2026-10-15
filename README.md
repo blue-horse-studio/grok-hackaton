@@ -27,4 +27,14 @@ Proyecto para el **[Hackathon por Nuevo León x Grok Bot & AI Tinkerers](https:/
 - [@JFerniz](https://github.com/JFerniz)
 - [@OmarMendoza3](https://github.com/OmarMendoza3)
 
+## Forja NL
+
+**Un fondo de tokens de IA para que los jóvenes de Nuevo León construyan startups y proyectos con IA.**
+
+- **Sitio:** https://forja-nl.vercel.app (MCP remoto en `/api/mcp`, WebMCP en el navegador)
+- **Video de intro:** https://youtu.be/jFnEgNB9wFo
+- **Figma (marca y storyboard):** https://www.figma.com/design/Yp2bfIytV6oHg3BJp6gLdy
+- **Deck:** `presentation/deck` (ver su README) · **Video:** `presentation/intro`
+- **Research:** [`research/`](research/) · **WebMCP explicado:** [`docs/webmcp.md`](docs/webmcp.md) · **Mapa para agentes:** [`AGENTS.md`](AGENTS.md)
+
 Created in [T3 Code](https://t3.codes).
