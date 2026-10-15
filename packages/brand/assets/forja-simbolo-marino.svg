@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none">
+<!-- Forja NL · símbolo: chimenea de la Fundidora = fuste de la F; vigas = brazos; chispa/token oro flotando arriba. Monolínea 22/240, chaflán 45°. -->
+<rect id="fondo" width="240" height="240" fill="#1E2235"/>
+<g id="simbolo">
+  <g id="trazo" fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="chimenea" d="M60 222 V90 L78 72 H104 V222 Z"/>
+    <path id="viga-superior" d="M104 114 H190"/>
+    <path id="viga-media" d="M104 166 H166"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M68.4 7 L95.6 7 L102 13.4 L102 40.6 L95.6 47 L68.4 47 L62 40.6 L62 13.4 Z"/>
+</g>
+</svg>

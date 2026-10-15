@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+<g id="startup">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="fuselaje" d="M48 6 L64 24 V64 H32 V24 Z"/>
+    <path id="ventana" d="M42 36 A6 6 0 1 1 54 36 A6 6 0 1 1 42 36 Z"/>
+    <path id="aleta-izq" d="M32 46 L18 60 V74 L32 64"/>
+    <path id="aleta-der" d="M64 46 L78 60 V74 L64 64"/>
+  </g>
+  <path id="chispa" fill="#B08D57" d="M44 74 L52 74 L56 78 L56 86 L52 90 L44 90 L40 86 L40 78 Z"/>
+</g>
+</svg>

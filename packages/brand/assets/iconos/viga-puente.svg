@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+<g id="viga-puente">
+  <g id="trazo" stroke="#FFFFFF" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
+    <path id="tablero" d="M4 62 H92"/>
+    <path id="armadura" d="M10 62 L26 32 H70 L86 62"/>
+    <path id="montantes" d="M42 32 V62 M54 32 V62"/>
+    <path id="pilas" d="M26 62 V90 M70 62 V90"/>
+  </g>
+  
+</g>
+</svg>
