@@ -9,6 +9,8 @@ Aquí va la investigación del equipo, en Markdown. Ya hay un archivo por tema; 
 | [`programas-laboratorios-ia.md`](programas-laboratorios-ia.md) | Programas de xAI/SpaceX, Anthropic, OpenAI y Google para financiar proyectos e instituciones |
 | [`panorama-verificable-ia-nuevo-leon.md`](panorama-verificable-ia-nuevo-leon.md) | Auditoría de veracidad, continuidad y operación de iniciativas de IA en Nuevo León |
 | [`correccion-segunda-pasada-ia-nl.md`](correccion-segunda-pasada-ia-nl.md) | Segunda pasada: correcciones al panorama y nuevas instituciones/implementaciones de IA en NL |
+| [`mapa-programas-emprendimiento-tecnologia-jovenes-nl.md`](mapa-programas-emprendimiento-tecnologia-jovenes-nl.md) | Mapa de programas de emprendimiento, tecnología y educación para jóvenes en NL: gobierno, federal, universidades, privados, presupuesto y vacíos (Luis) |
+| [`programas-emprendimiento-jovenes-monterrey.md`](programas-emprendimiento-jovenes-monterrey.md) | Guía práctica de programas para jóvenes emprendedores en Monterrey: fechas, montos, calendario y cómo aplicar (Luis) |
 
 Para un tema nuevo, creen otro `.md` en esta carpeta, con el nombre en kebab-case.
 
