@@ -18,3 +18,5 @@ export const tools: ForjaTool[] = [
 
 /** JSON Schema del input, para WebMCP y clientes que no hablan zod. */
 export const toJsonSchema = (tool: ForjaTool) => z.toJSONSchema(z.object(tool.inputSchema));
+
+export * from "./simulador";

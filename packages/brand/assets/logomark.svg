@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fundido" gradientUnits="userSpaceOnUse" x1="14" y1="12" x2="50" y2="52">
+      <stop offset="0" stop-color="#FF5B1F"/>
+      <stop offset="0.6" stop-color="#FFB224"/>
+      <stop offset="1" stop-color="#FFE8B0"/>
+    </linearGradient>
+  </defs>
+  <!-- "F" formada por lingotes; la chispa = el token -->
+  <rect x="14" y="12" width="10" height="40" fill="url(#fundido)"/>
+  <rect x="14" y="12" width="30" height="10" fill="url(#fundido)"/>
+  <rect x="14" y="28" width="21" height="9" fill="url(#fundido)"/>
+  <path d="M52 6 L54.5 11.5 L60 14 L54.5 16.5 L52 22 L49.5 16.5 L44 14 L49.5 11.5 Z" fill="#FFE8B0"/>
+</svg>
