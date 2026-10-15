@@ -8,7 +8,11 @@ import {
   type PrecioModeloRegistro,
 } from "@forja/data";
 import { tools, toJsonSchema, simularFondo, SIMULACION_DEFAULTS } from "@forja/tools";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import type { CSSProperties } from "react";
 import { Logomark } from "@/components/Logo";
+import { IntroVideo } from "@/components/IntroVideo";
 import { IlustracionHero } from "@/components/Ilustracion";
 import { Icono } from "@/components/Iconos";
 import { Reveal } from "@/components/Reveal";
@@ -67,13 +71,13 @@ function StatProblema({
   delay: number;
 }) {
   return (
-    <Reveal delay={delay} className="panel sobre-blanco p-6 sm:p-8">
+    <Reveal delay={delay} className="panel sobre-blanco flex h-full flex-col p-6 sm:p-8">
       <p className="display text-5xl leading-none text-fg sm:text-6xl">
         {valor}
-        {unidad && <span className="ml-2 text-xl text-muted sm:text-2xl">{unidad}</span>}
+        {unidad && <span className="display-wide ml-2 text-xl text-muted sm:text-2xl">{unidad}</span>}
       </p>
-      <p className="mt-3 max-w-xs text-muted">{label}</p>
-      <div className="mt-3">
+      <p className="mt-4 max-w-xs text-muted">{label}</p>
+      <div className="mt-auto pt-5">
         <EstadoBadge verificado={verificado} />
       </div>
     </Reveal>
@@ -88,6 +92,10 @@ export default function Home() {
   const eco = getDataset<EcosistemaRegistro>("ecosistema-startups-nl");
   const ranking = eco?.registros.find((r) => /monterrey/i.test(r.indicador) && r.unidad === "lugar");
   const fundadas = eco?.registros.find((r) => /fundadas.*en \d{4}/i.test(r.indicador));
+  const videoDisponible = [
+    join(process.cwd(), "public/video/forja-intro.mp4"),
+    join(process.cwd(), "apps/web/public/video/forja-intro.mp4"),
+  ].some((p) => existsSync(/*turbopackIgnore: true*/ p));
   const precios = getDataset<PrecioModeloRegistro>("precios-modelos-ia");
   const modelos: ModeloOpcion[] = (precios?.registros ?? []).map((r) => ({ id: r.id, nombre: r.modelo }));
   // El escenario base del simulador (p. ej. una mezcla de modelos) va primero si no es un modelo del dataset.
@@ -136,72 +144,98 @@ export default function Home() {
       {/* Navegación */}
       <nav className="tema-oscuro fixed inset-x-0 top-0 z-50 border-b border-line">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#inicio" className="flex items-center gap-2.5">
+          <a href="#inicio" className="-ml-2 flex min-h-11 items-center gap-2.5 px-2">
             <Logomark className="size-8" />
             <span className="wordmark text-base text-fg">Forja NL</span>
           </a>
-          <div className="espaciado hidden items-center gap-7 text-[11px] text-muted lg:flex">
-            <a href="#problema" className="hover:text-fg">Problema</a>
-            <a href="#propuesta" className="hover:text-fg">Propuesta</a>
-            <a href="#simulador" className="hover:text-fg">Simulador</a>
-            <a href="#datos" className="hover:text-fg">Datos</a>
-            <a href="#cursos" className="hover:text-fg">Cursos</a>
+          <div className="espaciado hidden items-center gap-1 text-xs text-muted lg:flex xl:gap-3">
+            {[
+              ["#problema", "Problema"],
+              ["#propuesta", "Propuesta"],
+              ["#simulador", "Simulador"],
+              ["#datos", "Datos"],
+              ["#cursos", "Cursos"],
+            ].map(([href, t]) => (
+              <a key={href} href={href} className="flex min-h-11 items-center px-3 transition-colors duration-150 hover:text-fg">
+                {t}
+              </a>
+            ))}
           </div>
-          <a href="#agentes" className="btn btn-primary !px-4 !py-2 !text-xs">
+          <a href="#agentes" className="btn btn-primary !px-4 !py-2.5 !text-sm">
             Para agentes
           </a>
         </div>
       </nav>
 
+      {/* INTRO EN VIDEO: lo primero que se ve */}
+      <section id="inicio" aria-label="Video de presentación" className="tema-oscuro relative pt-16">
+        <div className="mx-auto max-w-7xl px-5 pb-10 pt-6 sm:px-8 sm:pb-16 sm:pt-10">
+          <div className="entra mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 sm:mb-6">
+            <p className="espaciado text-[11px] leading-relaxed text-oro sm:text-xs">{HACKATHON.nombre}</p>
+            <p className="num text-xs uppercase tracking-widest text-muted">{HACKATHON.evento}</p>
+          </div>
+          <div className="entra" style={{ "--delay": "120ms" } as CSSProperties}>
+            <IntroVideo
+              src="/video/forja-intro.mp4"
+              poster="/video/forja-intro-poster.png"
+              captions="/video/forja-intro.vtt"
+              disponible={videoDisponible}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* HERO */}
-      <section id="inicio" className="tema-oscuro relative overflow-hidden pt-16">
-        <div className="mx-auto grid grid-cols-1 min-h-[min(calc(100svh-4rem),56rem)] w-full max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <section className="tema-oscuro regla relative overflow-hidden">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
-            <Reveal>
-              <p className="espaciado text-[11px] text-oro sm:text-xs">{HACKATHON.nombre}</p>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="mt-8">
-                <span className="wordmark block text-2xl text-fg sm:text-4xl">Forja NL</span>
-                <span className="display mt-6 block text-5xl text-fg sm:text-7xl xl:text-8xl">
-                  El acero del siglo XXI son los <span className="text-turquesa">tokens.</span>
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-8 max-w-xl text-lg text-muted sm:text-2xl sm:leading-snug">
-                <strong className="font-semibold text-fg">Forja NL</strong> es un fondo de tokens de IA para que los jóvenes de
-                Nuevo León construyan startups y proyectos. Créditos de IA de frontera, cursos para usarla bien y una comunidad que
-                construye.
-              </p>
-            </Reveal>
-            <Reveal delay={300} className="mt-10 flex flex-wrap gap-3">
+            <h1>
+              <span className="entra wordmark block text-2xl text-fg sm:text-4xl">Forja NL</span>
+              <span
+                className="entra display mt-6 block text-[2.75rem] text-fg sm:text-7xl xl:text-8xl"
+                style={{ "--delay": "100ms" } as CSSProperties}
+              >
+                El acero del siglo XXI son los <span className="text-turquesa">tokens.</span>
+              </span>
+            </h1>
+            <p
+              className="entra mt-8 max-w-xl text-lg text-muted sm:text-2xl sm:leading-snug"
+              style={{ "--delay": "220ms" } as CSSProperties}
+            >
+              <strong className="font-semibold text-fg">Forja NL</strong> es un fondo de tokens de IA para que los jóvenes de
+              Nuevo León construyan startups y proyectos. Créditos de IA de frontera, cursos para usarla bien y una comunidad que
+              construye.
+            </p>
+            <div className="entra mt-10 flex flex-wrap gap-3" style={{ "--delay": "320ms" } as CSSProperties}>
               <a href="#simulador" className="btn btn-primary">
                 Simula el fondo <span aria-hidden>→</span>
               </a>
               <a href="#agentes" className="btn btn-ghost">
                 Conecta tu agente · MCP
               </a>
-            </Reveal>
+            </div>
           </div>
-          <Reveal delay={150} className="relative">
+          <figure className="relative mx-auto w-full max-w-[17rem] sm:max-w-sm lg:max-w-none">
             <IlustracionHero className="w-full" />
-          </Reveal>
+            <figcaption className="num mt-4 text-[11px] uppercase tracking-widest text-muted">
+              Parque Fundidora · Monterrey
+            </figcaption>
+          </figure>
         </div>
         {/* Siglo XX / Siglo XXI */}
         <div className="grid sm:grid-cols-2">
           <div className="tema-naranja px-5 py-10 sm:px-12 sm:py-14">
             <div className="ml-auto max-w-xl">
-              <p className="num text-xs uppercase tracking-widest text-muted">Siglo XX</p>
+              <p className="num text-sm uppercase tracking-widest text-muted">Siglo XX</p>
               <p className="display-wide mt-3 text-2xl text-fg sm:text-4xl">Fundidora forjó acero</p>
-              <p className="mt-2 text-muted">y Monterrey se volvió la capital industrial de México.</p>
+              <p className="mt-2 text-lg text-muted">y Monterrey se volvió la capital industrial de México.</p>
             </div>
           </div>
           <div className="tema-turquesa px-5 py-10 sm:px-12 sm:py-14">
             <div className="max-w-xl">
-              <p className="num text-xs uppercase tracking-widest text-muted">Siglo XXI</p>
+              <p className="num text-sm uppercase tracking-widest text-muted">Siglo XXI</p>
               <p className="display-wide mt-3 text-2xl text-fg sm:text-4xl">Forja NL forja inteligencia</p>
-              <p className="mt-2 text-muted">con tokens como materia prima para su juventud.</p>
+              <p className="mt-2 text-lg text-muted">con tokens como materia prima para su juventud.</p>
             </div>
           </div>
         </div>
@@ -262,31 +296,31 @@ export default function Home() {
                 },
               ] as const
             ).map((p, i) => (
-              <Reveal key={p.t} delay={i * 100} className="panel group relative p-7 sm:p-9">
+              <Reveal key={p.t} delay={i * 100} className="panel group relative flex h-full flex-col p-7 sm:p-9">
                 <span className="chaflan-sm inline-flex p-3 text-marino" style={{ background: p.c }}>
                   <Icono nombre={p.i} className="size-12" />
                 </span>
                 <h3 className="display-wide mt-8 text-2xl text-fg sm:text-3xl">{p.t}</h3>
-                <p className="mt-3 text-muted">{p.d}</p>
+                <p className="mt-3 text-lg text-muted">{p.d}</p>
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-14">
-            <ol className="grid gap-px bg-line sm:grid-cols-4">
+          <div className="mt-14">
+            <ol className="chaflan grid gap-px overflow-hidden bg-line sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Aplica", "Con tu equipo y una idea, desde cualquier municipio."],
                 ["Aprende", "Completa el curso de IA responsable."],
                 ["Recibe créditos", "Tokens por cohorte, medidos y renovables."],
                 ["Construye y demuestra", "Prototipo, demo day y siguiente ronda."],
               ].map(([t, d], i) => (
-                <li key={t} className="tema-oscuro p-6 sm:p-7">
-                  <span className="num text-sm text-acento">0{i + 1}</span>
-                  <p className="display-wide mt-3 text-lg text-fg">{t}</p>
-                  <p className="mt-1 text-sm text-muted">{d}</p>
+                <li key={t} className="tema-oscuro p-6 sm:p-8">
+                  <span className="num text-base text-acento">0{i + 1}</span>
+                  <p className="display-wide mt-3 text-xl text-fg">{t}</p>
+                  <p className="mt-2 text-muted">{d}</p>
                 </li>
               ))}
             </ol>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -297,7 +331,7 @@ export default function Home() {
             Mueve el presupuesto, la duración y la intensidad de uso. El cálculo usa precios oficiales de modelos y el tipo de cambio
             de Banxico.
           </SectionHead>
-          <Reveal>
+          <div>
             <Simulador
               modelos={modelos}
               referencia={
@@ -310,7 +344,7 @@ export default function Home() {
                   : undefined
               }
             />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -341,23 +375,23 @@ export default function Home() {
               {cursosOrden.map((c, i) => (
                 <Reveal as="li" key={c.id} delay={(i % 3) * 90} className="panel sobre-blanco flex flex-col p-6 sm:p-8">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="display text-4xl text-lima [-webkit-text-stroke:2px_var(--forja-marino)]">{String(c.orden).padStart(2, "0")}</span>
-                    <span className="espaciado border border-line px-2.5 py-1 text-[10px] text-muted">
+                    <span className="chaflan-sm num bg-lima px-3 py-1.5 text-2xl font-bold text-marino">{String(c.orden).padStart(2, "0")}</span>
+                    <span className="espaciado border border-line px-2.5 py-1 text-[11px] text-muted">
                       {nivelNombre[c.nivel] ?? c.nivel}
                     </span>
                   </div>
                   <h3 className="display-wide mt-5 text-xl text-fg sm:text-2xl">{c.titulo}</h3>
-                  <p className="mt-2 text-sm text-muted">{c.descripcion}</p>
+                  <p className="mt-2 text-muted">{c.descripcion}</p>
                   {c.temas?.length > 0 && (
                     <ul className="mt-4 flex flex-wrap gap-1.5">
                       {c.temas.map((t) => (
-                        <li key={t} className="bg-line/60 px-2 py-1 text-xs text-fg/80">
+                        <li key={t} className="bg-line/60 px-2 py-1 text-xs text-fg">
                           {t}
                         </li>
                       ))}
                     </ul>
                   )}
-                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 pt-6 text-xs text-muted">
+                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 text-sm text-muted">
                     <span className="num bg-fg px-2 py-0.5 text-fondo">{c.horas} h</span>
                     <span>{c.modalidad}</span>
                     {c.requisito_para_creditos && <span className="font-semibold text-fg">● Requisito para créditos</span>}
@@ -380,9 +414,7 @@ export default function Home() {
             </SectionHead>
             <Icono nombre="agente" className="hidden size-32 shrink-0 text-turquesa lg:block" />
           </div>
-          <Reveal>
-            <Agentes fallbackUrl={`${SITE_URL}${MCP_PATH}`} tools={toolResumen()} />
-          </Reveal>
+          <Agentes fallbackUrl={`${SITE_URL}${MCP_PATH}`} tools={toolResumen()} />
         </div>
       </section>
 
@@ -421,6 +453,22 @@ export default function Home() {
             <a href="/llms.txt" className="num hover:underline">/llms.txt</a>
             <a href="#agentes" className="num hover:underline">{MCP_PATH}</a>
             <span>Cifras con fuente en cada sección. Las marcadas como estimado están por confirmar.</span>
+            <span className="text-muted">
+              Foto del hero:{" "}
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Parque_Fundidora,_Monterrey,_Mexico_-_panoramio_(9).jpg"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-fg"
+              >
+                Betox (vía Panoramio)
+              </a>
+              ,{" "}
+              <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-fg">
+                CC BY 3.0
+              </a>
+              , vía Wikimedia Commons.
+            </span>
           </div>
         </div>
       </footer>

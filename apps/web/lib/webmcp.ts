@@ -2,11 +2,12 @@
 // Soporta las dos formas que ha tenido la API:
 //  - registerTool(tool, { signal }) / unregisterTool(name)   (explainer W3C actual, Chrome 146+ con flag)
 //  - provideContext({ tools })                                (early preview)
-// y busca el proveedor en navigator.modelContext y document.modelContext.
-import { tools, toJsonSchema, type ForjaTool } from "@forja/tools";
+// y busca el proveedor en document.modelContext (ubicación actual, Chrome 155) y navigator.modelContext (previa).
+import { ejecutarTool, tools, toJsonSchema, type ForjaTool } from "@forja/tools";
 
 export interface WebMcpToolResult {
   content: { type: "text"; text: string }[];
+  structuredContent?: Record<string, unknown>;
   isError?: boolean;
 }
 
@@ -35,11 +36,19 @@ declare global {
   }
 }
 
+export type WebMcpApi = "document.modelContext" | "navigator.modelContext";
+
 export type WebMcpStatus =
   | { state: "checking" }
   | { state: "unsupported" }
-  | { state: "registered"; method: "registerTool" | "provideContext"; tools: string[] }
-  | { state: "error"; message: string };
+  | {
+      state: "registered";
+      api: WebMcpApi;
+      method: "registerTool" | "provideContext";
+      tools: string[];
+      failed: { name: string; message: string }[];
+    }
+  | { state: "error"; api?: WebMcpApi; message: string };
 
 let status: WebMcpStatus = { state: "checking" };
 const listeners = new Set<() => void>();
@@ -55,15 +64,18 @@ function setStatus(next: WebMcpStatus) {
   listeners.forEach((l) => l());
 }
 
-function findProvider(): ModelContext | undefined {
-  const candidates = [
-    typeof navigator !== "undefined" ? navigator.modelContext : undefined,
-    typeof document !== "undefined" ? document.modelContext : undefined,
+function findProvider(): { api: WebMcpApi; ctx: ModelContext } | undefined {
+  const candidates: { api: WebMcpApi; ctx: ModelContext | undefined }[] = [
+    { api: "document.modelContext", ctx: typeof document !== "undefined" ? document.modelContext : undefined },
+    { api: "navigator.modelContext", ctx: typeof navigator !== "undefined" ? navigator.modelContext : undefined },
   ];
-  return candidates.find(
-    (c) => c && (typeof c.registerTool === "function" || typeof c.provideContext === "function"),
+  const found = candidates.find(
+    ({ ctx }) => ctx && (typeof ctx.registerTool === "function" || typeof ctx.provideContext === "function"),
   );
+  return found ? { api: found.api, ctx: found.ctx! } : undefined;
 }
+
+const mensaje = (err: unknown) => (err instanceof Error ? err.message : String(err));
 
 export function toWebMcpTool(tool: ForjaTool): WebMcpToolDefinition {
   return {
@@ -72,50 +84,56 @@ export function toWebMcpTool(tool: ForjaTool): WebMcpToolDefinition {
     description: tool.description,
     inputSchema: toJsonSchema(tool) as object,
     annotations: { readOnlyHint: true },
-    execute: async (input) => {
-      try {
-        const result = await tool.handler((input ?? {}) as never);
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
-      } catch (err) {
-        return {
-          content: [{ type: "text", text: `Error: ${err instanceof Error ? err.message : String(err)}` }],
-          isError: true,
-        };
-      }
-    },
+    // Mismo camino que los servidores MCP: validación zod + forma de resultado MCP (incluye isError).
+    execute: (input) => ejecutarTool(tool, input ?? {}),
   };
 }
 
 /** Registra todas las tools. Devuelve una función de limpieza. */
 export function registerWebMcp(): () => void {
-  const provider = findProvider();
-  if (!provider) {
+  const found = findProvider();
+  if (!found) {
     setStatus({ state: "unsupported" });
     return () => {};
   }
+  const { api, ctx: provider } = found;
 
   const defs = tools.map(toWebMcpTool);
   const controller = new AbortController();
   const handles: unknown[] = [];
 
-  try {
-    if (typeof provider.registerTool === "function") {
+  if (typeof provider.registerTool === "function") {
+    // registerTool puede devolver una promesa: solo cuentan las tools que realmente se registraron.
+    void Promise.allSettled(
+      defs.map(async (def) => {
+        const handle = await provider.registerTool!(def, { signal: controller.signal });
+        handles.push(handle);
+        return def.name;
+      }),
+    ).then((results) => {
+      if (controller.signal.aborted) return;
       const ok: string[] = [];
-      for (const def of defs) {
-        try {
-          handles.push(provider.registerTool(def, { signal: controller.signal }));
-          ok.push(def.name);
-        } catch (err) {
-          console.warn(`[forja/webmcp] no se pudo registrar ${def.name}`, err);
+      const failed: { name: string; message: string }[] = [];
+      results.forEach((r, i) => {
+        if (r.status === "fulfilled") ok.push(r.value);
+        else {
+          failed.push({ name: defs[i].name, message: mensaje(r.reason) });
+          console.warn(`[forja/webmcp] no se pudo registrar ${defs[i].name}`, r.reason);
         }
-      }
-      setStatus({ state: "registered", method: "registerTool", tools: ok });
-    } else {
+      });
+      setStatus(
+        ok.length > 0
+          ? { state: "registered", api, method: "registerTool", tools: ok, failed }
+          : { state: "error", api, message: failed.map((f) => `${f.name}: ${f.message}`).join(" · ") || "Sin tools registradas" },
+      );
+    });
+  } else {
+    try {
       provider.provideContext!({ tools: defs });
-      setStatus({ state: "registered", method: "provideContext", tools: defs.map((d) => d.name) });
+      setStatus({ state: "registered", api, method: "provideContext", tools: defs.map((d) => d.name), failed: [] });
+    } catch (err) {
+      setStatus({ state: "error", api, message: mensaje(err) });
     }
-  } catch (err) {
-    setStatus({ state: "error", message: err instanceof Error ? err.message : String(err) });
   }
 
   return () => {

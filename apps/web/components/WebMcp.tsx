@@ -33,9 +33,14 @@ export function WebMcpStatusBadge() {
         <div>
           <p className="font-semibold text-fg">WebMCP detectado: {status.tools.length} tools registradas en esta pestaña</p>
           <p className="mt-1 text-sm text-muted">
-            Vía <code className="num text-acento">navigator.modelContext.{status.method}()</code>. Un agente en el navegador ya puede
+            Vía <code className="num text-acento">{status.api}.{status.method}()</code>. Un agente en el navegador ya puede
             llamarlas sin servidor de por medio.
           </p>
+          {status.failed.length > 0 && (
+            <p className="mt-2 text-sm text-fg">
+              No se registraron: {status.failed.map((f) => `${f.name} (${f.message})`).join(", ")}
+            </p>
+          )}
         </div>
       </div>
     );
@@ -57,8 +62,8 @@ export function WebMcpStatusBadge() {
         </p>
         <p className="mt-1 text-sm text-muted">
           {status.state === "error"
-            ? status.message
-            : "Cuando tu navegador exponga navigator.modelContext (Chrome con la flag de WebMCP o una extensión compatible), esta página registra automáticamente todas sus tools."}
+            ? `${status.api ? `${status.api}: ` : ""}${status.message}`
+            : "Cuando tu navegador exponga WebMCP (document.modelContext en Chrome con la flag de WebMCP, o una extensión compatible), esta página registra automáticamente todas sus tools."}
         </p>
       </div>
     </div>

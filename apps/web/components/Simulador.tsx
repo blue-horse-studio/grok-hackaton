@@ -125,9 +125,9 @@ export function Simulador({ modelos, referencia }: { modelos: ModeloOpcion[]; re
                     type="button"
                     onClick={() => set({ modelo_id: m.id })}
                     aria-pressed={active}
-                    className={`border px-3.5 py-1.5 text-sm transition ${
+                    className={`min-h-10 border px-3.5 py-2 text-sm transition-colors duration-150 ${
                       active
-                        ? "border-acento bg-acento/15 text-acento"
+                        ? "border-acento bg-acento font-semibold text-sobre-acento"
                         : "border-line text-muted hover:border-muted hover:text-fg"
                     }`}
                   >
@@ -170,7 +170,7 @@ export function Simulador({ modelos, referencia }: { modelos: ModeloOpcion[]; re
             </div>
             <p className="mt-3 text-sm text-muted">
               <span className="num font-semibold text-fg">{decimal(Math.round(pct * 10) / 10)}%</span> {referencia.etiqueta}
-              {referencia.estimado && <span className="num ml-2 text-[10px] uppercase tracking-widest">estimado</span>}
+              {referencia.estimado && <span className="num ml-2 text-[11px] uppercase tracking-widest">estimado</span>}
             </p>
           </>
         )}
@@ -197,7 +197,7 @@ export function Simulador({ modelos, referencia }: { modelos: ModeloOpcion[]; re
           <div className="col-span-2 sm:col-span-1">
             <dt className="text-xs uppercase tracking-wider text-muted">Modelo · tipo de cambio</dt>
             <dd className="mt-1 text-fg">
-              <span className="block truncate">{r.modelo.nombre}</span>
+              <span className="block leading-snug">{r.modelo.nombre}</span>
               <span className="num text-sm text-muted">
                 US${decimal(r.modelo.usd_por_millon_tokens)}/M tok · {mxn2(r.tipo_cambio_mxn_usd)}
               </span>

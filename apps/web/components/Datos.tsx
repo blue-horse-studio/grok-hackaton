@@ -32,7 +32,7 @@ export function ultimoTipoCambio() {
 
 function Card({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
-    <Reveal delay={delay} className={`panel flex flex-col p-6 sm:p-7 ${className}`}>
+    <Reveal trigger delay={delay} className={`panel flex flex-col p-6 sm:p-7 ${className}`}>
       {children}
     </Reveal>
   );
@@ -136,7 +136,7 @@ function Ecosistema({ d }: { d: Dataset<EcosistemaRegistro> }) {
               {r.indicador}
               {r.anio ? ` (${r.anio})` : ""}
             </dt>
-            {!verif(d, r) && <span className="num mt-1 block text-[10px] uppercase tracking-widest text-muted/80">estimado</span>}
+            {!verif(d, r) && <span className="num mt-1 block text-[11px] uppercase tracking-widest text-muted/80">estimado</span>}
           </div>
         ))}
       </dl>
@@ -151,14 +151,14 @@ function Laboratorios({ d }: { d: Dataset<ProgramaLaboratorioRegistro> }) {
       <CardHead d={d} kicker="Lo que ya existe fuera" />
       <ul className="divide-y divide-line">
         {d.registros.map((r) => (
-          <li key={r.laboratorio + r.programa} className="flex items-start justify-between gap-4 py-3">
-            <div>
+          <li key={r.laboratorio + r.programa} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+            <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-fg">
                 {r.programa} <span className="font-normal text-muted">· {r.laboratorio}</span>
               </p>
               <p className="text-xs text-muted">{r.a_quien}</p>
             </div>
-            <div className="shrink-0 text-right">
+            <div className="sm:max-w-[45%] sm:text-right">
               <p className="num text-sm text-acento">{r.monto ?? "—"}</p>
               {!verif(d, r) && <p className="num text-[10px] uppercase text-muted">estimado</p>}
             </div>
@@ -173,7 +173,7 @@ function Laboratorios({ d }: { d: Dataset<ProgramaLaboratorioRegistro> }) {
   );
 }
 
-const LABEL_KEYS = ["nombre", "programa", "institucion", "indicador", "modelo", "titulo", "municipio", "laboratorio", "fecha", "id"];
+const LABEL_KEYS = ["nombre", "iniciativa", "hallazgo", "programa", "institucion", "indicador", "modelo", "titulo", "municipio", "laboratorio", "fecha", "id"];
 
 /** Visualización genérica: cualquier dataset nuevo aparece aquí automáticamente. */
 function Generico({ d, delay }: { d: Dataset; delay: number }) {
@@ -186,13 +186,23 @@ function Generico({ d, delay }: { d: Dataset; delay: number }) {
     .filter((k) => k !== labelKey && typeof first[k] === "string" && !/url|nota|clave|id$/i.test(k))
     .slice(0, 2);
   const max = numKey ? Math.max(...d.registros.map((r) => Number(r[numKey]) || 0), 1) : 1;
+  // Datasets grandes: se muestra una selección curada (primero lo verificado), no un muro.
+  const LIMITE = 6;
+  const esVerificado = (r: Record<string, unknown>) => ((r.verificado as boolean | undefined) ?? d.verificado) === true;
+  const visibles = d.registros
+    .map((r, i) => ({ r, i }))
+    .sort((a, b) => Number(esVerificado(b.r)) - Number(esVerificado(a.r)) || a.i - b.i)
+    .slice(0, LIMITE)
+    .map(({ r }) => r);
+  const restantes = d.registros.length - visibles.length;
 
   return (
     <Card delay={delay}>
       <CardHead d={d} />
       <ul className="space-y-3">
-        {d.registros.slice(0, 8).map((r, i) => {
+        {visibles.map((r, i) => {
           const v = numKey ? Number(r[numKey]) : undefined;
+          const cifra = !numKey && typeof r.cifra === "string" ? r.cifra : undefined;
           const estimado = !((r.verificado as boolean | undefined) ?? d.verificado);
           return (
             <li key={i}>
@@ -201,11 +211,12 @@ function Generico({ d, delay }: { d: Dataset; delay: number }) {
                 {numKey && v !== undefined && !Number.isNaN(v) && (
                   <span className="num shrink-0 text-sm text-acento">{valorGenerico(v, numKey)}</span>
                 )}
+                {cifra && <span className="num max-w-[45%] shrink-0 text-right text-sm text-acento">{cifra}</span>}
               </div>
               {secKeys.length > 0 && (
-                <p className="text-xs text-muted">
+                <p className="line-clamp-2 text-xs text-muted">
                   {secKeys.map((k) => valorGenerico(r[k], k)).join(" · ")}
-                  {estimado && <span className="num ml-2 text-[10px] uppercase tracking-widest">estimado</span>}
+                  {estimado && <span className="num ml-2 text-[11px] uppercase tracking-widest">estimado</span>}
                 </p>
               )}
               {numKey && v !== undefined && !Number.isNaN(v) && d.registros.length > 1 && (
@@ -220,7 +231,13 @@ function Generico({ d, delay }: { d: Dataset; delay: number }) {
           );
         })}
       </ul>
-      {numKey && <p className="mt-3 text-[11px] text-muted">Valor: {humanKey(numKey)}</p>}
+      {numKey && <p className="mt-3 text-xs text-muted">Valor: {humanKey(numKey)}</p>}
+      {restantes > 0 && (
+        <p className="mt-4 text-sm text-muted">
+          Se muestran {visibles.length} de <span className="num text-fg">{d.registros.length}</span> registros (primero los
+          verificados). El dataset completo está disponible para agentes vía MCP.
+        </p>
+      )}
       <Fuentes dataset={d} className="mt-auto pt-4" />
     </Card>
   );
@@ -241,13 +258,16 @@ export function Datos() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <div className="space-y-5">
       {precios && precios.registros.length > 0 && <Precios d={precios} />}
-      {eco && eco.registros.length > 0 && <Ecosistema d={eco} />}
-      {labs && labs.registros.length > 0 && <Laboratorios d={labs} />}
-      {resto.map((d, i) => (
-        <Generico key={d.id} d={d} delay={i * 80} />
-      ))}
+      {/* Columnas tipo masonry: tarjetas de alto natural, sin huecos */}
+      <div className="gap-5 lg:columns-2 [&>*]:mb-5 [&>*]:break-inside-avoid">
+        {eco && eco.registros.length > 0 && <Ecosistema d={eco} />}
+        {labs && labs.registros.length > 0 && <Laboratorios d={labs} />}
+        {resto.map((d, i) => (
+          <Generico key={d.id} d={d} delay={(i % 2) * 80} />
+        ))}
+      </div>
     </div>
   );
 }

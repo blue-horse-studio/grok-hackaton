@@ -102,10 +102,15 @@
   opacity: 0.8;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html {
   background: var(--forja-carbon);
   color: var(--forja-hueso);
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -275,11 +280,25 @@ input[type="range"].forja-range:focus-visible {
   outline-offset: 4px;
 }
 
-/* ---------- Movimiento ---------- */
+/* ---------- Foco visible ---------- */
+:where(a, button, input, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
+/* clip-path recorta el outline: en contenedores chaflanados el anillo va por dentro */
+.btn:focus-visible,
+.chaflan-foco:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--fg), inset 0 0 0 6px var(--acento);
+}
+
+/* ---------- Movimiento ----------
+   Regla: el estado sin animar es visible. Solo con JS (.js) se oculta el estado inicial,
+   y solo en los pocos momentos que valen la pena (titulares de sección y grupos de tarjetas). */
 .js .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
 .js .reveal.is-visible {
@@ -287,28 +306,51 @@ input[type="range"].forja-range:focus-visible {
   transform: none;
 }
 
-/* Trazo de ilustraciones monolínea: se "dibuja" al entrar */
-.js .trazo path,
-.js .trazo polyline,
-.js .trazo line,
-.js .trazo rect,
-.js .trazo polygon {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.6s cubic-bezier(0.6, 0, 0.2, 1);
-  transition-delay: var(--delay, 0ms);
+/* Entrada única del hero al cargar (keyframes con fill backwards: si no corre, todo queda visible) */
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
 }
-.is-visible .trazo path,
-.is-visible .trazo polyline,
-.is-visible .trazo line,
-.is-visible .trazo rect,
-.is-visible .trazo polygon,
-.trazo.is-visible path,
-.trazo.is-visible polyline,
-.trazo.is-visible line,
-.trazo.is-visible rect,
-.trazo.is-visible polygon {
-  stroke-dashoffset: 0;
+@keyframes foto {
+  from {
+    opacity: 0;
+    transform: scale(1.14);
+  }
+}
+@keyframes brazo {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes chispa {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) rotate(-45deg) scale(0.6);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .entra {
+    animation: entra 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .hero-foto {
+    transform-box: fill-box;
+    transform-origin: 50% 40%;
+    animation: foto 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+  .hero-brazo {
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: brazo 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .hero-chispa {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: chispa 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) 0.6s both;
+  }
 }
 
 @keyframes pulso {
@@ -345,26 +387,33 @@ input[type="range"].forja-range:focus-visible {
 }
 .js .bar-fill {
   transform: scaleX(0);
-  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
 .is-visible .bar-fill {
   transform: scaleX(var(--w, 1));
 }
 
+/* Subtítulos del video */
+video::cue {
+  font-family: var(--forja-font-body);
+  font-weight: 600;
+  background: color-mix(in oklab, var(--forja-marino) 82%, transparent);
+  color: var(--forja-blanco);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .js .reveal,
-  .js .bar-fill,
-  .js .trazo * {
-    transition: none !important;
+  /* Variante reducida: el contenido aparece en su sitio, sin desplazamiento ni espera */
+  .js .reveal {
     opacity: 1;
     transform: none;
-    stroke-dashoffset: 0 !important;
+    transition: none;
   }
   .js .bar-fill {
+    transition: none;
     transform: scaleX(var(--w, 1));
   }
   .pulso,

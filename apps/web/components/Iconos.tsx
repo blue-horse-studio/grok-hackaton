@@ -92,7 +92,7 @@ export function Icono({ nombre, className = "", ...rest }: { nombre: NombreIcono
       strokeWidth={8}
       strokeLinejoin="miter"
       strokeLinecap="butt"
-      className={`trazo ${className}`}
+      className={className}
       aria-hidden
       {...rest}
     >

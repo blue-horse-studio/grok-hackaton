@@ -75,7 +75,7 @@ export function Agentes({ fallbackUrl, tools }: { fallbackUrl: string; tools: To
                 type="button"
                 aria-selected={tab === k}
                 onClick={() => setTab(k)}
-                className={`border px-3.5 py-1.5 text-sm transition ${
+                className={`min-h-10 border px-3.5 py-2 text-sm transition-colors duration-150 ${
                   tab === k ? "border-acento bg-acento/15 text-acento" : "border-line text-muted hover:text-fg"
                 }`}
               >
@@ -92,8 +92,8 @@ export function Agentes({ fallbackUrl, tools }: { fallbackUrl: string; tools: To
         <div className="panel p-6 sm:p-8">
           <p className="eyebrow">WebMCP · el sitio es una API para agentes</p>
           <p className="mt-3 text-muted">
-            Esta página registra sus tools en <code className="num text-fg">navigator.modelContext</code>, el estándar emergente
-            del W3C para que agentes dentro del navegador usen un sitio sin hacer scraping.
+            Esta página registra sus tools con WebMCP (<code className="num text-fg">document.modelContext</code>), el estándar
+            emergente del W3C para que agentes dentro del navegador usen un sitio sin hacer scraping.
           </p>
           <div className="mt-5">
             <WebMcpStatusBadge />

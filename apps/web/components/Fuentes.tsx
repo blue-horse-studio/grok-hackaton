@@ -4,11 +4,11 @@ type ConFuentes = { fuentes: Fuente[]; verificado: boolean };
 
 export function EstadoBadge({ verificado }: { verificado: boolean }) {
   return verificado ? (
-    <span className="num inline-flex items-center gap-1.5 border border-line px-2 py-0.5 text-[10px] uppercase tracking-widest text-muted">
+    <span className="num inline-flex items-center gap-1.5 border border-line px-2 py-0.5 text-[11px] uppercase tracking-widest text-muted">
       <span className="size-1.5 rounded-full bg-acento" /> Con fuente
     </span>
   ) : (
-    <span className="num inline-flex items-center gap-1.5 border border-dashed border-muted/60 px-2 py-0.5 text-[10px] uppercase tracking-widest text-muted">
+    <span className="num inline-flex items-center gap-1.5 border border-dashed border-muted/60 px-2 py-0.5 text-[11px] uppercase tracking-widest text-muted">
       <span className="size-1.5 border border-muted" /> Estimado
     </span>
   );

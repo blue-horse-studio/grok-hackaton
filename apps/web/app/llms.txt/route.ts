@@ -34,7 +34,7 @@ Proyecto del ${HACKATHON.nombre} (${HACKATHON.evento}).
 
 - Servidor MCP remoto (Streamable HTTP, sin autenticación): ${SITE_URL}${MCP_PATH}
 - Claude Code: \`claude mcp add --transport http forja-nl ${SITE_URL}${MCP_PATH}\`
-- WebMCP: al abrir ${SITE_URL} en un navegador con navigator.modelContext, la página registra las mismas tools.
+- WebMCP: al abrir ${SITE_URL} en un navegador con WebMCP (document.modelContext; en implementaciones previas, navigator.modelContext), la página registra las mismas tools.
 - Todas las cifras vienen de datasets con fuentes. Si un dataset o registro tiene verificado=false, trátalo como estimado.
 
 ## Tools
